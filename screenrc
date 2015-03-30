@@ -1,0 +1,33 @@
+term screen-256color
+# no annoying audible bell, please
+vbell on
+vbell_msg "     -=!=-     "
+
+# detach on hangup
+autodetach on
+
+# don't display the copyright page
+startup_message off
+
+# emulate .logout message
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+defscrollback 1000
+
+bind \\ eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
+
+#blankerprg cmatrix -ab -u2
+
+#blankerprg nc -v miku.acm.uiuc.edu 23
+#idle 0
+#bind - idle 1 eval "blanker" "idle 0"
+
+# Make the output buffer large for (fast) xterms.
+#termcapinfo xterm* OL=10000
+#termcapinfo screen* OL=1000
+
+# check man screen, hardstatus section
+backtick 10 1 60 "whoami"
+hardstatus alwayslastline "%10`@%H:// %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%< %= %C%a %D, %M/%d/%Y"
+
+shell -zsh
