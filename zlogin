@@ -51,6 +51,9 @@ hash -d cdn="/Volumes/paulreimer/Development/webapps/s3/cdn-p-rimes-net"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 ## Basic SSH-agent access for screen terminal multiplexer
 SSH_ENV="$HOME/.ssh/environment"
 
