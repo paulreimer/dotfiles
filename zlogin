@@ -1,5 +1,3 @@
-source ~/.path
-
 #export PAGER=`which vimpager`
 export EDITOR=`which vim`
 set -o vi
