@@ -1,8 +1,5 @@
-source ~/.path
 # Skip all this for non-interactive shells
 [[ -z "$PS1" ]] && return
-
-source ~/.login
 
 autoload -U zutil
 autoload -U compinit
