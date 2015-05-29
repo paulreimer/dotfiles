@@ -26,6 +26,14 @@ ack() {
   command ack "$@"
 }
 
+brew() {
+  if [ "$1" = "cask" -a "$2" = "upgrade" ]; then
+    command brew cask list | xargs brew cask install
+  else
+    command brew "$@"
+  fi
+}
+
 alias make="make -j10"
 alias compile="make -j1 1>/dev/null 2>&1 | grep error"
 alias pprof="pprof --ignore='^0x([19f]|02aa)' --mean_delay"
