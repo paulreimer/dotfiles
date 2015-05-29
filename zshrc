@@ -81,6 +81,3 @@ zstyle ':completion:*' hosts $_myhosts
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-PERL_MB_OPT="--install_base \"/Volumes/paulreimer/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Volumes/paulreimer/perl5"; export PERL_MM_OPT;
