@@ -1,3 +1,5 @@
+defutf8 on
+utf8 on on
 term screen-256color
 # no annoying audible bell, please
 vbell on
@@ -12,9 +14,14 @@ startup_message off
 # emulate .logout message
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
-defscrollback 1000
+defscrollback 10000
 
-bind \\ eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
+bufferfile /tmp/paulreimer-screen-exchange
+bind \\ eval "writebuf" "exec sh -c 'pbcopy < /tmp/paulreimer-screen-exchange'"
+
+# disable notification messages to the status bar
+msgwait 0
+msgminwait 0
 
 #blankerprg cmatrix -ab -u2
 
