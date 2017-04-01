@@ -1,8 +1,0 @@
---sort-files
---color
---follow
---group
---smart-case
---ignore-dir=.meteor
---ignore-dir=unused
---ignore-dir=node_modules
