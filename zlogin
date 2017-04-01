@@ -2,63 +2,47 @@
 export EDITOR=`which vim`
 set -o vi
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 alias vi="`which vim`"
-#alias mvim="open -a MacVim"
-#alias vi="mvim"
-alias h="history -1000 | ack"
-alias p="ps aux | ack"
+alias h="history 0 | ag"
+alias p="ps aux | ag"
 alias mmv="noglob zmv -W"
 alias diff="colordiff -u"
-#alias ack -a="ack --type-set='all:match:.*' -k"
-ack() {
-  if [ "$1" = -a ]; then
-    shift
-    set -- --type-set='all:match:.*' -k "$@"
-  elif [ "$1" = -ag ]; then
-    shift
-    set -- --type-set='all:match:.*' -k -g "$@"
-  elif [ "$1" = -al ]; then
-    shift
-    set -- --type-set='all:match:.*' -k -l "$@"
-  fi
-  command ack "$@"
-}
-
-brew() {
-  if [ "$1" = "cask" -a "$2" = "upgrade" ]; then
-    command brew cask list | xargs brew cask install
-  else
-    command brew "$@"
-  fi
-}
+alias less="less -r"
+alias rsync="rsync --progress"
 
 alias make="make -j10"
-alias compile="make -j1 1>/dev/null 2>&1 | grep error"
-alias pprof="pprof --ignore='^0x([19f]|02aa)' --mean_delay"
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.stdin.read())"'
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.stdin.read())"'
-#alias ocd='openocd -f /Volumes/paulreimer/Development/arm/stm32f4_stlink.cfg'
-alias ocd='openocd -f board/stm32f4discovery.cfg'
+alias burritotime='say -v "Good News" "burrito time burrito time burrito time burrito time burrito time burrito time"'
 
-hash -d dev="/Volumes/paulreimer/Development"
-hash -d of="/Volumes/paulreimer/Development/of/HEAD"
-hash -d apps="/Volumes/paulreimer/Development/of/HEAD/apps"
-hash -d addons="/Volumes/paulreimer/Development/of/HEAD/addons"
-hash -d my="/Volumes/paulreimer/Development/of/HEAD/apps/my"
-hash -d cdn="/Volumes/paulreimer/Development/webapps/s3/cdn-p-rimes-net"
+hash -d dev="/Users/paulreimer/Development"
+hash -d of="/Users/paulreimer/Development/of/HEAD"
+hash -d apps="/Users/paulreimer/Development/of/HEAD/apps"
+hash -d addons="/Users/paulreimer/Development/of/HEAD/addons"
+hash -d my="/Users/paulreimer/Development/of/HEAD/apps/myApps"
+hash -d cdn="/Users/paulreimer/Development/webapps/s3/cdn-p-rimes-net"
+hash -d wiced="/Users/paulreimer/Development/arm/WICED-SDK"
+hash -d vids="/Users/Performance/Users/performance/Movies"
+hash -d esp32="/Users/paulreimer/Development/arm/ESP32_RTOS_SDK"
+
+export DOCKER_HOST="tcp://192.168.10.10:2375"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+export FZF_DEFAULT_OPTS="--exact"
+
+export IDF_PATH="/Users/paulreimer/Development/esp32/pycom-esp-idf"
 
 ## Basic SSH-agent access for screen terminal multiplexer
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
   echo "Initialising new SSH agent..."
-  /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+  /usr/local/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
   echo succeeded
   chmod 600 "${SSH_ENV}"
   . "${SSH_ENV}" > /dev/null
-  /usr/bin/ssh-add;
+  /usr/local/bin/ssh-add;
 }
 
 # Source SSH settings, if applicable
@@ -71,33 +55,6 @@ else
   start_agent;
 fi
 
-migrate-pb()
-{
-  old_pb=$1
-  old_pb_dir=`dirname "$old_pb"`
-
-  new_pb=$2
-  new_pb_dir=`dirname "$new_pb"`
-
-  msg_type=$3
-
-  old_pb_file=$4
-  new_pb_file=$5
-
-  echo "protoc -I $old_pb_dir $old_pb --decode $msg_type < $old_pb_file | \
-  protoc -I $new_pb_dir $new_pb --encode $msg_type > $new_pb_file"
-}
-
-arm-install()
-{
-  arm-none-eabi-gdb -ex "target extended :3333" -ex "monitor reset halt" -ex "file $1" -ex "load $1" -ex "monitor reset halt" -ex "continue"
-}
-
-arm-debug()
-{
-  arm-none-eabi-gdb -ex "target extended :3333" -ex "monitor reset halt" -ex "file $1" -ex "load $1" -ex "monitor reset halt"
-}
-
 calc()
 {
   noglob echo "$(( $@ ))";
@@ -108,25 +65,46 @@ calc_hex()
   echo 'printf "%#08x\\n",' "$@" > /tmp/tmp.calc;
   /usr/bin/gdb -q -n -batch -x /tmp/tmp.calc;
 }
-rip()
-{
-  ffmpeg -i $1 -vcodec copy -f mpeg2video $2;
-}
 cdnsync()
 {
   s3cmd sync --acl-public --add-header "Cache-Control: max-age=1209600, must-revalidate" ~cdn/ s3://cdn.p-rimes.net;
 #  s3cmd setacl --recursive s3://cdn.p-rimes.net;
 }
-notify()
-{
-  cprowl -a df433f9d385cbe63688565cc733c2ed1c7d8af79 -n iTerm -e "$1" -d "$2"
+
+function __clean-cask {
+    caskBasePath="/usr/local/Caskroom"
+    local cask="$1"
+    local caskDirectory="$caskBasePath/$cask"
+    local versionsToRemove="$(ls -r $caskDirectory | sed 1,1d)"
+    if [[ -n $versionsToRemove ]]; then
+        while read versionToRemove ; do
+            echo "Removing $cask $versionToRemove..."
+            rm -rf "$caskDirectory/$versionToRemove"
+        done <<< "$versionsToRemove"
+    fi
 }
-slowcmd()
-{
-  $@;
-  if [ $? -eq 0 ] ; then
-    notify "$1" "Finished successfully";
+
+#call this command to cleanup all, or you can specify cask name
+function cask-retire {
+  if [[ $# -eq 0 ]]; then
+      while read cask; do
+          __clean-cask "$cask"
+      done <<< "$(brew cask list)"
   else
-    notify "$1" "Failed";
+      clean-cask "$1"
+  fi
+}
+
+function cask-upgrade {
+    for app in $(brew cask list); do cver="$(brew cask info "${app}" | head -n 1 | cut -d " " -f 2)"; ivers=$(ls -1 "/usr/local/Caskroom/${app}/.metadata/" | tr '\n' ' ' | sed -e 's/ $//'); aivers=(${ivers}); nvers=$(echo ${#aivers[@]}); echo "[*] Found ${app} in cask list. Latest available version is ${cver}. You have installed version(s): ${ivers}"; if [[ ${nvers} -eq 1 ]]; then echo "${ivers}" | grep -q "^${cver}$" && { echo "[*] Latest version already installed :) Skipping changes ..."; continue; }; fi; echo "[+] Fixing from ${ivers} to ${cver} ..."; brew cask uninstall "${app}" --force; brew cask install "${app}"; done
+}
+
+brew() {
+  if [ "$1" = "cask" -a "$2" = "upgrade" ]; then
+    cask-upgrade
+  elif [ "$1" = "cask" -a "$2" = "cleanup" ]; then
+    command brew cask cleanup && cask-retire
+  else
+    command brew "$@"
   fi
 }
