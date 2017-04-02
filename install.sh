@@ -4,5 +4,5 @@ thisdir=$(dirname "$0")
 
 for path in ${thisdir}/*; do
   file=$(basename "$path")
-  ln -s "${path}" ".${file}"
+  ln -sf "${path}" ".${file}"
 done
