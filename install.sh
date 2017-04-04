@@ -8,9 +8,9 @@ for path in ${thisdir}/*; do
 done
 
 rm \
-	".Molokai.itermcolors" \
-	".Molokai.terminal" \
-	".Roboto Mono for Powerline.ttf"
+  ".Molokai.itermcolors" \
+  ".Molokai.terminal" \
+  ".Roboto Mono for Powerline.ttf"
 
 mkdir -p ~/.ssh
 touch ~/.ssh/known_hosts
