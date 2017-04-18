@@ -1,8 +1,8 @@
-#export PAGER=`which vimpager`
 export EDITOR=`which vim`
 set -o vi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--exact"
 
 alias vi="`which vim`"
 alias h="history 0 | ag"
