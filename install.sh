@@ -12,5 +12,6 @@ rm \
   ".Molokai.terminal" \
   ".Roboto Mono for Powerline.ttf"
 
+mkdir -p ~/bin
 mkdir -p ~/.ssh
 touch ~/.ssh/known_hosts
