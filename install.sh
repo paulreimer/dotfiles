@@ -10,6 +10,7 @@ done
 rm \
   ".Molokai.itermcolors" \
   ".Molokai.terminal" \
+  ".Monokai.xccolortheme" \
   ".Roboto Mono for Powerline.ttf"
 
 mkdir -p ~/bin
