@@ -61,7 +61,6 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 set backspace=start,indent
-"set paste
 
 function! <SID>StripTrailingWhitespaces()
     let l = line(".")
@@ -113,27 +112,27 @@ set laststatus=2
 set noshowmode
 
 let g:lightline = {
-      \ 'colorscheme': 'landscape',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'bufferline' ] ],
-      \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ],
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightLineFugitive',
-      \   'filename': 'LightLineFilename',
-      \   'fileformat': 'LightLineFileformat',
-      \   'filetype': 'LightLineFiletype',
-      \   'fileencoding': 'LightLineFileencoding',
-      \   'mode': 'LightLineMode',
-      \ },
-			\ 'component': {
-			\   'bufferline': '%{bufferline#refresh_status()}%{LightlineBufferline()[0]}'.
-			\                 '%#TabLineSel#%{g:bufferline_status_info.current}'.
-			\                 '%#LightLineLeft_active_2#%{LightlineBufferline()[2]}'
-			\ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ }
+  \ 'colorscheme': 'landscape',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'bufferline' ] ],
+  \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ],
+  \ },
+  \ 'component_function': {
+  \   'fugitive': 'LightLineFugitive',
+  \   'filename': 'LightLineFilename',
+  \   'fileformat': 'LightLineFileformat',
+  \   'filetype': 'LightLineFiletype',
+  \   'fileencoding': 'LightLineFileencoding',
+  \   'mode': 'LightLineMode',
+  \ },
+  \ 'component': {
+  \   'bufferline': '%{bufferline#refresh_status()}%{LightlineBufferline()[0]}'.
+  \                 '%#TabLineSel#%{g:bufferline_status_info.current}'.
+  \                 '%#LightLineLeft_active_2#%{LightlineBufferline()[2]}'
+  \ },
+  \ 'separator': { 'left': '', 'right': '' },
+  \ 'subseparator': { 'left': '', 'right': '' },
+  \ }
 
 function! LightLineModified()
   return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
