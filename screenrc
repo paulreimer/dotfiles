@@ -23,6 +23,9 @@ bind \\ eval "writebuf" "exec sh -c 'pbcopy < /tmp/paulreimer-screen-exchange'"
 msgwait 0
 msgminwait 0
 
+# inter-character timeout in milliseconds
+maptimeout 10
+
 #blankerprg cmatrix -ab -u2
 
 #blankerprg nc -v miku.acm.uiuc.edu 23
