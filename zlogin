@@ -1,10 +1,14 @@
-export EDITOR=`which vim`
+# default shell settings
+export EDITOR=`which nvim`
 set -o vi
 
+# additional autocompletion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS="--exact"
+which kubectl 1>/dev/null && source <(kubectl completion zsh)
 
-alias vi="`which vim`"
+# command aliases
+alias vi="`which nvim`"
+alias vim="`which nvim`"
 alias h="history 0 | ag"
 alias p="ps aux | ag"
 alias mmv="noglob zmv -W"
@@ -12,56 +16,27 @@ alias diff="colordiff -u"
 alias less="less -r"
 alias rsync="rsync --progress"
 
+# machine-specific command aliases
+alias astyle="astyle --style=allman --indent=spaces=2"
+alias rtlsdr_scanner="python -m rtlsdr_scanner"
+
 alias make="make -j10"
 alias burritotime='say -v "Good News" "burrito time burrito time burrito time burrito time burrito time burrito time"'
 
-hash -d dev="/Users/paulreimer/Development"
-hash -d of="/Users/paulreimer/Development/of/HEAD"
-hash -d apps="/Users/paulreimer/Development/of/HEAD/apps"
-hash -d addons="/Users/paulreimer/Development/of/HEAD/addons"
-hash -d my="/Users/paulreimer/Development/of/HEAD/apps/myApps"
-hash -d cdn="/Users/paulreimer/Development/webapps/s3/cdn-p-rimes-net"
-hash -d wiced="/Users/paulreimer/Development/arm/WICED-SDK"
-hash -d vids="/Users/Performance/Users/performance/Movies"
-hash -d esp32="/Users/paulreimer/Development/arm/ESP32_RTOS_SDK"
+alias jupyter-qtconsole='/usr/local/miniconda3/envs/intelpy/bin/jupyter-qtconsole --ConsoleWidget.font_family="Roboto Mono for Powerline" --ConsoleWidget.font_size=11 --style monokai'
+alias spark-submit='/Users/paulreimer/Development/ops/spark/bin/spark-submit --deploy-mode cluster --master k8s://http://127.0.0.1:8001 --kubernetes-namespace spark --conf spark.kubernetes.driver.docker.image=gcr.io/p-rimes-net/spark-driver-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.executor.docker.image=gcr.io/p-rimes-net/spark-executor-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.initcontainer.docker.image=gcr.io/p-rimes-net/spark-init:v2.2.0-kubernetes-0.5.0'
 
-export DOCKER_HOST="tcp://192.168.10.10:2375"
-
+# environment variables
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
 export FZF_DEFAULT_OPTS="--exact"
 
-export IDF_PATH="/Users/paulreimer/Development/esp32/pycom-esp-idf"
-
-## Basic SSH-agent access for screen terminal multiplexer
-SSH_ENV="$HOME/.ssh/environment"
-
-function start_agent {
-  echo "Initialising new SSH agent..."
-  ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-  echo succeeded
-  chmod 600 "${SSH_ENV}"
-  . "${SSH_ENV}" > /dev/null
-  ssh-add;
-}
-
-# Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-  . "${SSH_ENV}" > /dev/null
-  ps ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-    start_agent;
-  }
-else
-  start_agent;
-fi
-
+# helper functions
 calc()
 {
   noglob echo "$(( $@ ))";
 }
 calc_hex()
 {
-  #awk "BEGIN{ print $@ }";
   echo 'printf "%#08x\\n",' "$@" > /tmp/tmp.calc;
   /usr/bin/gdb -q -n -batch -x /tmp/tmp.calc;
 }
@@ -71,39 +46,11 @@ cdnsync()
 #  s3cmd setacl --recursive s3://cdn.p-rimes.net;
 }
 
-function __clean-cask {
-    caskBasePath="/usr/local/Caskroom"
-    local cask="$1"
-    local caskDirectory="$caskBasePath/$cask"
-    local versionsToRemove="$(ls -r $caskDirectory | sed 1,1d)"
-    if [[ -n $versionsToRemove ]]; then
-        while read versionToRemove ; do
-            echo "Removing $cask $versionToRemove..."
-            rm -rf "$caskDirectory/$versionToRemove"
-        done <<< "$versionsToRemove"
-    fi
-}
-
-#call this command to cleanup all, or you can specify cask name
-function cask-retire {
-  if [[ $# -eq 0 ]]; then
-      while read cask; do
-          __clean-cask "$cask"
-      done <<< "$(brew cask list)"
-  else
-      clean-cask "$1"
-  fi
-}
-
-function cask-upgrade {
-    for app in $(brew cask list); do cver="$(brew cask info "${app}" | head -n 1 | cut -d " " -f 2)"; ivers=$(ls -1 "/usr/local/Caskroom/${app}/.metadata/" | tr '\n' ' ' | sed -e 's/ $//'); aivers=(${ivers}); nvers=$(echo ${#aivers[@]}); echo "[*] Found ${app} in cask list. Latest available version is ${cver}. You have installed version(s): ${ivers}"; if [[ ${nvers} -eq 1 ]]; then echo "${ivers}" | grep -q "^${cver}$" && { echo "[*] Latest version already installed :) Skipping changes ..."; continue; }; fi; echo "[+] Fixing from ${ivers} to ${cver} ..."; brew cask uninstall "${app}" --force; brew cask install "${app}"; done
-}
-
 brew() {
+  # add support for `brew cask upgrade`, install via:
+  # `brew tap buo/cask-upgrade`
   if [ "$1" = "cask" -a "$2" = "upgrade" ]; then
-    cask-upgrade
-  elif [ "$1" = "cask" -a "$2" = "cleanup" ]; then
-    command brew cask cleanup && cask-retire
+    command brew cu -a -f
   else
     command brew "$@"
   fi
