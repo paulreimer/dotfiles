@@ -5,6 +5,8 @@ set -o vi
 # additional autocompletion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 which kubectl 1>/dev/null && source <(kubectl completion zsh)
+which gcloud 1>/dev/null && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+which gcloud 1>/dev/null && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 # command aliases
 alias vi="`which nvim`"
