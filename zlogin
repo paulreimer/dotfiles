@@ -32,6 +32,9 @@ alias spark-submit='/Users/paulreimer/Development/ops/spark/bin/spark-submit --d
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export FZF_DEFAULT_OPTS="--exact"
 
+# use a real tty for GPG pinentry/gpg-agent
+export GPG_TTY=$(tty)
+
 # helper functions
 calc()
 {
