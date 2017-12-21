@@ -1,24 +1,25 @@
-# default shell settings
+# Default shell settings
 export EDITOR=`which nvim`
 set -o vi
 
-# additional autocompletion
+# Additional autocompletion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 which kubectl 1>/dev/null && source <(kubectl completion zsh)
 which gcloud 1>/dev/null && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 which gcloud 1>/dev/null && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
-# command aliases
+# Command aliases
 alias vi="`which nvim`"
 alias vim="`which nvim`"
 alias h="history 0 | ag"
+alias ls="ls -Ghp"
 alias p="ps aux | ag"
 alias mmv="noglob zmv -W"
 alias diff="colordiff -u"
 alias less="less -r"
 alias rsync="rsync --progress"
 
-# machine-specific command aliases
+# Machine-specific command aliases
 alias astyle="astyle --style=allman --indent=spaces=2"
 alias rtlsdr_scanner="python -m rtlsdr_scanner"
 
@@ -28,14 +29,17 @@ alias burritotime='say -v "Good News" "burrito time burrito time burrito time bu
 alias jupyter-qtconsole='/usr/local/miniconda3/envs/intelpy/bin/jupyter-qtconsole --ConsoleWidget.font_family="Roboto Mono for Powerline" --ConsoleWidget.font_size=11 --style monokai'
 alias spark-submit='/Users/paulreimer/Development/ops/spark/bin/spark-submit --deploy-mode cluster --master k8s://http://127.0.0.1:8001 --kubernetes-namespace spark --conf spark.kubernetes.driver.docker.image=gcr.io/p-rimes-net/spark-driver-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.executor.docker.image=gcr.io/p-rimes-net/spark-executor-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.initcontainer.docker.image=gcr.io/p-rimes-net/spark-init:v2.2.0-kubernetes-0.5.0'
 
-# environment variables
+# Environment variables
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export FZF_DEFAULT_OPTS="--exact"
 
-# use a real tty for GPG pinentry/gpg-agent
+# Enable color support of ls on macOS
+export CLICOLOR=1
+
+# Use a real tty for GPG pinentry/gpg-agent
 export GPG_TTY=$(tty)
 
-# helper functions
+# Helper functions
 calc()
 {
   noglob echo "$(( $@ ))";
@@ -48,11 +52,11 @@ calc_hex()
 cdnsync()
 {
   s3cmd sync --acl-public --add-header "Cache-Control: max-age=1209600, must-revalidate" ~cdn/ s3://cdn.p-rimes.net;
-#  s3cmd setacl --recursive s3://cdn.p-rimes.net;
 }
 
+# Add custom sub-commands to brew
 brew() {
-  # add support for `brew cask upgrade`, install via:
+  # Add support for `brew cask upgrade`, install via:
   # `brew tap buo/cask-upgrade`
   if [ "$1" = "cask" -a "$2" = "upgrade" ]; then
     command brew cu -a -f

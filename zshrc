@@ -2,26 +2,29 @@
 [[ -z "$PS1" ]] && return
 
 autoload -U zutil
-autoload -U compinit
-compinit
-autoload -U promptinit
-promptinit
+autoload -U compinit && compinit
+autoload -U promptinit && promptinit
 prompt bart purple blue green cyan
 
 # Renaming with globbing
 autoload zmv
 
-# Zsh settings for history
-export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
+# History file settings
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
 
+# Ignore common commands with common arguments
+export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
+
+# Reduce/avoid dupes in history
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
+
+# Share zsh history across all shells
 setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
 
@@ -30,15 +33,8 @@ setopt AUTO_CONTINUE
 
 setopt MENUCOMPLETE
 
+# Just type a directory name to change to it
 setopt autocd
-
-# Enable color support of ls
-if [[ "$TERM" != "dumb" ]]; then
-  if [[ -x `which dircolors` ]]; then
-    eval `dircolors -b`
-    alias 'ls=ls --color=auto'
-  fi
-fi
 
 # Suggested tweaks from zsh-lovers
 # http://grml.org/zsh/zsh-lovers.html
@@ -59,16 +55,6 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 # Do not attempt to complete missing commands
 #zstyle ':completion:*:functions' ignored-patterns '_*'
 
-# Complete PIDS with menu
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*'   force-list always
-
-#http://ubuntuforums.org/showthread.php?t=1322512
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-#zstyle ':completion:*:*:kill:*:processes' command 'ps --forest -A -o pid,user,command'
-zstyle ':completion:*:*:kill:*:processes' command 'pstree'
-zstyle ':completion:*:processes-names' command 'ps axho command'
-
 # Tweaks from
 # http://recurser.com/articles/2007/07/25/os-x-zsh-shell-config/
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -83,5 +69,6 @@ local _myhosts
 _myhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
 zstyle ':completion:*' hosts $_myhosts
 
+# Add command line highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
