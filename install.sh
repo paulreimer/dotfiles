@@ -14,6 +14,6 @@ rm \
   ".Roboto Mono for Powerline.ttf"
 
 mkdir -p ~/bin
-mkdir -p ~/.vim/bundle
+mkdir -p ~/.vim/autoload
 mkdir -p ~/.ssh
 touch ~/.ssh/known_hosts
