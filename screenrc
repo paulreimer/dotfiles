@@ -1,6 +1,7 @@
 defutf8 on
 utf8 on on
 term screen-256color
+truecolor on
 # no annoying audible bell, please
 vbell on
 vbell_msg "     -=!=-     "

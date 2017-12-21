@@ -1,57 +1,73 @@
 " --- Drop support for pure vi ---
-set nocompatible
+if &compatible
+  set nocompatible
+endif
 
 " --- encoding ---
 set encoding=utf-8
 set fileformat=unix
 
-" --- Vundle ---
-" install:
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" then run vim:
-" :PluginInstall
-" wait for plugins to fetch/install/upgrade
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" --- vim-plug ---
+"" install:
+"" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+""   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"" run (in vim):
+"" :PlugInstall
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-bufferline'
-Plugin 'bogado/file-line'
-Plugin 'godlygeek/tabular'
-Plugin 'junegunn/fzf.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'twerth/ir_black'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimfiler.vim'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'sjl/gundo.vim'
-Plugin 'w0rp/ale'
-Plugin 'mklabs/split-term.vim'
-
-call vundle#end()
+call plug#begin()
+"Plug 'sjl/gundo.vim'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-bufferline'
+Plug 'bogado/file-line'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'edkolev/promptline.vim'
+Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
+Plug 'mklabs/split-term.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-fugitive'
+Plug 'twerth/ir_black'
+Plug 'w0rp/ale'
+Plug 'zchee/deoplete-clang'
+" Install correct deoplete plugins based on whether we are using vim or neovim
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+call plug#end()
 
 " --- features ---
 filetype plugin indent on
 syntax on
 set number
 set hlsearch
-" more tab-complete
+" better tab-complete
 set wildmenu
+set wildmode=longest:full,full
 
 " --- appearance ---
 set t_Co=256
+"set termguicolors
 set background=dark
 colors ir_black
 " Highlight long lines (longer than 80 chars)
 let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 highlight clear SignColumn
+
+" Popup menu color scheme
+highlight Pmenu ctermbg=DarkGray
+highlight PmenuSel ctermbg=DarkBlue ctermfg=White cterm=bold
+highlight PmenuSbar ctermbg=LightGray
 
 " --- whitespace control ---
 " set smarttab
@@ -88,10 +104,12 @@ set grepformat=%f:%l:%m
 "nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 "set number
 
-" --- YouCompleteMe ---
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
+" --- deoplete ---
+let g:deoplete#enable_at_startup = 1
+
+" --- deoplete-clang ---
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.0/lib/clang'
 
 " --- Tabularize ---
 command! -nargs=1 -range TabFirst exec <line1> . ',' . <line2> . 'Tabularize /^[^' . escape(<q-args>, '\^$.[?*~') . ']*\zs' . escape(<q-args>, '\^$.[?*~')
@@ -107,6 +125,49 @@ let g:bufferline_fname_mod = ':t'
 "" --- fzf ---
 set rtp+=/usr/local/opt/fzf
 
+" --- vimfiler ---
+let g:vimfiler_as_default_explorer = 1
+" Disable netrw.vim
+let g:loaded_netrwPlugin = 1
+map <leader>e :VimFilerExplorer -parent -auto-expand<CR>
+autocmd VimEnter * if !argc() | VimFiler | endif
+
+" --- split-term ---
+"let g:disable_key_mappings = 1
+
+" --- tagbar ---
+"autocmd BufEnter *.cpp nested TagbarOpen
+
+" --- supertab ---
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" --- key mappings ---
+let mapleader = ","
+
+" fzf
+map <leader>f :Files<CR>
+map <leader>b :Buffers<CR>
+map <leader>h :Commits<CR>
+map <leader>/ :Lines<CR>
+map <leader>g :Ag
+
+" Tabularize
+map <leader>t :TabFirst
+map <leader>T :Tabularize /
+
+" tagbar
+nmap <leader>c :TagbarToggle<CR>
+
+" promptline
+let g:promptline_preset = {
+  \'a': [ promptline#slices#host(), promptline#slices#user() ],
+  \'b': [ promptline#slices#cwd() ],
+  \'c' : [ promptline#slices#vcs_branch() ],
+  \'z' : [ '%*' ],
+  \'warn' : [ promptline#slices#last_exit_code(), promptline#slices#battery() ]}
+
+" ------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " --- lightline ---
 set laststatus=2
 set noshowmode
@@ -194,30 +255,3 @@ function! LightlineBufferline()
   call bufferline#refresh_status()
   return [ g:bufferline_status_info.before, g:bufferline_status_info.current, g:bufferline_status_info.after ]
 endfunction
-
-" --- key mappings ---
-let mapleader = ","
-
-" fzf
-map <leader>f :Files<CR>
-map <leader>b :Buffers<CR>
-map <leader>h :Commits<CR>
-map <leader>/ :Lines<CR>
-map <leader>g :Ag
-
-" Tabularize
-map <leader>t :TabFirst
-map <leader>T :Tabularize /
-
-" generate ctags
-"map <leader>T :!/opt/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
-" vimfiler
-let g:vimfiler_as_default_explorer = 1
-" Disable netrw.vim
-let g:loaded_netrwPlugin = 1
-map <leader>e :VimFilerExplorer -parent -auto-expand<CR>
-autocmd VimEnter * if !argc() | VimFiler | endif
-
-" split-term
-"let g:disable_key_mappings = 1
