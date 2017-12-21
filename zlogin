@@ -18,6 +18,7 @@ alias mmv="noglob zmv -W"
 alias diff="colordiff -u"
 alias less="less -r"
 alias rsync="rsync --progress"
+alias cat="ccat -G String=green -G Plaintext=lightgrey -G Type=gray -G Punctuation=gray -G Keyword=darkyellow -G Decimal=fuchsia -G Comment=darkgray"
 
 # Machine-specific command aliases
 alias astyle="astyle --style=allman --indent=spaces=2"
