@@ -8,9 +8,12 @@ hash -d cdn="$HOME/Development/webapps/s3/cdn-p-rimes-net"
 hash -d wiced="$HOME/Development/arm/WICED-SDK"
 hash -d vids="/Users/Performance/Users/performance/Movies"
 hash -d esp32="$HOME/Development/esp32"
+hash -d esp-idf="$HOME/Development/esp32/esp-idf"
 hash -d wzrd="$HOME/Development/electron/wzrd"
 hash -d rn="$HOME/Development/react-native"
 hash -d k8s="$HOME/Development/k8s"
+hash -d acm="$HOME/Development/projects/makerlabs-acm"
+hash -d parts="$HOME/Development/kicad/parts"
 
 # environment variables
 export IDF_PATH="$HOME/Development/esp32/esp-idf"
@@ -27,12 +30,18 @@ BIN_PATH=/usr/local/bin:/usr/local/sbin
 #:$HOME/Development/arm/gcc-arm-none-eabi-4_9-2015q3/bin\
 #:$HOME/Development/lib/emscripten\
 
+export CONDA_DEFAULT_ENV=intelpy
+export CONDA_PREFIX=/usr/local/miniconda3/envs/intelpy
+
 export PATH=\
 :$HOME/bin\
 :$HOME/Development/fuchsia/topaz/.jiri_root/bin\
 :$HOME/Development/flutter/flutter/bin\
 :$HOME/Development/lib/spark-2.2.0-k8s-0.4.0-bin-2.7.3/bin\
-:$HOME/Development/esp32/xtensa-esp32-elf/bin\
+:$HOME/Development/esp32/xtensa-esp32-elf-osx-1.22.0-75-gbaf03c2-5.2.0/bin\
+:$HOME/.cargo/bin\
+:$HOME/.conduit/bin\
+:/usr/local/miniconda3/envs/intelpy/bin\
 :/usr/local/opt/curl/bin\
 :/usr/local/opt/llvm/bin\
 :/usr/local/opt/go/libexec/bin\
