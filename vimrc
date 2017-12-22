@@ -22,6 +22,7 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-bufferline'
 Plug 'bogado/file-line'
+Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'edkolev/promptline.vim'
 Plug 'ervandew/supertab'
@@ -59,9 +60,18 @@ set t_Co=256
 "set termguicolors
 set background=dark
 colors ir_black
+
 " Highlight long lines (longer than 80 chars)
 let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
+" Highlight tabs + trailing whitespace
+set listchars=tab:→\ ,nbsp:␣,trail:·
+set list
+
+" Highlight the current cursor column
+set cursorcolumn
+
+" Do not highlight the line numbers/gutter
 highlight clear SignColumn
 
 " Popup menu color scheme
@@ -157,6 +167,9 @@ map <leader>T :Tabularize /
 
 " tagbar
 nmap <leader>c :TagbarToggle<CR>
+
+" easymotion
+nmap F <Plug>(easymotion-prefix)s
 
 " promptline
 let g:promptline_preset = {
