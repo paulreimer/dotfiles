@@ -1,4 +1,4 @@
-# directory aliases
+# Directory aliases
 hash -d dev="$HOME/Development"
 hash -d of="$HOME/Development/of/HEAD"
 hash -d apps="$HOME/Development/of/HEAD/apps"
@@ -15,12 +15,40 @@ hash -d k8s="$HOME/Development/k8s"
 hash -d acm="$HOME/Development/projects/makerlabs-acm"
 hash -d parts="$HOME/Development/kicad/parts"
 
-# environment variables
+### Environment variables
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export FZF_DEFAULT_OPTS="--exact"
+
+# Enable color support of ls on macOS
+export CLICOLOR=1
+
+# Use a real tty for GPG pinentry/gpg-agent
+export GPG_TTY=$(tty)
+
+# esp-idf
 export IDF_PATH="$HOME/Development/esp32/esp-idf"
 export ESPIDF="$HOME/Development/esp32/micropython-esp-idf"
 
-export ANDROID_HOME="/usr/local/Caskroom/android-sdk/3859397,26.0.2"
-export ANDROID_NDK_HOME="/usr/local/Caskroom/android-ndk/15c/android-ndk-r15c"
+# zephyr
+export ZEPHYR_BASE="$HOME/Development/esp32/zephyr"
+export ZEPHYR_TOOLCHAIN_VARIANT="espressif"
+export ESP_IDF_PATH="${IDF_PATH}"
+export ESPRESSIF_TOOLCHAIN_PATH="$HOME/Development/esp32/xtensa-esp32-elf-osx-1.22.0-80-g6c4433a-5.2.0"
+
+# android
+#export ANDROID_HOME="/usr/local/Caskroom/android-sdk/3859397"
+#export ANDROID_NDK_HOME="/usr/local/Caskroom/android-ndk/15c/android-ndk-r15c"
+
+# conda
+export CONDA_DEFAULT_ENV=intelpy
+export CONDA_PREFIX=/usr/local/miniconda3/envs/intelpy
+
+# IncludeOS
+#export INCLUDEOS_PREFIX=$HOME/Development/includeos/current
+
+# luna
+export LUNA_HOME="$HOME/Development/haskell/luna/stdlib"
 
 # PATH
 STD_PATH=/usr/sbin:/sbin:/usr/bin:/bin:/usr/X11/bin
@@ -29,34 +57,101 @@ BIN_PATH=/usr/local/bin:/usr/local/sbin
 ##:$HOME/Development/arm/gcc-arm-none-eabi-4_9-2015q2/bin\
 #:$HOME/Development/arm/gcc-arm-none-eabi-4_9-2015q3/bin\
 #:$HOME/Development/lib/emscripten\
-
-export CONDA_DEFAULT_ENV=intelpy
-export CONDA_PREFIX=/usr/local/miniconda3/envs/intelpy
-
+#:$HOME/.local/bin\
+#:$HOME/Development/haskell/luna/dist/bin/public/luna\
+#:$INCLUDEOS_PREFIX/bin\
+#:$HOME/Development/fuchsia/topaz/.jiri_root/bin\
+#:$HOME/Development/lib/spark-2.2.0-k8s-0.4.0-bin-2.7.3/bin\
+#:$HOME/.mos/bin\
+#
 export PATH=\
 :$HOME/bin\
-:$HOME/Development/fuchsia/topaz/.jiri_root/bin\
 :$HOME/Development/flutter/flutter/bin\
-:$HOME/Development/lib/spark-2.2.0-k8s-0.4.0-bin-2.7.3/bin\
-:$HOME/Development/esp32/xtensa-esp32-elf-osx-1.22.0-75-gbaf03c2-5.2.0/bin\
+:$HOME/Development/esp32/xtensa-esp32-elf-osx-1.22.0-80-g6c4433a-5.2.0/bin\
+:$HOME/Development/esp32/openocd-esp32/bin\
 :$HOME/.cargo/bin\
 :$HOME/.conduit/bin\
+:$HOME/.pub-cache/bin\
+:$HOME/.config/yarn/global/node_modules/.bin\
+:$HOME/.local/bin/luna-studio\
+:/Applications/microchip/xc32/v2.10/bin\
 :/usr/local/miniconda3/envs/intelpy/bin\
 :/usr/local/opt/curl/bin\
 :/usr/local/opt/llvm/bin\
 :/usr/local/opt/go/libexec/bin\
+:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin\
 :$BIN_PATH\
 :$STD_PATH
 
 # Skip all this for non-interactive shells
 [[ -z "$PS1" ]] && return
 
+# Load autocompletion here if it is not already loaded
+autoload -U compinit && compinit
+
+# Additional autocompletion
+command -v kubectl 1>/dev/null && source <(kubectl completion zsh)
+#command -v gcloud 1>/dev/null && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+command -v gcloud 1>/dev/null && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+# Machine-specific command aliases
+alias rtlsdr_scanner="python -m rtlsdr_scanner"
+alias make="make -j10"
+alias burritotime='say -v "Good News" "burrito time burrito time burrito time burrito time burrito time burrito time"'
+
+alias jupyter-qtconsole='/usr/local/miniconda3/envs/intelpy/bin/jupyter-qtconsole --ConsoleWidget.font_family="Roboto Mono for Powerline" --ConsoleWidget.font_size=11 --style monokai'
+alias spark-submit='/Users/paulreimer/Development/ops/spark/bin/spark-submit --deploy-mode cluster --master k8s://http://127.0.0.1:8001 --kubernetes-namespace spark --conf spark.kubernetes.driver.docker.image=gcr.io/p-rimes-net/spark-driver-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.executor.docker.image=gcr.io/p-rimes-net/spark-executor-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.initcontainer.docker.image=gcr.io/p-rimes-net/spark-init:v2.2.0-kubernetes-0.5.0'
+
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/paulreimer/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/paulreimer/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+[[ -f /Users/paulreimer/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/paulreimer/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/paulreimer/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/paulreimer/.config/yarn/global/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+[[ -f /Users/paulreimer/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/paulreimer/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
+
+# Nix
+[[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]] && . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+
+# Functions
+openocd() {
+  OPENOCD_ESP32_PATH="${HOME}/Development/esp32/openocd-esp32"
+  JTAG_CFG_PATH="interface/ftdi/esp32_ft232h.cfg"
+  BOARD_CFG_PATH="board/esp-wroom-32.cfg"
+
+  command "${OPENOCD_ESP32_PATH}/bin/openocd" \
+    -s "${OPENOCD_ESP32_PATH}/share/openocd/scripts" \
+    -f "${JTAG_CFG_PATH}" \
+    -f "${BOARD_CFG_PATH}" \
+    $@
+}
+
+gauth() {
+  OAUTH_CLIENT_ID="$1"
+  OAUTH_CLIENT_SECRET="$2"
+  OAUTH_REFRESH_TOKEN="$3"
+
+  command curl --silent \
+    -X POST "https://www.googleapis.com/oauth2/v4/token" \
+    -H "Content-Type: application/x-www-form-urlencoded" \
+    -d "grant_type=refresh_token&client_id=${OAUTH_CLIENT_ID}&client_secret=${OAUTH_CLIENT_SECRET}&refresh_token=${OAUTH_REFRESH_TOKEN}" \
+      | jq .access_token -r
+}
+
+cdnsync()
+{
+  s3cmd sync --acl-public --add-header "Cache-Control: max-age=1209600, must-revalidate" ~cdn/ s3://cdn.p-rimes.net;
+}
+
+# Add custom sub-commands to brew
+brew() {
+  # Add support for `brew cask upgrade`, install via:
+  # `brew tap buo/cask-upgrade`
+  if [ "$1" = "cask" -a "$2" = "upgrade" ]; then
+    command brew cu -a -f
+  else
+    command brew "$@"
+  fi
+}
 
 ## Basic SSH-agent access for screen terminal multiplexer
 SSH_ENV="$HOME/.ssh/environment"
@@ -79,3 +174,5 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_agent;
 fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
