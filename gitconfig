@@ -1,7 +1,9 @@
 [user]
   name = Paul Reimer
   email = paul@p-rimes.net
-  signingkey = 65D1D89E6BBF95E7
+  signingKey = 65D1D89E6BBF95E7
+[commit]
+  gpgSign = true
 [alias]
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
