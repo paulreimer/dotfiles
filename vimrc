@@ -15,30 +15,42 @@ set fileformat=unix
 "" :PlugInstall
 
 call plug#begin()
+"Plug 'easymotion/vim-easymotion'
+"Plug 'edkolev/promptline.vim'
+"Plug 'ervandew/supertab'
+"Plug 'majutsushi/tagbar'
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
 "Plug 'sjl/gundo.vim'
+
 Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neopairs.vim'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'autozimu/LanguageClient-neovim', {'branch':'next', 'do':'bash install.sh'}
 Plug 'bling/vim-bufferline'
 Plug 'bogado/file-line'
-Plug 'easymotion/vim-easymotion'
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'edkolev/promptline.vim'
-Plug 'ervandew/supertab'
+Plug 'glts/vim-textobj-comment'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
+Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-user'
 Plug 'mklabs/split-term.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'twerth/ir_black'
 Plug 'w0rp/ale'
-Plug 'zchee/deoplete-clang'
+Plug 'reasonml-editor/vim-reason-plus'
+
 " Install correct deoplete plugins based on whether we are using vim or neovim
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', {'do':':UpdateRemotePlugins'}
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
@@ -49,11 +61,10 @@ call plug#end()
 " --- features ---
 filetype plugin indent on
 syntax on
-set number
 set hlsearch
 " better tab-complete
-set wildmenu
-set wildmode=longest:full,full
+"set wildmenu
+"set wildmode=longest:full,full
 
 " --- appearance ---
 set t_Co=256
@@ -61,15 +72,21 @@ set t_Co=256
 set background=dark
 colors ir_black
 
+" Line numbers
+set number
+" Do not show line numbers on terminal windows
+au TermOpen * setlocal nonumber norelativenumber
+
 " Highlight long lines (longer than 80 chars)
 let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 " Highlight tabs + trailing whitespace
 set listchars=tab:→\ ,nbsp:␣,trail:·
 set list
+highlight NonText ctermfg=LightGray
 
 " Highlight the current cursor column
-set cursorcolumn
+"set cursorcolumn
 
 " Do not highlight the line numbers/gutter
 highlight clear SignColumn
@@ -88,14 +105,6 @@ set shiftwidth=2
 set expandtab
 set backspace=start,indent
 
-function! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfunction
-autocmd FileType python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
 " --- netrw ---
 let netrw_liststyle=3
 let netrw_winsize = -56
@@ -105,21 +114,14 @@ let netrw_banner = 0
 set grepprg=ag\ $*
 set grepformat=%f:%l:%m
 
-" --- ctags ---
-"" add current directory's generated tags file to available tags
-"set tags+=~/.my_ctags/**/tags
-
-" --- HardMode ---
-""autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-"nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-"set number
-
 " --- deoplete ---
 let g:deoplete#enable_at_startup = 1
 
 " --- deoplete-clang ---
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/5.0.0/lib/clang'
+"let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
+"let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang'
+"let g:deoplete#sources#clang#libclang_path = '/usr/lib/x86_64-linux-gnu/libclang-6.0.so.1'
+"let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 
 " --- Tabularize ---
 command! -nargs=1 -range TabFirst exec <line1> . ',' . <line2> . 'Tabularize /^[^' . escape(<q-args>, '\^$.[?*~') . ']*\zs' . escape(<q-args>, '\^$.[?*~')
@@ -149,7 +151,99 @@ autocmd VimEnter * if !argc() | VimFiler | endif
 "autocmd BufEnter *.cpp nested TagbarOpen
 
 " --- supertab ---
-let g:SuperTabDefaultCompletionType = "<c-n>"
+"let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" --- dart-vim-plugin ---
+let dart_html_in_string=v:true
+let dart_style_guide = 2
+
+" --- vim-lsp ---
+" *.c, *.cpp, *.obj, *.objcpp
+"if executable('clangd')
+"  au User lsp_setup call lsp#register_server({
+"    \ 'name': 'clangd',
+"    \ 'cmd': {server_info->['clangd']},
+"    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+"    \ })
+"endif
+"
+" *.dart
+"if executable('dart_language_server')
+"  au User lsp_setup call lsp#register_server({
+"    \ 'name': 'dart_language_server',
+"    \ 'cmd': {server_info->['dart_language_server']},
+"    \ 'whitelist': ['dart'],
+"    \ })
+"endif
+
+" --- neosnippet ---
+"if has('conceal')
+"  set conceallevel=2 concealcursor=niv
+"endif
+
+" --- LanguageClient-neovim ---
+if has('nvim')
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+"  \ 'cpp': ['/Users/paulreimer/Development/lib/cquery/build/release/bin/cquery', '--log-file=/tmp/cq.log']
+"
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd', '-enable-snippets'],
+  \ 'reason': ['ocaml-language-server', '--stdio'],
+  \ 'ocaml': ['ocaml-language-server', '--stdio'],
+  \ }
+let g:LanguageClient_loadSettings = 1
+" Use an absolute configuration path if you want system-wide settings
+let g:LanguageClient_settingsPath = '/Users/paulreimer/.config/nvim/settings.json'
+
+" Send textDocument/hover when cursor moves.
+"augroup LanguageClient_config
+"  au!
+"  au BufEnter * let b:Plugin_LanguageClient_started = 0
+"  au User LanguageClientStarted setl signcolumn=yes
+"  au User LanguageClientStarted let b:Plugin_LanguageClient_started = 1
+"  au User LanguageClientStopped setl signcolumn=auto
+"  au User LanguageClientStopped let b:Plugin_LanguageClient_stopped = 0
+"  au CursorMoved * if b:Plugin_LanguageClient_started | call LanguageClient_textDocument_hover() | endif
+"augroup END
+
+endif
+
+" --- ale ---
+let g:ale_javascript_prettier_use_global = 1
+let g:ale_javascript_xo_use_global = 1
+let g:ale_javascript_xo_options = '--prettier --space'
+let g:ale_cpp_cpplint_options = '--filter=-whitespace/braces,-whitespace/parens,-whitespace/newline,-readability/braces,-readability/alt_tokens'
+let g:ale_html_tidy_options = '--custom-tags yes --wrap 80 --indent yes --indent-attributes yes --indent-spaces 2'
+
+"  \ 'cpp': ['clang-format'],
+"  \ 'html': ['tidy', 'prettier'],
+let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'dart': ['dartfmt'],
+  \ 'python': ['autopep8', 'isort'],
+  \ 'javascript': ['prettier'],
+  \ 'html': ['tidy'],
+  \ }
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+
+" --- es7 ---
+"au BufRead,BufNewFile *.es7 setfiletype=javascript
+
+" tcomment
+let g:tcomment_textobject_inlinecomment = ''
+
+" --- tab behaviour ---
+" Map expression when a tab is hit:
+"   checks if the completion popup is visible
+"   if yes
+"     then it cycles to next item
+"   else
+"     if expandable_or_jumpable
+"       then expands_or_jumps
+"       else returns a normal TAB
 
 " --- key mappings ---
 let mapleader = ","
@@ -169,15 +263,33 @@ map <leader>T :Tabularize /
 nmap <leader>c :TagbarToggle<CR>
 
 " easymotion
-nmap F <Plug>(easymotion-prefix)s
+"nmap F <Plug>(easymotion-prefix)s
 
-" promptline
-let g:promptline_preset = {
-  \'a': [ promptline#slices#host(), promptline#slices#user() ],
-  \'b': [ promptline#slices#cwd() ],
-  \'c' : [ promptline#slices#vcs_branch() ],
-  \'z' : [ '%*' ],
-  \'warn' : [ promptline#slices#last_exit_code(), promptline#slices#battery() ]}
+" gitgutter
+omap ih <Plug>GitGutterTextObjectInnerPending
+omap ah <Plug>GitGutterTextObjectOuterPending
+xmap ih <Plug>GitGutterTextObjectInnerVisual
+xmap ah <Plug>GitGutterTextObjectOuterVisual
+
+"" --- neosnippet ---
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" LanguageClient-neovim
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> gf :call LanguageClient_textDocument_codeAction()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " ------------------------------------------------------------------------------
 " ------------------------------------------------------------------------------
