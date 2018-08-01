@@ -19,3 +19,5 @@
   ui = true
 [difftool]
   prompt = false
+[submodule]
+  recurse = true
