@@ -8,6 +8,8 @@ test -f ".screenrc" || curl --silent -L "https://dotfiles.p-rimes.net/screenrc" 
 # zsh
 test -f ".zlogin" || curl --silent -L "https://dotfiles.p-rimes.net/zlogin" -o ".zlogin"
 test -f ".zshrc" || curl --silent -L "https://dotfiles.p-rimes.net/zshrc" -o ".zshrc"
+test -d ".zsh" || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ".zsh/zsh-syntax-highlighting"
+
 # machine-specific configuration
 # (this is a macOS current workstation default):
 #test -f ".zshenv" || curl --silent -L "https://dotfiles.p-rimes.net/zshenv" -o ".zshenv"
