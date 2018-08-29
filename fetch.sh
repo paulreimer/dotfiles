@@ -16,6 +16,7 @@ test -d ".zsh" || git clone https://github.com/zsh-users/zsh-syntax-highlighting
 
 # vim/nvim
 test -f ".vimrc" || curl --silent -L "https://dotfiles.p-rimes.net/vimrc" -o ".vimrc"
+test -f ".config/nvim/init.vim" || curl --create-dirs --silent -L "https://dotfiles.p-rimes.net/init.vim" -o ".config/nvim/init.vim"
 test -d ".vim" || curl -fLo .vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 command -v nvim && nvim +'PlugInstall --sync' +qa
