@@ -216,10 +216,10 @@ let g:ale_javascript_xo_options = '--prettier --space'
 let g:ale_cpp_cpplint_options = '--filter=-whitespace/braces,-whitespace/parens,-whitespace/newline,-readability/braces,-readability/alt_tokens'
 let g:ale_html_tidy_options = '--custom-tags yes --wrap 80 --indent yes --indent-attributes yes --indent-spaces 2'
 
-"  \ 'cpp': ['clang-format'],
 "  \ 'html': ['tidy', 'prettier'],
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'cpp': ['clang-format'],
   \ 'dart': ['dartfmt'],
   \ 'python': ['autopep8', 'isort'],
   \ 'javascript': ['prettier'],
