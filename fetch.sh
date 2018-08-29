@@ -10,3 +10,7 @@ test -f ".zshrc" || curl --silent -L "https://dotfiles.p-rimes.net/zshrc" -o ".z
 # machine-specific configuration
 # (this is a macOS user default):
 #test -f ".zshenv" || curl --silent -L "https://dotfiles.p-rimes.net/zshenv" -o ".zshenv"
+
+test -d ".vim" || curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+command -v nvim && nvim +'PlugInstall --sync' +qa
