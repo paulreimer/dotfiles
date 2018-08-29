@@ -74,6 +74,7 @@ export PATH=\
 :$HOME/.pub-cache/bin\
 :$HOME/.config/yarn/global/node_modules/.bin\
 :$HOME/.local/bin/luna-studio\
+:$HOME/.pub-cache/global_packages/angular_cli/bin\
 :/Applications/microchip/xc32/v2.10/bin\
 :/usr/local/miniconda3/envs/intelpy/bin\
 :/usr/local/opt/curl/bin\
