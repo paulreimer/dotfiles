@@ -11,8 +11,7 @@ set fileformat=unix
 "" install:
 "" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ""   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"" run (in vim):
-"" :PlugInstall
+"" nvim +'PlugInstall --sync' +qa
 
 call plug#begin()
 "Plug 'easymotion/vim-easymotion'
