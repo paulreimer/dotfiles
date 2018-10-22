@@ -41,7 +41,9 @@ diff() {
   # Reformat (uncolorized) diff output to make yanking files easier
   if [ "$1" = "-qr" -o "$1" = "-q" ]; then
     command /usr/bin/diff -qr "$@" | \
-      sed -e 's/ and / /; s/ differ$//; s/^Files /Files differ: /;'
+      sed \
+        -e 's/^Files \(.*\) and \(.*\) differ$/Files differ: \1 \2/;' \
+        -e 's/^Only in \(.*\): \(.*\)$/File only in: \1\/\2/;'
   else
     command colordiff -u "$@"
   fi
