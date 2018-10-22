@@ -26,19 +26,16 @@ export CLICOLOR=1
 # Use a real tty for GPG pinentry/gpg-agent
 export GPG_TTY=$(tty)
 
+# 3delight
+export DELIGHT=/Applications/3Delight
+
 # esp-idf
 export IDF_PATH="$HOME/Development/esp32/esp-idf"
-export ESPIDF="$HOME/Development/esp32/micropython-esp-idf"
-
-# zephyr
-export ZEPHYR_BASE="$HOME/Development/esp32/zephyr"
-export ZEPHYR_TOOLCHAIN_VARIANT="espressif"
-export ESP_IDF_PATH="${IDF_PATH}"
-export ESPRESSIF_TOOLCHAIN_PATH="$HOME/Development/esp32/xtensa-esp32-elf-osx-1.22.0-80-g6c4433a-5.2.0"
+#export ESPIDF="$HOME/Development/esp32/micropython-esp-idf"
 
 # android
-#export ANDROID_HOME="/usr/local/Caskroom/android-sdk/3859397"
-#export ANDROID_NDK_HOME="/usr/local/Caskroom/android-ndk/15c/android-ndk-r15c"
+export ANDROID_HOME="/usr/local/Caskroom/android-sdk/4333796"
+export ANDROID_NDK_HOME="/usr/local/Caskroom/android-ndk/17/android-ndk-r17"
 
 # conda
 export CONDA_DEFAULT_ENV=intelpy
@@ -49,6 +46,9 @@ export CONDA_PREFIX=/usr/local/miniconda3/envs/intelpy
 
 # luna
 export LUNA_HOME="$HOME/Development/haskell/luna/stdlib"
+
+# Arnold
+export ARNOLD_ROOT="$HOME/Development/vfx/Arnold-5.1.1.3-darwin"
 
 # PATH
 STD_PATH=/usr/sbin:/sbin:/usr/bin:/bin:/usr/X11/bin
@@ -69,16 +69,19 @@ export PATH=\
 :$HOME/Development/flutter/flutter/bin\
 :$HOME/Development/esp32/xtensa-esp32-elf-osx-1.22.0-80-g6c4433a-5.2.0/bin\
 :$HOME/Development/esp32/openocd-esp32/bin\
+:$HOME/Development/esp32/esp-idf/tools/\
+:$HOME/Development/vfx/gaffer-0.51.0.0-osx/bin/\
 :$HOME/.cargo/bin\
 :$HOME/.conduit/bin\
 :$HOME/.pub-cache/bin\
 :$HOME/.config/yarn/global/node_modules/.bin\
 :$HOME/.local/bin/luna-studio\
 :$HOME/.pub-cache/global_packages/angular_cli/bin\
+:$HOME/.linkerd2/bin\
 :/Applications/microchip/xc32/v2.10/bin\
 :/usr/local/miniconda3/envs/intelpy/bin\
 :/usr/local/opt/curl/bin\
-:/usr/local/opt/llvm/bin\
+:/usr/local/opt/llvm@6/bin\
 :/usr/local/opt/go/libexec/bin\
 :/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin\
 :$BIN_PATH\
@@ -141,17 +144,6 @@ gauth() {
 cdnsync()
 {
   s3cmd sync --acl-public --add-header "Cache-Control: max-age=1209600, must-revalidate" ~cdn/ s3://cdn.p-rimes.net;
-}
-
-# Add custom sub-commands to brew
-brew() {
-  # Add support for `brew cask upgrade`, install via:
-  # `brew tap buo/cask-upgrade`
-  if [ "$1" = "cask" -a "$2" = "upgrade" ]; then
-    command brew cu -a -f
-  else
-    command brew "$@"
-  fi
 }
 
 ## Basic SSH-agent access for screen terminal multiplexer
