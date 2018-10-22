@@ -1,13 +1,16 @@
 # Default shell settings
-export EDITOR=`command -v nvim`
+#export EDITOR=`command -v nvim`
+export EDITOR=`command -v nvr --remote`
 set -o vi
 
 # Additional autocompletion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Command aliases
-alias vi="nvim"
-alias vim="nvim"
+#alias vi="nvim"
+#alias vim="nvim"
+alias vi="nvr --remote"
+alias vim="nvr --remote"
 alias h="history 0 | ag"
 alias ls="ls -Ghp"
 alias p="ps aux | ag"
