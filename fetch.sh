@@ -3,8 +3,8 @@
 # dotfiles
 test -f ".gitconfig" || curl --silent -L "https://dotfiles.p-rimes.net/gitconfig" -o ".gitconfig"
 test -f ".htoprc" || curl --silent -L "https://dotfiles.p-rimes.net/htoprc" -o ".htoprc"
-test -f ".screenrc" || curl --silent -L "https://dotfiles.p-rimes.net/screenrc" -o ".screenrc"
-test -f ".tmux.conf" || curl --silent -L "https://dotfiles.p-rimes.net/tmux.conf" -o ".tmux.conf"
+#test -f ".screenrc" || curl --silent -L "https://dotfiles.p-rimes.net/screenrc" -o ".screenrc"
+#test -f ".tmux.conf" || curl --silent -L "https://dotfiles.p-rimes.net/tmux.conf" -o ".tmux.conf"
 
 # zsh
 test -f ".zlogin" || curl --silent -L "https://dotfiles.p-rimes.net/zlogin" -o ".zlogin"
