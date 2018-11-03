@@ -201,6 +201,10 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 
+" highlighting
+highlight ALEError gui=undercurl term=undercurl cterm=undercurl guisp=deeppink
+highlight ALEWarning gui=undercurl term=undercurl cterm=undercurl guisp=goldenrod1
+
 " LanguageClient-neovim
 if has('nvim')
 
