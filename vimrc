@@ -74,7 +74,9 @@ colors ir_black
 set number
 
 " Do not show line numbers on terminal windows
+if has('nvim')
 autocmd TermOpen * setlocal nonumber norelativenumber
+endif
 
 " Highlight long lines in source files (longer than 80 chars)
 fun! HighlightLongLines()
@@ -185,7 +187,7 @@ let g:ale_html_tidy_executable = '/usr/local/bin/tidy'
 let g:ale_html_tidy_options = '--custom-tags yes --wrap 80 --indent yes --indent-attributes yes --indent-spaces 2'
 
 let g:ale_linters = {
-  \ 'cpp': ['ccls', 'clangcheck', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder']
+  \ 'cpp': ['clangcheck', 'clangd', 'clangtidy', 'clazy', 'cpplint', 'flawfinder']
   \ }
 
 let g:ale_fixers = {
@@ -319,15 +321,18 @@ noremap <C-a><C-a> :exe "tabn ".g:lasttab<CR>
 tnoremap <C-a><C-a> <C-\><C-n> :exe "tabn ".g:lasttab<CR>
 
 " fzf
-map <leader>f :Files<CR>
-map <leader>b :Buffers<CR>
-map <leader>h :Commits<CR>
-map <leader>/ :Lines<CR>
-map <leader>g :Ag
+nmap <leader>f :Files<CR>
+nmap <leader>b :Buffers<CR>
+nmap <leader>h :Commits<CR>
+nmap <leader>/ :Lines<CR>
+nmap <leader>g :Ag
+
+" UltiSnips
+nmap <leader>ue :UltiSnipsEdit<cr>
 
 " Tabularize
-map <leader>t :TabFirst
-map <leader>T :Tabularize /
+nmap <leader>t :TabFirst
+nmap <leader>T :Tabularize /
 
 " tagbar
 nmap <leader>c :TagbarToggle<CR>
