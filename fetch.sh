@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# deps
+# debian/apt-get
+# sudo apt-get install screen zsh silversearcher-ag neovim python3-pip rsync htop git curl
+
 # dotfiles
 test -f ".gitconfig" || curl --silent -L "https://dotfiles.p-rimes.net/gitconfig" -o ".gitconfig"
 test -f ".htoprc" || curl --silent -L "https://dotfiles.p-rimes.net/htoprc" -o ".htoprc"
