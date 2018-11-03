@@ -1,0 +1,171 @@
+# Directory aliases
+hash -d dev="$HOME/Development"
+hash -d of="$HOME/Development/of/HEAD"
+hash -d apps="$HOME/Development/of/HEAD/apps"
+hash -d addons="$HOME/Development/of/HEAD/addons"
+hash -d my="$HOME/Development/of/HEAD/apps/myApps"
+hash -d cdn="$HOME/Development/webapps/s3/cdn-p-rimes-net"
+hash -d wiced="$HOME/Development/arm/WICED-SDK"
+hash -d vids="/Users/Performance/Users/performance/Movies"
+hash -d esp32="$HOME/Development/esp32"
+hash -d esp-idf="$HOME/Development/esp32/esp-idf"
+hash -d wzrd="$HOME/Development/electron/wzrd"
+hash -d rn="$HOME/Development/react-native"
+hash -d k8s="$HOME/Development/k8s"
+hash -d acm="$HOME/Development/projects/makerlabs-acm"
+hash -d parts="$HOME/Development/kicad/parts"
+
+### Environment variables
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export FZF_DEFAULT_OPTS="--exact"
+
+# Enable color support of ls on macOS
+export CLICOLOR=1
+
+# Use a real tty for GPG pinentry/gpg-agent
+export GPG_TTY=$(tty)
+
+# 3delight
+export DELIGHT=/Applications/3Delight
+
+# esp-idf
+export IDF_PATH="$HOME/Development/esp32/esp-idf"
+#export ESPIDF="$HOME/Development/esp32/micropython-esp-idf"
+
+# android
+export ANDROID_HOME="/usr/local/Caskroom/android-sdk/4333796"
+export ANDROID_NDK_HOME="/usr/local/Caskroom/android-ndk/17/android-ndk-r17"
+
+# conda
+export CONDA_DEFAULT_ENV=intelpy
+export CONDA_PREFIX=/usr/local/miniconda3/envs/intelpy
+
+# IncludeOS
+#export INCLUDEOS_PREFIX=$HOME/Development/includeos/current
+
+# luna
+export LUNA_HOME="$HOME/Development/haskell/luna/stdlib"
+
+# Arnold
+export ARNOLD_ROOT="$HOME/Development/vfx/Arnold-5.1.1.3-darwin"
+
+# PATH
+STD_PATH=/usr/sbin:/sbin:/usr/bin:/bin:/usr/X11/bin
+BIN_PATH=/usr/local/bin:/usr/local/sbin
+
+##:$HOME/Development/arm/gcc-arm-none-eabi-4_9-2015q2/bin\
+#:$HOME/Development/arm/gcc-arm-none-eabi-4_9-2015q3/bin\
+#:$HOME/Development/lib/emscripten\
+#:$HOME/.local/bin\
+#:$HOME/Development/haskell/luna/dist/bin/public/luna\
+#:$INCLUDEOS_PREFIX/bin\
+#:$HOME/Development/fuchsia/topaz/.jiri_root/bin\
+#:$HOME/Development/lib/spark-2.2.0-k8s-0.4.0-bin-2.7.3/bin\
+#:$HOME/.mos/bin\
+#:$HOME/Development/vfx/gaffer-0.51.0.0-osx/bin/\
+#
+export PATH=\
+:$HOME/bin\
+:$HOME/Development/flutter/flutter/bin\
+:$HOME/Development/esp32/xtensa-esp32-elf-osx-1.22.0-80-g6c4433a-5.2.0/bin\
+:$HOME/Development/esp32/openocd-esp32/bin\
+:$HOME/Development/esp32/esp-idf/tools/\
+:$HOME/.cargo/bin\
+:$HOME/.conduit/bin\
+:$HOME/.pub-cache/bin\
+:$HOME/.config/yarn/global/node_modules/.bin\
+:$HOME/.local/bin/luna-studio\
+:$HOME/.pub-cache/global_packages/angular_cli/bin\
+:$HOME/.linkerd2/bin\
+:/Applications/microchip/xc32/v2.10/bin\
+:/usr/local/miniconda3/envs/intelpy/bin\
+:/usr/local/opt/curl/bin\
+:/usr/local/opt/llvm/bin\
+:/usr/local/opt/go/libexec/bin\
+:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin\
+:$BIN_PATH\
+:$STD_PATH
+
+# Skip all this for non-interactive shells
+[[ -z "$PS1" ]] && return
+
+# Load autocompletion here if it is not already loaded
+autoload -U compinit && compinit
+
+# Additional autocompletion
+command -v kubectl 1>/dev/null && source <(kubectl completion zsh)
+#command -v gcloud 1>/dev/null && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+command -v gcloud 1>/dev/null && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+# Machine-specific command aliases
+alias rtlsdr_scanner="python -m rtlsdr_scanner"
+alias make="make -j10"
+alias burritotime='say -v "Good News" "burrito time burrito time burrito time burrito time burrito time burrito time"'
+
+alias jupyter-qtconsole='/usr/local/miniconda3/envs/intelpy/bin/jupyter-qtconsole --ConsoleWidget.font_family="Roboto Mono for Powerline" --ConsoleWidget.font_size=11 --style monokai'
+alias spark-submit='/Users/paulreimer/Development/ops/spark/bin/spark-submit --deploy-mode cluster --master k8s://http://127.0.0.1:8001 --kubernetes-namespace spark --conf spark.kubernetes.driver.docker.image=gcr.io/p-rimes-net/spark-driver-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.executor.docker.image=gcr.io/p-rimes-net/spark-executor-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.initcontainer.docker.image=gcr.io/p-rimes-net/spark-init:v2.2.0-kubernetes-0.5.0'
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/paulreimer/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/paulreimer/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/paulreimer/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/paulreimer/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
+
+# Nix
+[[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]] && . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+
+# Functions
+openocd() {
+  OPENOCD_ESP32_PATH="${HOME}/Development/esp32/openocd-esp32"
+  JTAG_CFG_PATH="interface/ftdi/esp32_ft232h.cfg"
+  BOARD_CFG_PATH="board/esp-wroom-32.cfg"
+
+  command "${OPENOCD_ESP32_PATH}/bin/openocd" \
+    -s "${OPENOCD_ESP32_PATH}/share/openocd/scripts" \
+    -f "${JTAG_CFG_PATH}" \
+    -f "${BOARD_CFG_PATH}" \
+    $@
+}
+
+gauth() {
+  OAUTH_CLIENT_ID="$1"
+  OAUTH_CLIENT_SECRET="$2"
+  OAUTH_REFRESH_TOKEN="$3"
+
+  command curl --silent \
+    -X POST "https://www.googleapis.com/oauth2/v4/token" \
+    -H "Content-Type: application/x-www-form-urlencoded" \
+    -d "grant_type=refresh_token&client_id=${OAUTH_CLIENT_ID}&client_secret=${OAUTH_CLIENT_SECRET}&refresh_token=${OAUTH_REFRESH_TOKEN}" \
+      | jq .access_token -r
+}
+
+cdnsync()
+{
+  s3cmd sync --acl-public --add-header "Cache-Control: max-age=1209600, must-revalidate" ~cdn/ s3://cdn.p-rimes.net;
+}
+
+## Basic SSH-agent access for screen terminal multiplexer
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+  echo "Initialising new SSH agent..."
+  ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+  echo succeeded
+  chmod 600 "${SSH_ENV}"
+  . "${SSH_ENV}" > /dev/null
+  ssh-add;
+}
+
+# Source SSH settings, if applicable
+if [ -f "${SSH_ENV}" ]; then
+  . "${SSH_ENV}" > /dev/null
+  ps ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+    start_agent;
+  }
+else
+  start_agent;
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
