@@ -152,7 +152,6 @@ let g:vimfiler_as_default_explorer = 1
 " Disable netrw.vim
 let g:loaded_netrwPlugin = 1
 map <leader>e :VimFilerExplorer -parent -auto-expand<CR>
-autocmd VimEnter * if !argc() | VimFiler | endif
 
 " dart-vim-plugin
 let dart_html_in_string=v:true
