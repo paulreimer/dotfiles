@@ -89,7 +89,7 @@ fun! HighlightLongLines()
     call clearmatches()
   endif
 endfun
-autocmd BufWinEnter * call HighlightLongLines()
+autocmd BufEnter * call HighlightLongLines()
 
 " Highlight tabs + trailing whitespace
 set listchars=tab:→\ ,nbsp:␣,trail:·
