@@ -70,13 +70,14 @@ set t_Co=256
 set background=dark
 colors ir_black
 
-" Line numbers
-set number
-
-" Do not show line numbers on terminal windows
-if has('nvim')
-autocmd TermOpen * setlocal nonumber norelativenumber
-endif
+" Only show line numbers on non-terminal windows
+" (Must be done this way, since disabling them later incorrectly sets columns)
+fun! EnableLineNumbers()
+  if &buftype != 'terminal'
+    setl number
+  endif
+endfun
+autocmd BufEnter * call EnableLineNumbers()
 
 " Highlight long lines in source files (longer than 80 chars)
 fun! HighlightLongLines()
