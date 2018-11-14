@@ -22,6 +22,10 @@ test -d ".vim" || curl -fLo .vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 command -v nvim && nvim +'PlugInstall --sync' +qa
 
+# fzf
+test -d ".fzf" || git clone --depth 1 https://github.com/junegunn/fzf.git ".fzf"
+# .fzf/install
+
 # machine-specific configuration
 # (this is a macOS current workstation default):
 #test -f ".zshenv" || curl --silent -L "https://dotfiles.p-rimes.net/zshenv_macos" -o ".zshenv"
