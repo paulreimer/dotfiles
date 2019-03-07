@@ -169,13 +169,14 @@ call deoplete#custom#source('_', 'max_abbr_width', 180)
 call deoplete#custom#source('_', 'max_menu_width', 180)
 
 " neosnippet
+" Trigger expansion of snippet immediately after completion popup is done
+let g:neosnippet#enable_complete_done = 1
+" If completion selects a function prototype, expand it and cycle placeholders
+let g:neosnippet#enable_completed_snippet = 1
+" Hide marker characters in expanded snippets
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
-
-" ultisnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips/']
-let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_javascript_prettier_use_global = 1
@@ -216,62 +217,32 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_settingsPath = '/Users/paulreimer/.config/nvim/settings.json'
 
+
 endif
 
-" key mappings
-let mapleader = ","
-
-" ultisnips
-let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
-let g:UltiSnipsRemoveSelectModeMappings = 0
-
-" neosnippet
-imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-" deoplete
-inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
-
-" LanguageClient-neovim
-" Workaround for LanguageClient-neovim inserting unusable snippet
-" from: https://github.com/autozimu/LanguageClient-neovim/issues/379#issuecomment-403876177
-let g:ulti_expand_res = 0 "default value, just set once
-function! CompleteSnippet()
-  if empty(v:completed_item)
-    return
-  endif
-
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res > 0
-    return
-  endif
-"  " only expand Lsp if UltiSnips#ExpandSnippetOrJump not effect.
-  let l:value = v:completed_item['word']
-  let l:matched = len(l:value)
-  if l:matched <= 0
-    return
-  endif
-
-  let l:complete = type(v:completed_item) == v:t_dict ? v:completed_item.word : v:completed_item
-  let l:comp_len = len(l:complete)
-
-  let l:cur_col = mode() == 'i' ? col('.') - 2 : col('.') - 1
-  let l:cur_line = getline('.')
 " DoxygenToolkit
 " Use /// comments instead of /** */
 let g:DoxygenToolkit_commentType = "C++"
 
-  let l:start = l:comp_len <= l:cur_col ? l:cur_line[:l:cur_col - l:comp_len] : ''
-  let l:end = l:cur_col < len(l:cur_line) ? l:cur_line[l:cur_col + 1 :] : ''
 
-  call setline('.', l:start . l:end)
-  call cursor('.', l:cur_col - l:comp_len + 2)
+" key mappings
+let mapleader = ","
 
-  call UltiSnips#Anon(l:complete)
-endfunction
-autocmd CompleteDone * call CompleteSnippet()
+
+" neosnippet supertab
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB>
+ \ neosnippet#expandable_or_jumpable() ?
+ \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><S-TAB>
+ \ pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" deoplete actions on close popup
+inoremap <expr><CR>
+ \ pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 " nvr
 " delete buffer instead of quit
