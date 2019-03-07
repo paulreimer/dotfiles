@@ -241,6 +241,7 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_settingsPath = '/Users/paulreimer/.config/nvim/settings.json'
 
+let g:LanguageClient_hasSnippetSupport = 1
 let g:LanguageClient_diagnosticsEnable = 0
 
 endif
