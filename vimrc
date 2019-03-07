@@ -164,6 +164,9 @@ let g:tcomment_textobject_inlinecomment = ''
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_smart_case = 1
+" Extend the popup menu width
+call deoplete#custom#source('_', 'max_abbr_width', 180)
+call deoplete#custom#source('_', 'max_menu_width', 180)
 
 " neosnippet
 if has('conceal')
