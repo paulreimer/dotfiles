@@ -214,6 +214,7 @@ if has('nvim')
 
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd'],
+  \ 'dart': ['dart_language_server'],
   \ 'reason': ['ocaml-language-server', '--stdio'],
   \ 'ocaml': ['ocaml-language-server', '--stdio'],
   \ }
