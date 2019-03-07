@@ -99,6 +99,11 @@ highlight NonText ctermfg=LightGray
 " Do not highlight the line numbers/gutter
 highlight clear SignColumn
 
+" gitgutter
+highlight GitGutterAdd    guifg=#009900 guibg=none ctermfg=2 ctermbg=none
+highlight GitGutterChange guifg=#bbbb00 guibg=none ctermfg=3 ctermbg=none
+highlight GitGutterDelete guifg=#ff2222 guibg=none ctermfg=1 ctermbg=none
+
 " Popup menu color scheme
 highlight Pmenu ctermbg=DarkGray
 highlight PmenuSel ctermbg=DarkBlue ctermfg=White cterm=bold
