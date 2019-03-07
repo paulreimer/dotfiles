@@ -104,7 +104,10 @@ highlight Pmenu ctermbg=DarkGray
 highlight PmenuSel ctermbg=DarkBlue ctermfg=White cterm=bold
 highlight PmenuSbar ctermbg=LightGray
 
-" whitespace control
+" Set terminal scrollback lines
+autocmd TermOpen * setlocal scrollback=100000
+
+" Whitespace control
 set autoindent
 set tabstop=2
 set softtabstop=2
