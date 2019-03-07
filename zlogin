@@ -21,7 +21,7 @@ alias gmoji="gitmoji -c"
 alias k="kubectl"
 alias mmv="noglob zmv -W"
 alias rsync="rsync --progress"
-alias cat="ccat -G String=green -G Plaintext=lightgrey -G Type=gray -G Punctuation=gray -G Keyword=darkyellow -G Decimal=fuchsia -G Comment=darkgray"
+alias cat="ccat -G String=green -G Plaintext=lightgrey -G Type=gray -G Punctuation=gray -G Keyword=darkyellow -G Decimal=fuchsia -G Comment=gray"
 alias cmake="cmake -G Ninja"
 alias ccmake="ccmake -G Ninja"
 alias urlencode='python3 -c "import sys, urllib.parse as up; print(up.quote_plus(sys.argv[1]))"'
