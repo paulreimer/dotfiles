@@ -23,6 +23,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'autozimu/LanguageClient-neovim', {'branch':'next', 'do':'bash install.sh'}
 Plug 'bling/vim-bufferline'
 Plug 'bogado/file-line'
+Plug 'christianrondeau/vim-base64'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'glts/vim-textobj-comment'
