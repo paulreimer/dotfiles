@@ -312,8 +312,6 @@ tnoremap <C-a>7 <C-\><C-n> 7gt
 tnoremap <C-a>8 <C-\><C-n> 8gt
 tnoremap <C-a>9 <C-\><C-n> 9gt
 
-" use Esc to exit terminal mode
-tnoremap <Esc> <C-\><C-n>
 
 " yank selection into system clipboard
 xnoremap <C-a>\ "*y
