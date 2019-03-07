@@ -274,6 +274,7 @@ inoremap <expr><CR>
 " nvr
 " delete buffer instead of quit
 cabbrev q <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'BD' : 'q')<CR>
+cabbrev qa <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'BD' : 'qa')<CR>
 cabbrev q! <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'BD!' : 'q!')<CR>
 cabbrev q1 <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'BD!' : 'q!')<CR>
 cabbrev wq <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'update <BAR> BD' : 'wq')<CR>
