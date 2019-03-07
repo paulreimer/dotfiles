@@ -1,6 +1,8 @@
 # Default shell settings
 #export EDITOR=`command -v nvim`
 export EDITOR=`command -v nvr --remote`
+export GIT_EDITOR=`command -v nvim`
+export KUBE_EDITOR=`command -v nvim`
 set -o vi
 
 # Additional autocompletion
