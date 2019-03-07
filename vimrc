@@ -190,7 +190,8 @@ let g:ale_html_tidy_executable = '/usr/local/bin/tidy'
 let g:ale_html_tidy_options = '--custom-tags yes --wrap 80 --indent yes --indent-attributes yes --indent-spaces 2'
 
 let g:ale_linters = {
-  \ 'cpp': ['clangcheck', 'clangd', 'clangtidy', 'clazy', 'cpplint', 'flawfinder']
+  \ 'cpp': ['clangcheck', 'clangd', 'clangtidy', 'clazy', 'cpplint', 'flawfinder'],
+  \ 'dart': ['language_server'],
   \ }
 
 let g:ale_fixers = {
