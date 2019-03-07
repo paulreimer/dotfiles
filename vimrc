@@ -211,6 +211,18 @@ let g:ale_completion_enabled = 1
 highlight ALEError gui=undercurl term=undercurl cterm=undercurl guisp=deeppink
 highlight ALEWarning gui=undercurl term=undercurl cterm=undercurl guisp=goldenrod1
 
+highlight ALEErrorSign ctermbg=none guibg=none ctermfg=darkred guifg=deeppink
+highlight ALEWarningSign ctermbg=none guibg=none ctermfg=yellow guifg=goldenrod1
+
+let g:ale_virtualtext_prefix = '🔥 '
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+
+let g:lightline#ale#indicator_checking = ""
+let g:lightline#ale#indicator_warnings = ""
+let g:lightline#ale#indicator_errors = ""
+let g:lightline#ale#indicator_ok = ""
+
 " LanguageClient-neovim
 if has('nvim')
 
