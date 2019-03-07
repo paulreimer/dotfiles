@@ -188,6 +188,7 @@ let g:ale_cpp_cpplint_options = '--filter=-whitespace/braces,-whitespace/parens,
 let g:ale_c_clangformat_executable = '/usr/local/bin/clang-format'
 let g:ale_html_tidy_executable = '/usr/local/bin/tidy'
 let g:ale_html_tidy_options = '--custom-tags yes --wrap 80 --indent yes --indent-attributes yes --indent-spaces 2'
+let g:ale_sh_shfmt_options = '-i 2'
 
 let g:ale_linters = {
   \ 'cpp': ['clangcheck', 'clangd', 'clangtidy', 'clazy', 'cpplint', 'flawfinder'],
@@ -201,6 +202,7 @@ let g:ale_fixers = {
   \ 'python': ['autopep8', 'isort'],
   \ 'javascript': ['prettier'],
   \ 'html': ['prettier'],
+  \ 'sh': ['shfmt'],
   \ }
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
