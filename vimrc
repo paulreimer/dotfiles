@@ -20,6 +20,7 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'ap/vim-css-color'
 Plug 'autozimu/LanguageClient-neovim', {'branch':'next', 'do':'bash install.sh'}
 Plug 'bling/vim-bufferline'
 Plug 'bogado/file-line'
