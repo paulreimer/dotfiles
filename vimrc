@@ -39,6 +39,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'twerth/ir_black'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'w0rp/ale'
 
 " Install correct deoplete plugins based on whether we are using vim or neovim
@@ -252,6 +253,9 @@ function! CompleteSnippet()
 
   let l:cur_col = mode() == 'i' ? col('.') - 2 : col('.') - 1
   let l:cur_line = getline('.')
+" DoxygenToolkit
+" Use /// comments instead of /** */
+let g:DoxygenToolkit_commentType = "C++"
 
   let l:start = l:comp_len <= l:cur_col ? l:cur_line[:l:cur_col - l:comp_len] : ''
   let l:end = l:cur_col < len(l:cur_line) ? l:cur_line[l:cur_col + 1 :] : ''
