@@ -19,8 +19,6 @@ Plug 'Shougo/deoplete-lsp'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'autozimu/LanguageClient-neovim', {'branch':'next', 'do':'bash install.sh'}
 Plug 'bling/vim-bufferline'
@@ -36,7 +34,6 @@ Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-user'
 Plug 'mopp/sky-color-clock.vim'
 Plug 'qpkorr/vim-bufkill'
-Plug 'sirver/UltiSnips'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'twerth/ir_black'
@@ -146,12 +143,6 @@ let g:bufferline_fname_mod = ':t'
 
 " fzf
 set rtp+=/usr/local/opt/fzf
-
-" vimfiler
-let g:vimfiler_as_default_explorer = 1
-" Disable netrw.vim
-let g:loaded_netrwPlugin = 1
-map <leader>e :VimFilerExplorer -parent -auto-expand<CR>
 
 " dart-vim-plugin
 let dart_html_in_string=v:true
@@ -329,10 +320,7 @@ nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>h :Commits<CR>
 nmap <leader>/ :Lines<CR>
-nmap <leader>g :Ag
-
-" UltiSnips
-nmap <leader>ue :UltiSnipsEdit<cr>
+nmap <leader>g :Ag<space>
 
 " Tabularize
 nmap <leader>t :TabFirst
