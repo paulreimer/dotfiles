@@ -35,8 +35,9 @@ export IDF_PATH="$HOME/Development/esp32/esp-idf"
 #export ESPIDF="$HOME/Development/esp32/micropython-esp-idf"
 
 # android
-export ANDROID_HOME="/usr/local/Caskroom/android-sdk/4333796"
-export ANDROID_NDK_HOME="/usr/local/Caskroom/android-ndk/17/android-ndk-r17"
+export ANDROID_NDK_HOME="/usr/local/Caskroom/android-ndk/18/android-ndk-r18"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
 
 # conda
 export CONDA_DEFAULT_ENV=intelpy
