@@ -12,6 +12,7 @@ for path in "${thisdir}"/*; do
     "Molokai.terminal") ;;
     "Monokai.xccolortheme") ;;
     "Roboto Mono for Powerline.ttf") ;;
+    "screenshot.png") ;;
     # Otherwise, create a link
     *)
       echo "-> ${link}"
