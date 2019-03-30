@@ -17,7 +17,8 @@ git clone https://dotfiles.p-rimes.net
 ./dotfiles/install.sh
 ```
 
-# Individually
+# Download Individual Config files
+```
 ## dotfiles
 test -f ".gitconfig" || curl --silent -L "https://dotfiles.p-rimes.net/gitconfig" -o ".gitconfig"
 test -f ".htoprc" || curl --silent -L "https://dotfiles.p-rimes.net/htoprc" -o ".htoprc"
