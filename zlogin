@@ -3,6 +3,7 @@
 export EDITOR=`command -v nvr --remote`
 export GIT_EDITOR=`command -v nvim`
 export KUBE_EDITOR=`command -v nvim`
+export HOMEBREW_EDITOR=`command -v nvim`
 set -o vi
 
 # Additional autocompletion
