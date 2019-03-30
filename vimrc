@@ -76,7 +76,7 @@ fun! EnableLineNumbers()
     setl number
   endif
 endfun
-autocmd BufEnter * call EnableLineNumbers()
+autocmd BufRead * call EnableLineNumbers()
 
 " Highlight long lines in source files (longer than 80 chars)
 fun! HighlightLongLines()
