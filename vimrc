@@ -335,7 +335,7 @@ nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>h :Commits<CR>
 nmap <leader>/ :Lines<CR>
-nmap <leader>g :Ag<space>
+nmap <leader>gf :Ag<space>
 
 " Tabularize
 nmap <leader>t :TabFirst
