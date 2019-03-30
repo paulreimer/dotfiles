@@ -325,6 +325,11 @@ au TabLeave * let g:lasttab = tabpagenr()
 noremap <C-a><C-a> :exe "tabn ".g:lasttab<CR>
 tnoremap <C-a><C-a> <C-\><C-n> :exe "tabn ".g:lasttab<CR>
 
+" ALE
+nmap <C-]> :ALEGoToDefinition<CR>
+nmap <leader>gd :ALEGoToDefinition<CR>
+nmap <leader>gs :ALEGoToDefinitionInSplit<CR>
+
 " fzf
 nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
