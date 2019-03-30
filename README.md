@@ -29,3 +29,5 @@ command -v nvim && nvim +'PlugInstall --sync' +qa
 # (this is a linux/BSD host default):
 #test -f ".zshenv" || curl --silent -L "https://dotfiles.p-rimes.net/zshenv" -o ".zshenv"
 ```
+
+![Screenshot (kitty/nvim)](screenshot.png)
