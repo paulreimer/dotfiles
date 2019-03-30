@@ -284,7 +284,7 @@ nnoremap ZZ :update <BAR> BD <CR>
 " screen-like key bindings
 noremap <C-a>c :tabnew <BAR> te <CR> i
 inoremap <C-a>c :tabnew <BAR> te <CR> i
-noremap <C-a>k :tabclose <CR>
+noremap <C-a>k :BD! <CR>
 "noremap <C-a><C-a> <C-^>
 noremap <C-a><Space> :tabnext <CR>
 noremap <C-a>0 0gt
@@ -300,7 +300,7 @@ noremap <C-a>9 9gt
 
 " terminal mode screen-like key bindings
 tnoremap <C-a>c <C-\><C-n> :tabnew <BAR> te <CR> i
-tnoremap <C-a>k <C-\><C-n> :tabclose <CR>
+tnoremap <C-a>k <C-\><C-n> :BD! <CR>
 "tnoremap <C-a><C-a> <C-\><C-n> <C-^>
 tnoremap <C-a><Space> <C-\><C-n> :tabnext <CR>
 tnoremap <C-a>0 <C-\><C-n> 0gt
