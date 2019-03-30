@@ -283,6 +283,7 @@ nnoremap ZZ :update <BAR> BD <CR>
 
 " screen-like key bindings
 noremap <C-a>c :tabnew <BAR> te <CR> i
+inoremap <C-a>c :tabnew <BAR> te <CR> i
 noremap <C-a>k :tabclose <CR>
 "noremap <C-a><C-a> <C-^>
 noremap <C-a><Space> :tabnext <CR>
