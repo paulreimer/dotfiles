@@ -94,6 +94,9 @@ export PATH=\
 :$HOME/.local/bin/luna-studio\
 :$HOME/.pub-cache/global_packages/angular_cli/bin\
 :$HOME/.linkerd2/bin\
+:$ANDROID_HOME/emulator\
+:$ANDROID_HOME/platform-tools\
+:$ANDROID_HOME/tools/bin\
 :/Applications/microchip/xc32/v2.10/bin\
 :/usr/local/miniconda3/envs/intelpy/bin\
 :/usr/local/opt/curl/bin\
