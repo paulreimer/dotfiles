@@ -3,12 +3,14 @@
 # Debian/apt-get
 sudo apt-get update
 sudo apt-get install screen zsh silversearcher-ag neovim python3-pip rsync htop git curl cmake colordiff
+
 # macOS/homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-# brew install abduco arp-scan ccache ccat cmake colordiff cppcheck cquery fzf htop neovim ninja openssl@1.1 llvm clang-format pinentry-mac python3 rpl shellcheck sl ssh-copy-id the_silver_searcher tree wdiff zsh
+brew install abduco arp-scan ccache ccat cmake colordiff cppcheck cquery fzf htop neovim ninja openssl@1.1 llvm clang-format pinentry-mac python3 rpl shellcheck sl ssh-copy-id the_silver_searcher tree wdiff zsh
+
 # Windows/Chocolatey
-# @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-# choco install ag autohotkey git kitty llvm neovim quicklook wox wsl wsl-debiangnulinux
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+choco install ag autohotkey git kitty llvm neovim quicklook wox wsl wsl-debiangnulinux
 ```
 
 # Install script (creates symlinks to dotfiles)
