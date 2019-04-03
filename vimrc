@@ -15,6 +15,7 @@ set fileformat=unix
 
 call plug#begin()
 
+Plug 'LnL7/vim-nix'
 Plug 'LucHermitte/lh-brackets'
 Plug 'LucHermitte/lh-vim-lib'
 Plug 'Shougo/deoplete-lsp'
