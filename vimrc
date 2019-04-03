@@ -15,6 +15,8 @@ set fileformat=unix
 
 call plug#begin()
 
+Plug 'LucHermitte/lh-brackets'
+Plug 'LucHermitte/lh-vim-lib'
 Plug 'Shougo/deoplete-lsp'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -252,6 +254,10 @@ endif
 " Use /// comments instead of /** */
 let g:DoxygenToolkit_commentType = "C++"
 
+" lh-brackets
+let b:usemarks=0
+" Disable '' quote wrapping
+let g:cb_disable_default = { "''": 'n' }
 
 " key mappings
 let mapleader = ","
