@@ -15,7 +15,7 @@ choco install ag autohotkey git kitty llvm neovim quicklook wox wsl wsl-debiangn
 
 # Install script (creates symlinks to dotfiles)
 ```
-git clone https://dotfiles.p-rimes.net
+git clone http://github.com/paulreimer/dotfiles
 ./dotfiles/install.sh
 ```
 
