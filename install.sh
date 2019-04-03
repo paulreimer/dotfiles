@@ -13,6 +13,7 @@ for path in "${thisdir}"/*; do
     "Monokai.xccolortheme") ;;
     "Roboto Mono for Powerline.ttf") ;;
     "screenshot.png") ;;
+    "init.vim") ;;
     # Otherwise, create a link
     *)
       echo "-> ${link}"
@@ -23,6 +24,10 @@ for path in "${thisdir}"/*; do
     echo "Skipping ${link}"
   fi
 done
+
+# nvim config
+mkdir -p ~/.config/nvim
+ln -s "${thisdir}/init.vim" ~/.config/nvim/init.vim
 
 mkdir -p ~/bin
 mkdir -p ~/.ssh
