@@ -10,17 +10,20 @@ EOF
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get install abduco ccache clang-tools-8 cmake colordiff cppcheck curl direnv distcc flawfinder git htop neovim ninja python3-pip redshift rpl rsync screen shellcheck silversearcher-ag sl tree wdiff zsh
+sudo pip3 install neovim-remote black isort yapf
 # fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # macOS/homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install abduco arp-scan ccache ccat cmake colordiff cppcheck direnv distcc flawfinder fzf htop neovim ninja openssl@1.1 llvm clang-format pinentry-mac python3 rpl shellcheck sl ssh-copy-id the_silver_searcher tree wdiff zsh
+brew install abduco arp-scan black ccache ccat cmake colordiff cppcheck direnv distcc flawfinder fzf htop neovim ninja openssl@1.1 llvm clang-format pinentry-mac python3 rpl shellcheck sl ssh-copy-id the_silver_searcher tree wdiff zsh
+sudo pip3 install neovim-remote isort yapf
 
 # Windows/Chocolatey
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 choco install ag autohotkey git kitty llvm neovim quicklook wox wsl wsl-debiangnulinux
+
 ```
 
 # Install script (creates symlinks to dotfiles)
