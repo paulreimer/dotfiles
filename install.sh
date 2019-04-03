@@ -14,6 +14,7 @@ for path in "${thisdir}"/*; do
     "Roboto Mono for Powerline.ttf") ;;
     "screenshot.png") ;;
     "init.vim") ;;
+    "kitty.conf") ;;
     # Otherwise, create a link
     *)
       echo "-> ${link}"
@@ -28,6 +29,9 @@ done
 # nvim config
 mkdir -p ~/.config/nvim
 ln -s "${thisdir}/init.vim" ~/.config/nvim/init.vim
+
+mkdir -p ~/.config/kitty
+ln -s "${thisdir}/kitty.conf" ~/.config/kitty/kitty.conf
 
 mkdir -p ~/bin
 mkdir -p ~/.ssh
