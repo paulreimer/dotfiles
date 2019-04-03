@@ -1,12 +1,22 @@
 # Dependencies
 ```
 # Debian/apt-get
-sudo apt-get update
-sudo apt-get install screen zsh silversearcher-ag neovim python3-pip rsync htop git curl cmake colordiff
+# llvm
+cat << EOF > /etc/apt/sources.list.d/llvm.list
+deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-8 main
+deb-src http://apt.llvm.org/bionic/ llvm-toolchain-bionic-8 main
+EOF
+# neovim
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get install abduco ccache clang-tools-8 cmake colordiff cppcheck curl direnv distcc flawfinder git htop neovim ninja python3-pip redshift rpl rsync screen shellcheck silversearcher-ag sl tree wdiff zsh
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 # macOS/homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install abduco arp-scan ccache ccat cmake colordiff cppcheck cquery fzf htop neovim ninja openssl@1.1 llvm clang-format pinentry-mac python3 rpl shellcheck sl ssh-copy-id the_silver_searcher tree wdiff zsh
+brew install abduco arp-scan ccache ccat cmake colordiff cppcheck direnv distcc flawfinder fzf htop neovim ninja openssl@1.1 llvm clang-format pinentry-mac python3 rpl shellcheck sl ssh-copy-id the_silver_searcher tree wdiff zsh
 
 # Windows/Chocolatey
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
