@@ -29,6 +29,7 @@ Plug 'autozimu/LanguageClient-neovim', {'branch':'next', 'do':'bash install.sh'}
 Plug 'bling/vim-bufferline'
 Plug 'bogado/file-line'
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'glts/vim-textobj-comment'
 Plug 'godlygeek/tabular'
