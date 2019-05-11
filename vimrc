@@ -341,6 +341,7 @@ tnoremap <C-a><C-a> <C-\><C-n> :exe "tabn ".g:lasttab<CR>
 " ALE
 nmap <C-]> :ALEGoToDefinition<CR>
 nmap <leader>gd :ALEGoToDefinition<CR>
+nmap <leader>gr :ALEFindReferences<CR>
 nmap <leader>gs :ALEGoToDefinitionInSplit<CR>
 
 " fzf
