@@ -15,6 +15,7 @@ set fileformat=unix
 
 call plug#begin()
 
+Plug 'CoatiSoftware/vim-sourcetrail'
 Plug 'LnL7/vim-nix'
 Plug 'LucHermitte/lh-brackets'
 Plug 'LucHermitte/lh-vim-lib'
@@ -359,6 +360,9 @@ xmap ah <Plug>GitGutterTextObjectOuterVisual
 
 " DoxygenToolkit
 nmap <leader>d :Dox<CR>
+
+" Sourcetrail
+nmap <leader>s :SourcetrailActivateToken<CR>
 
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
