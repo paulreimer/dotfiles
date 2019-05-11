@@ -8,6 +8,9 @@ export PATH=$MY_PATH:$BIN_PATH:$STD_PATH
 # Skip all this for non-interactive shells
 [[ -z "$PS1" ]] && return
 
+# Machine-specific command aliases
+#alias make="make -j N"
+
 ## Basic SSH-agent access for screen terminal multiplexer
 SSH_ENV="$HOME/.ssh/environment"
 
