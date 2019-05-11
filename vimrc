@@ -207,6 +207,7 @@ let g:ale_sh_shfmt_options = '-i 2'
 let g:ale_linters = {
   \ 'cpp': ['clangcheck', 'clangd', 'clangtidy', 'clazy', 'cpplint', 'flawfinder'],
   \ 'dart': ['language_server'],
+  \ 'python': ['flake8', 'pylama', 'pylint'],
   \ }
 
 let g:ale_fixers = {
