@@ -218,6 +218,7 @@ let g:ale_fixers = {
   \ 'javascript': ['prettier'],
   \ 'html': ['prettier'],
   \ 'sh': ['shfmt'],
+  \ 'yaml': ['prettier'],
   \ }
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
