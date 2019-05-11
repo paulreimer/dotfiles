@@ -214,7 +214,7 @@ let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \ 'cpp': ['clang-format'],
   \ 'dart': ['dartfmt'],
-  \ 'python': ['autopep8', 'isort'],
+  \ 'python': ['autopep8', 'isort', 'yapf'],
   \ 'javascript': ['prettier'],
   \ 'html': ['prettier'],
   \ 'sh': ['shfmt'],
