@@ -181,6 +181,8 @@ call deoplete#custom#source('_', 'max_abbr_width', 180)
 call deoplete#custom#source('_', 'max_menu_width', 180)
 
 " neosnippet
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
 " Trigger expansion of snippet immediately after completion popup is done
 let g:neosnippet#enable_complete_done = 1
 " If completion selects a function prototype, expand it and cycle placeholders
