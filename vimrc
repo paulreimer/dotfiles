@@ -124,6 +124,9 @@ set shiftwidth=2
 set expandtab
 set backspace=start,indent
 
+" Better display for messages
+set cmdheight=2
+
 " Suppress 'match x of y', 'The only match' and 'Pattern not found' messages
 set shortmess+=c
 
