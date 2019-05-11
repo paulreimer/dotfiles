@@ -127,6 +127,9 @@ set backspace=start,indent
 " Better display for messages
 set cmdheight=2
 
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
 " Suppress 'match x of y', 'The only match' and 'Pattern not found' messages
 set shortmess+=c
 
