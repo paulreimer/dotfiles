@@ -380,6 +380,9 @@ nmap <leader>d :Dox<CR>
 " Sourcetrail
 nmap <leader>s :SourcetrailActivateToken<CR>
 
+" neomake
+nmap <leader>m :Neomake!<CR>
+
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
 let g:sky_color_clock#datetime_format = '%a %d %l:%M%p'
