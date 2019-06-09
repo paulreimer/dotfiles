@@ -206,6 +206,7 @@ let g:ale_javascript_prettier_use_global = 1
 let g:ale_javascript_xo_use_global = 1
 let g:ale_javascript_xo_options = '--prettier --space'
 let g:ale_cpp_cpplint_options = '--filter=-whitespace/braces,-whitespace/parens,-whitespace/newline,-readability/braces,-readability/alt_tokens'
+let g:ale_c_clangformat_options = '-style=file'
 let g:ale_html_tidy_executable = '/usr/local/bin/tidy'
 let g:ale_html_tidy_options = '--custom-tags yes --wrap 80 --indent yes --indent-attributes yes --indent-spaces 2'
 let g:ale_sh_shfmt_options = '-i 2'
