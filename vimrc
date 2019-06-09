@@ -357,7 +357,7 @@ nmap <leader>gs :ALEGoToDefinitionInSplit<CR>
 " fzf
 nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
-nmap <leader>h :Commits<CR>
+nmap <leader>h :History:<CR>
 nmap <leader>/ :Lines<CR>
 nmap <leader>gf :Ag<space>
 
