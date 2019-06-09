@@ -369,6 +369,7 @@ nmap <leader>T :Tabularize /
 nmap <leader>c :TagbarToggle<CR>
 
 " gitgutter
+let g:gitgutter_map_keys = 0
 omap ih <Plug>GitGutterTextObjectInnerPending
 omap ah <Plug>GitGutterTextObjectOuterPending
 xmap ih <Plug>GitGutterTextObjectInnerVisual
