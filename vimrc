@@ -273,6 +273,9 @@ let b:usemarks=0
 " Disable '' quote wrapping
 let g:cb_disable_default = { "''": 'n' }
 
+" neomake
+let g:neomake_open_list = 2
+
 " key mappings
 let mapleader = ","
 
