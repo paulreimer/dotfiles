@@ -171,7 +171,7 @@ let dart_html_in_string=v:true
 let dart_style_guide = 2
 
 " es7
-autocmd BufRead,BufNewFile *.es7 setfiletype=javascript
+autocmd BufRead,BufNewFile *.es7 set filetype=javascript
 
 " tcomment
 let g:tcomment_textobject_inlinecomment = ''
