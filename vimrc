@@ -355,7 +355,7 @@ nmap <leader>gr :ALEFindReferences<CR>
 nmap <leader>gs :ALEGoToDefinitionInSplit<CR>
 
 " fzf
-nmap <leader>f :Ag<CR>
+nmap <leader>f :Ag<space>
 nmap <leader>F :Files<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>h :History:<CR>
