@@ -10,6 +10,7 @@ export PATH=\
 :$STD_PATH
 
 ### Environment variables
+export FZF_DEFAULT_OPTS="--exact"
 
 # Skip all this for non-interactive shells
 [[ -z "$PS1" ]] && return
