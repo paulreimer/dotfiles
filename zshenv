@@ -1,7 +1,7 @@
 # Directory aliases
 
 # PATH
-STD_PATH=/usr/sbin:/sbin:/usr/bin:/bin:/usr/X11/bin
+STD_PATH=/usr/sbin:/sbin:/usr/bin:/bin:/usr/X11/bin:/usr/games
 BIN_PATH=/usr/local/bin:/usr/local/sbin
 
 export PATH=\
