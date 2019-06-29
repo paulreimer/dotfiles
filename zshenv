@@ -15,6 +15,7 @@ export PATH=$MY_PATH:$BIN_PATH:$STD_PATH
 
 # Machine-specific command aliases
 #alias make="make -j N"
+alias open="xdg-open"
 
 ## Basic SSH-agent access for screen terminal multiplexer
 SSH_ENV="$HOME/.ssh/environment"
