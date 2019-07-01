@@ -91,7 +91,7 @@ export PATH=\
 :$HOME/bin\
 :$HOME/Development/flutter/flutter/bin\
 :$HOME/Development/nrf52/zephyr/scripts\
-:$HOME/Development/esp32/xtensa-esp32-elf-osx-1.22.0-80-g6c4433a-5.2.0/bin\
+:$HOME/Development/esp32/xtensa-esp32-elf-gcc8_2_0-esp32-2019r1-macos/bin\
 :$HOME/Development/esp32/openocd-esp32/bin\
 :$HOME/Development/esp32/esp-idf/tools/\
 :$HOME/Development/go/bin\
