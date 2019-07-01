@@ -32,16 +32,14 @@ Plug 'maximbaz/lightline-ale'
 Plug 'mopp/sky-color-clock.vim'
 Plug 'neomake/neomake'
 Plug 'qpkorr/vim-bufkill'
+Plug 'thosakwe/vim-flutter'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'twerth/ir_black'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'w0rp/ale'
 
-Plug 'paulreimer/vim-flutter'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-
- Install correct deoplete plugins based on whether we are using vim or neovim
+" Install correct deoplete plugins based on whether we are using vim or neovim
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', {'do':':UpdateRemotePlugins'}
 else
@@ -53,4 +51,4 @@ endif
 call plug#end()
 
 " Load configuration / settings
-source config.vim
+source .config.vim
