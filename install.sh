@@ -12,9 +12,18 @@ for path in "${thisdir}"/*; do
     "Molokai.terminal") ;;
     "Monokai.xccolortheme") ;;
     "Roboto Mono for Powerline.ttf") ;;
-    "screenshot.png") ;;
+      # .config/<app> files:
     "init.vim") ;;
     "kitty.conf") ;;
+      # Documents:
+    "README.md") ;;
+      # Install scripts:
+    "install.sh") ;;
+    "fetch.sh") ;;
+    "screenshot.png") ;;
+      # GitHub pages:
+    "CNAME") ;;
+    "_config.yml") ;;
     # Otherwise, create a link
     *)
       echo "-> ${link}"
