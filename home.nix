@@ -5,17 +5,17 @@ with builtins;
 
 let
   ccat = buildGoModule rec {
-    name = "ccat-${version}";
+    name = "ccat";
     version = "1.1.0";
 
     src = fetchFromGitHub {
       owner = "jingweno";
       repo = "ccat";
       rev = "v${version}";
-      sha256 = "0m2fzpqxk7hrbxsgqplkg7h2p7gv6s1miymv3gvw0cz039skag0s";
+      sha256 = "1mpysig5lvjjjwvs22pz0nj3vh77d77n1l4hch8qmqh5chp3z911";
     };
 
-    modSha256 = "06ham8lsx5c1vk5jkwp1aa9g4q4g7sfq7gxz2gkffa98x2vlawyf";
+    modSha256 = "09i0mdlfd58nypga71554cmclngjsc0k7axayjp4k3mh7c0ybbv1";
 
     subPackages = [ "." ];
 
