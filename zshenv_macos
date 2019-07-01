@@ -143,9 +143,6 @@ alias spark-submit='/Users/paulreimer/Development/ops/spark/bin/spark-submit --d
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/paulreimer/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/paulreimer/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
 
-# Nix
-[[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]] && . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-
 # Functions
 openocd() {
   OPENOCD_ESP32_PATH="${HOME}/Development/esp32/openocd-esp32"
