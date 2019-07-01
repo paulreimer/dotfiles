@@ -144,9 +144,7 @@ set shell=$HOME/.nix-profile/bin/zsh\ --login
 set autochdir
 
 " netrw
-let netrw_liststyle=3
-let netrw_winsize = -56
-let netrw_banner = 0
+let loaded_netrwPlugin = 1
 
 " ag
 set grepprg=ag\ $*
