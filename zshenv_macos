@@ -64,6 +64,14 @@ export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
 export GNUARMEMB_TOOLCHAIN_PATH="/usr/local"
 export ZEPHYR_BASE="$HOME/Development/nrf52/zephyr"
 
+# nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+# nixpkgs
+export NIX_PATH=$HOME/.nix-defexpr/channels:nixpkgs=$HOME/Development/nixos/nixpkgs
+
 # PATH
 STD_PATH=/usr/sbin:/sbin:/usr/bin:/bin:/usr/X11/bin
 BIN_PATH=/usr/local/bin:/usr/local/sbin
@@ -94,9 +102,11 @@ export PATH=\
 :$HOME/.local/bin/luna-studio\
 :$HOME/.pub-cache/global_packages/angular_cli/bin\
 :$HOME/.linkerd2/bin\
+:$HOME/.nix-profile/bin\
 :$ANDROID_HOME/emulator\
 :$ANDROID_HOME/platform-tools\
 :$ANDROID_HOME/tools/bin\
+:/nix/var/nix/profiles/default/bin\
 :/Applications/microchip/xc32/v2.10/bin\
 :/usr/local/miniconda3/envs/intelpy/bin\
 :/usr/local/opt/curl/bin\
