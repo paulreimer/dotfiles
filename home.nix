@@ -149,7 +149,7 @@ in
     viAlias = true;
     vimAlias = true;
     configure = {
-      customRC = builtins.readFile ./vimrc;
+      customRC = builtins.readFile ./config.vim;
       plug.plugins = with pkgs.vimPlugins; [
         ale
         dart-vim-plugin
