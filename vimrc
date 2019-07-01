@@ -138,7 +138,7 @@ set shortmess+=c
 set hidden
 
 " zsh
-set shell=/usr/local/bin/zsh\ --login
+set shell=$HOME/.nix-profile/bin/zsh\ --login
 
 " change cwd to current buffer file's dir
 set autochdir
