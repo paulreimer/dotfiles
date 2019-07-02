@@ -1,0 +1,5 @@
+*.csv diff=daff-csv
+*.csv merge=daff-csv
+
+*.ipynb	diff=jupyternotebook
+*.ipynb	merge=jupyternotebook
