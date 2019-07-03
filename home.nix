@@ -214,6 +214,7 @@ in
     ".vim/ftplugin/gitcommit.vim".source = ./vim/ftplugin/gitcommit.vim;
 
     # Utility apps dotfiles:
+    ".colordiffrc".source = ./colordiffrc;
     ".screenrc".source = ./screenrc;
   };
 }
