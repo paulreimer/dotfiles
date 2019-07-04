@@ -295,6 +295,10 @@ au TabLeave * let g:lasttab = tabpagenr()
 noremap <C-a><C-a> :exe "tabn ".g:lasttab<CR>
 tnoremap <C-a><C-a> <C-\><C-n> :exe "tabn ".g:lasttab<CR>
 
+" use Ctrl-A Shift-A to rename current tab
+noremap <C-a>A :keepalt file<space>
+tnoremap <C-a>A :keepalt file<space>
+
 " ALE
 nmap <C-]> :ALEGoToDefinition<CR>
 nmap <leader>gd :ALEGoToDefinition<CR>
