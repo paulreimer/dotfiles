@@ -26,3 +26,7 @@
 [merge "daff-csv"]
   name = daff tabular merge
   driver = daff merge --output %A %O %A %B
+[diff "jupyternotebook"]
+  command = git-nbdiffdriver diff
+[merge "jupyternotebook"]
+  command = git-nbmergetool merge %O %A %B %L %P

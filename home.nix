@@ -128,11 +128,11 @@ in
         name = "daff tabular merge";
         driver = "daff merge --output %A %O %A %B";
       };
-      "difftool \"nbdime\"" = {
-        cmd = "git-nbdifftool diff \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\"";
+      "diff \"jupyternotebook\"" = {
+        command = "git-nbdiffdriver diff";
       };
-      "mergetool \"nbdime\"" = {
-        cmd = "git-nbmergetool merge \\\"$BASE\\\" \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\"";
+      "merge \"jupyternotebook\"" = {
+        command = "git-nbmergedriver merge %O %A %B %L %P";
       };
     };
   };
