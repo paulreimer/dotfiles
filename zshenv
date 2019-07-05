@@ -19,6 +19,15 @@ export FZF_DEFAULT_OPTS="--exact"
 #alias make="make -j N"
 alias open="xdg-open"
 
+# direnv
+_direnv_hook() {
+  eval "$(direnv export zsh)";
+}
+typeset -ag precmd_functions;
+if [[ -z ${precmd_functions[(r)_direnv_hook]} ]]; then
+  precmd_functions+=_direnv_hook;
+fi
+
 ## Basic SSH-agent access for screen terminal multiplexer
 SSH_ENV="$HOME/.ssh/environment"
 
