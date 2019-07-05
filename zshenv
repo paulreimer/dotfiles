@@ -12,6 +12,9 @@ export PATH=\
 ### Environment variables
 export FZF_DEFAULT_OPTS="--exact"
 
+# Enable GCC colors always (including ccache)
+export GCC_COLORS=1
+
 # Skip all this for non-interactive shells
 [[ -z "$PS1" ]] && return
 
