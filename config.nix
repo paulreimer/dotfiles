@@ -1,4 +1,5 @@
 {
+  allowUnfree = true;
   packageOverrides = pkgs: rec {
     neovim-unwrapped = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: rec {
       version = "0.4.0-dev";
