@@ -93,6 +93,7 @@ set shell=$HOME/.nix-profile/bin/zsh\ --login
 set autochdir
 
 " netrw
+" disable netrw for directory listings
 let loaded_netrwPlugin = 1
 
 " ag
