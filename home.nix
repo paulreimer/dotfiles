@@ -190,9 +190,6 @@ in
   qt.enable = true;
 
   home.file = {
-    # git diff/merge tool configuration
-    ".config/git/attributes".source = ./attributes;
-
     # kitty terminal
     ".config/kitty/kitty.conf".source = ./kitty.conf;
 
@@ -213,7 +210,10 @@ in
     ".vim/ftplugin/diff.vim".source = ./vim/ftplugin/diff.vim;
     ".vim/ftplugin/gitcommit.vim".source = ./vim/ftplugin/gitcommit.vim;
 
-    # Utility apps dotfiles:
+    # git diff/merge tool configuration
+    ".config/git/attributes".source = ./attributes;
+
+    # other dotfiles:
     ".colordiffrc".source = ./colordiffrc;
     ".screenrc".source = ./screenrc;
   };
