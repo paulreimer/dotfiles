@@ -112,7 +112,7 @@ let g:bufferline_modified = ' + '
 let g:bufferline_fname_mod = ':t'
 
 " fzf
-set rtp+=/usr/local/opt/fzf
+set rtp+=$HOME/.fzf
 
 " dart-vim-plugin
 let dart_html_in_string=v:true
@@ -254,7 +254,7 @@ nnoremap ZZ :update <BAR> BD <CR>
 
 " screen-like key bindings
 noremap <C-a>c :tabnew <BAR> te <CR> i
-inoremap <C-a>c :tabnew <BAR> te <CR> i
+inoremap <C-a>c <ESC>:tabnew <BAR> te <CR> i
 noremap <C-a>k :BD! <CR>
 "noremap <C-a><C-a> <C-^>
 noremap <C-a><Space> :tabnext <CR>
@@ -317,9 +317,6 @@ nmap <leader>gf :Ag<space>
 " Tabularize
 nmap <leader>t :TabFirst
 nmap <leader>T :Tabularize /
-
-" tagbar
-nmap <leader>c :TagbarToggle<CR>
 
 " gitgutter
 let g:gitgutter_map_keys = 0
