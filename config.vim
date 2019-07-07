@@ -75,7 +75,7 @@ set expandtab
 set backspace=start,indent
 
 " Better display for messages
-set cmdheight=2
+set cmdheight=1
 
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
