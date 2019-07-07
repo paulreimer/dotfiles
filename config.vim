@@ -248,6 +248,11 @@ smap <expr><TAB>
 imap <expr><S-TAB>
  \ pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
+" neosnippet expansion, placeholder cycling
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
 " deoplete actions on close popup
 inoremap <expr><CR>
  \ pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
