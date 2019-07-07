@@ -3,36 +3,12 @@
 with import <nixpkgs> {};
 with builtins;
 
-let
-  ccat = buildGoModule rec {
-    name = "ccat";
-    version = "1.1.0";
-
-    src = fetchFromGitHub {
-      owner = "jingweno";
-      repo = "ccat";
-      rev = "v${version}";
-      sha256 = "1mpysig5lvjjjwvs22pz0nj3vh77d77n1l4hch8qmqh5chp3z911";
-    };
-
-    modSha256 = "09i0mdlfd58nypga71554cmclngjsc0k7axayjp4k3mh7c0ybbv1";
-
-    subPackages = [ "." ];
-
-    meta = with lib; {
-      description = "Colorizing `cat`";
-      homepage = https://github.com/jingweno/ccat;
-      license = licenses.mit;
-      maintainers = with maintainers; [ jingweno ];
-      platforms = platforms.linux ++ platforms.darwin;
-    };
-  };
-in
 {
   home.packages = [
     pkgs.abduco
     pkgs.bear
     pkgs.ccache
+    pkgs.ccat
     pkgs.cmake
     pkgs.colordiff
     pkgs.cppcheck
@@ -72,7 +48,6 @@ in
     pkgs.neovim-unwrapped
 
     # Custom packages (from let .. in) here:
-    ccat
   ];
 
   programs.home-manager.enable = true;
