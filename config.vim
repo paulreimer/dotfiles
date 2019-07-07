@@ -134,6 +134,12 @@ let g:deoplete#enable_smart_case = 1
 " Extend the popup menu width
 call deoplete#custom#source('_', 'max_abbr_width', 180)
 call deoplete#custom#source('_', 'max_menu_width', 180)
+" Do not open a popup window (float-preview.nvim uses floating window)
+set completeopt-=preview
+
+" float-preview-nvim
+let g:float_preview#docked = 1
+autocmd InsertLeave * silent! call float_preview#close()!
 
 " neosnippet
 " Enable snipMate compatibility feature.
