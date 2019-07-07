@@ -134,6 +134,7 @@ with builtins;
         DoxygenToolkit-vim
         editorconfig-vim
         file-line
+        float-preview-nvim
         fzf-vim
         ir_black
         LanguageClient-neovim
