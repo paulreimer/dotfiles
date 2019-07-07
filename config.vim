@@ -153,9 +153,10 @@ let g:neosnippet#enable_completed_snippet = 1
 " Hide marker characters in expanded snippets
 if has('conceal')
   set conceallevel=2 concealcursor=niv
+
+  " Do not hide marker characters for JSON quotes
+  autocmd FileType json setlocal conceallevel=0
 endif
-" Do not hide marker characters for JSON quotes
-autocmd FileType json setlocal conceallevel=0
 
 " ale
 let g:ale_javascript_prettier_use_global = 1
