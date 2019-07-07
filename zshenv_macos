@@ -70,7 +70,11 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 
 # nixpkgs
-export NIX_PATH=$HOME/.nix-defexpr/channels:nixpkgs=$HOME/Development/nixos/nixpkgs
+export NIX_PATH=\
+:$HOME/.nix-defexpr/channels\
+:nixpkgs=$HOME/Development/nixos/nixpkgs\
+:darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix\
+:darwin=$HOME/.nix-defexpr/channels/darwin
 
 # PATH
 STD_PATH=/usr/sbin:/sbin:/usr/bin:/bin:/usr/X11/bin
@@ -109,6 +113,7 @@ export PATH=\
 :$ANDROID_HOME/platform-tools\
 :$ANDROID_HOME/tools/bin\
 :/nix/var/nix/profiles/default/bin\
+:/run/current-system/sw/bin\
 :/Applications/microchip/xc32/v2.10/bin\
 :/usr/local/miniconda3/envs/intelpy/bin\
 :/usr/local/opt/curl/bin\
