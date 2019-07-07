@@ -265,7 +265,6 @@ nnoremap ZZ :update <BAR> BD <CR>
 noremap <C-a>c :tabnew <BAR> te <CR> i
 inoremap <C-a>c <ESC>:tabnew <BAR> te <CR> i
 noremap <C-a>k :BD! <CR>
-"noremap <C-a><C-a> <C-^>
 noremap <C-a><Space> :tabnext <CR>
 noremap <C-a>0 0gt
 noremap <C-a>1 1gt
