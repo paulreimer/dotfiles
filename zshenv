@@ -15,6 +15,14 @@ export FZF_DEFAULT_OPTS="--exact"
 # Enable GCC colors always (including ccache)
 export GCC_COLORS=1
 
+# nixpkgs
+export NIX_PATH=$HOME/.nix-defexpr/channels:nixpkgs=$HOME/Development/nixos/nixpkgs
+
+# nix
+if [ -e /home/paul/.nix-profile/etc/profile.d/nix.sh ]; then
+  . /home/paul/.nix-profile/etc/profile.d/nix.sh
+fi
+
 # Skip all this for non-interactive shells
 [[ -z "$PS1" ]] && return
 
