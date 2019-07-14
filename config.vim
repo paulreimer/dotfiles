@@ -90,7 +90,19 @@ set hidden
 set shell=$HOME/.nix-profile/bin/zsh\ --login
 
 " change cwd to current buffer file's dir
-set autochdir
+function! AutoLcd()
+  " Terminals do not provide a valid/up-to-date path
+  if expand("%:p:h") =~ '^term:'
+    " Extract the CWD for the terminal's PID
+    let l:term_pid = matchstr(expand("%"), 'term://.//\zs[0-9]\+\ze')
+    let l:term_cwd = system("lsof -a -d cwd -c zsh -p " . term_pid . " -Fn | sed -n -e 's/^n\\(.*\\)$/\\1/p'")[:-2]
+    execute "lcd " . l:term_cwd
+  else
+    " Normal buffers have a file path
+    lcd %:p:h
+  endif
+endfunction
+autocmd BufEnter * call AutoLcd()
 
 " netrw
 " disable netrw for directory listings
