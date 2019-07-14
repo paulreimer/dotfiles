@@ -24,6 +24,9 @@ set t_Co=256
 set background=dark
 colors ir_black
 
+" Do not consider a ':' to be present in paths, use it to mean file:line
+set isfname-=:
+
 " Only show line numbers on non-terminal windows
 " (Must be done this way, since disabling them later incorrectly sets columns)
 fun! EnableLineNumbers()
