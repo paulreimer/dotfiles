@@ -169,6 +169,9 @@ with builtins;
     # kitty terminal
     ".config/kitty/kitty.conf".source = ./kitty.conf;
 
+    # fzf-based launcher
+    "bin/launcher".source = ./launcher;
+
     # zsh
     ".zlogin".source = ./zlogin;
     ".zshenv".source = ./zshenv;
