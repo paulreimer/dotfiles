@@ -14,6 +14,7 @@ set -o vi
 # Command aliases
 #alias vi="nvim"
 #alias vim="nvim"
+alias ag="ag --no-heading"
 alias vi="nvr --remote"
 alias vim="nvr --remote"
 alias h="history 0 | ag"
