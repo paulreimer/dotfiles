@@ -54,3 +54,7 @@ diff() {
     command colordiff -u "$@"
   fi
 }
+cd() {
+  nvr --remote-send "<C-\><C-n>:lcd ${1:a}<cr>i"
+  builtin cd "$@"
+}
