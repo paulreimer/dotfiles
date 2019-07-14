@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -eu
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # Linux
+  DIRS="/usr/share/applications $HOME/.local/share/applications"
+  APP_EXT=".desktop"
+  OPENER="-r swaymsg -t command exec gtk-launch"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS
+  DIRS="/Applications $HOME/Applications"
+  APP_EXT=".app"
+  OPENER="open -a"
+else
+  echo "Unknown OSTYPE: ${OSTYPE}"
+  exit 1
+fi
+
+find ${DIRS} -maxdepth 1 -name "*${APP_EXT}" -print0 |
+  xargs -0 basename -s "${APP_EXT}" -a |
+  fzf --print0 |
+  xargs -0 ${OPENER}
