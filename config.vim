@@ -332,6 +332,9 @@ tnoremap <C-a><C-a> <C-\><C-n> :exe "tabn ".g:lasttab<CR>
 noremap <C-a>A :keepalt file<space>
 tnoremap <C-a>A :keepalt file<space>
 
+inoremap <F18> <C-\><C-n>
+tnoremap <F18> <C-\><C-n>
+
 " ALE
 nmap <C-]> :ALEGoToDefinition<CR>
 nmap <leader>gd :ALEGoToDefinition<CR>
