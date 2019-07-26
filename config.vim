@@ -316,6 +316,16 @@ tnoremap <C-a>7 <C-\><C-n> 7gt
 tnoremap <C-a>8 <C-\><C-n> 8gt
 tnoremap <C-a>9 <C-\><C-n> 9gt
 
+" use Ctrl-w {hjkl} to navigate terminal windows
+tnoremap <C-w>h <C-\><C-n> :tabprev <CR>
+tnoremap <C-w>j <C-\><C-n> :bprev <CR>
+tnoremap <C-w>k <C-\><C-n> :bnext <CR>
+tnoremap <C-w>l <C-\><C-n> :tabnext <CR>
+
+noremap <C-w>h <C-\><C-n> :tabprev <CR>
+noremap <C-w>j <C-\><C-n> :bprev <CR>
+noremap <C-w>k <C-\><C-n> :bnext <CR>
+noremap <C-w>l <C-\><C-n> :tabnext <CR>
 
 " yank selection into system clipboard
 xnoremap <C-a>\ "*y
