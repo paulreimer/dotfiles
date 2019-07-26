@@ -371,7 +371,7 @@ xmap ih <Plug>GitGutterTextObjectInnerVisual
 xmap ah <Plug>GitGutterTextObjectOuterVisual
 
 " DoxygenToolkit
-nmap <leader>d :Dox<CR>
+nmap <leader>D :Dox<CR>
 
 " Sourcetrail
 nmap <leader>s :SourcetrailActivateToken<CR>
