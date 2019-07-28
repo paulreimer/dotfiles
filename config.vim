@@ -335,7 +335,6 @@ tnoremap <C-a><C-a> <C-\><C-n> :exe "tabn ".g:lasttab<CR>
 
 " use Ctrl-A Shift-A to rename current tab
 noremap <C-a>A :keepalt file<space>
-tnoremap <C-a>A :keepalt file<space>
 
 inoremap <F18> <C-\><C-n>
 tnoremap <F18> <C-\><C-n>
