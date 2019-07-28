@@ -323,7 +323,7 @@ noremap <leader>k <C-\><C-n> :bnext <CR>
 noremap <leader>l <C-\><C-n> :tabnext <CR>
 
 " yank selection into system clipboard
-xnoremap <C-a>\ "*y
+xnoremap <C-a>\ "+y
 
 " Send Ctrl-A to nested screen/tmux
 noremap <C-a>a <C-a>
