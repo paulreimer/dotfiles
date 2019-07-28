@@ -39,18 +39,6 @@ fun! EnableLineNumbers()
 endfun
 autocmd BufRead * call EnableLineNumbers()
 
-" Highlight long lines in source files (longer than 80 chars)
-fun! HighlightLongLines()
-  " Only highlight for source files (not terminals)
-  if &buftype != 'terminal'
-    let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-  else
-    " This will clear all matches when entering a terminal window(?)
-    call clearmatches()
-  endif
-endfun
-autocmd BufEnter * call HighlightLongLines()
-
 " Highlight tabs + trailing whitespace
 set listchars=tab:→\ ,nbsp:␣,trail:·
 set list
