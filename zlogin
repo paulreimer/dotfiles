@@ -43,6 +43,7 @@ calc_hex()
   echo 'printf "%#08x\\n",' "$@" > /tmp/tmp.calc;
   /usr/bin/gdb -q -n -batch -x /tmp/tmp.calc;
 }
+
 # Add custom diff output
 diff() {
   # Reformat (uncolorized) diff output to make yanking files easier
@@ -55,6 +56,8 @@ diff() {
     command colordiff -u "$@"
   fi
 }
+
+# Change nvim directory when cd'ing
 cd() {
   nvr --remote-send "<C-\><C-n>:lcd ${1:a}<cr>i"
   builtin cd "$@"
