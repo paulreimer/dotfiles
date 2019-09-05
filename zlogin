@@ -6,6 +6,7 @@ export KUBE_EDITOR=`command -v nvim`
 export HOMEBREW_EDITOR=`command -v nvim`
 export SUDO_EDITOR=`command -v nvim`
 export SYSTEMD_EDITOR=`command -v nvim`
+export SVN_EDITOR=`command -v nvim`
 set -o vi
 
 # Additional autocompletion
