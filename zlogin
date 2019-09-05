@@ -65,16 +65,28 @@ cd() {
 
 # Execute OAuth request and extract value from response
 oauth() {
-  OAUTH_CLIENT_ID="$1"
-  OAUTH_CLIENT_SECRET="$2"
-  OAUTH_REFRESH_TOKEN="$3"
-  OAUTH_TOKEN_ENDPOINT="$4"
+  OAUTH_TOKEN_ENDPOINT="$1"
+  OAUTH_CLIENT_ID="$2"
+  OAUTH_CLIENT_SECRET="$3"
+  OAUTH_GRANT_TYPE="${4:-refresh_token}"
+  OAUTH_VALUE="$5"
+  OAUTH_DESIRED_VALUE="${6:-access_token}"
+  OAUTH_EXTRA_ARGS="$7"
+
+  case "${OAUTH_GRANT_TYPE}" in
+  refresh_token)
+    OAUTH_PARAM="refresh_token"
+    ;;
+  authorization_code)
+    OAUTH_PARAM="code"
+    ;;
+  esac
 
   command curl --silent \
     -X POST "${OAUTH_TOKEN_ENDPOINT}" \
     -H "Content-Type: application/x-www-form-urlencoded" \
-    -d "grant_type=refresh_token&client_id=${OAUTH_CLIENT_ID}&client_secret=${OAUTH_CLIENT_SECRET}&refresh_token=${OAUTH_REFRESH_TOKEN}" \
-      | jq .access_token -r
+    -d "grant_type=${OAUTH_GRANT_TYPE}&client_id=${OAUTH_CLIENT_ID}&client_secret=${OAUTH_CLIENT_SECRET}&${OAUTH_PARAM}=${OAUTH_VALUE}${OAUTH_EXTRA_ARGS}" \
+      | jq .${OAUTH_DESIRED_VALUE} -r
 }
 
 # Extract access token from Google OAuth
@@ -83,5 +95,5 @@ gauth() {
   OAUTH_CLIENT_SECRET="$2"
   OAUTH_REFRESH_TOKEN="$3"
 
-  oauth "$1" "$2" "$3" "https://www.googleapis.com/oauth2/v4/token"
+  oauth "https://www.googleapis.com/oauth2/v4/token" "$1" "$2" "refresh_token" "$3"
 }
