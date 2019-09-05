@@ -62,3 +62,26 @@ cd() {
   nvr --remote-send "<C-\><C-n>:lcd ${1:a}<cr>i"
   builtin cd "$@"
 }
+
+# Execute OAuth request and extract value from response
+oauth() {
+  OAUTH_CLIENT_ID="$1"
+  OAUTH_CLIENT_SECRET="$2"
+  OAUTH_REFRESH_TOKEN="$3"
+  OAUTH_TOKEN_ENDPOINT="$4"
+
+  command curl --silent \
+    -X POST "${OAUTH_TOKEN_ENDPOINT}" \
+    -H "Content-Type: application/x-www-form-urlencoded" \
+    -d "grant_type=refresh_token&client_id=${OAUTH_CLIENT_ID}&client_secret=${OAUTH_CLIENT_SECRET}&refresh_token=${OAUTH_REFRESH_TOKEN}" \
+      | jq .access_token -r
+}
+
+# Extract access token from Google OAuth
+gauth() {
+  OAUTH_CLIENT_ID="$1"
+  OAUTH_CLIENT_SECRET="$2"
+  OAUTH_REFRESH_TOKEN="$3"
+
+  oauth "$1" "$2" "$3" "https://www.googleapis.com/oauth2/v4/token"
+}
