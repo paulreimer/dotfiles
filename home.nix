@@ -163,6 +163,34 @@ with builtins;
     };
   };
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    history = {
+      #autocd = true;
+      extended = true;
+      ignoreDups = true;
+      share = true;
+      save = 10000;
+      size = 10000;
+    };
+    initExtra = builtins.readFile ./zshrc;
+    loginExtra = builtins.readFile ./zlogin;
+
+    plugins = [
+      {
+        name = "zsh-syntax-highlighting";
+        file = "zsh-syntax-highlighting.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-syntax-highlighting";
+          rev = "0.6.0";
+          sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
+        };
+      }
+    ];
+  };
+
   qt.enable = true;
 
   home.file = {
@@ -173,15 +201,8 @@ with builtins;
     "bin/launcher".source = ./launcher;
 
     # zsh
-    ".zlogin".source = ./zlogin;
-    ".zshenv".source = ./zshenv;
-    ".zshrc".source = ./zshrc;
-    ".zsh/zsh-syntax-highlighting".source = fetchFromGitHub {
-       owner = "zsh-users";
-       repo = "zsh-syntax-highlighting";
-       rev = "d766243";
-       sha256 = "01cwhkssyxj4c7hyr1pmn6r11274h7qw3ihdflj5r0fil0chh7hi";
-    };
+    #".zshenv".source = ./zshenv;
+    ".zshenv".source = ./zshenv_macos;
 
     # vim / neovim
     ".config/nvim/init.vim".source = ./init.vim;
