@@ -127,14 +127,6 @@ export PATH=\
 # Skip all this for non-interactive shells
 [[ -z "$PS1" ]] && return
 
-# Load autocompletion here if it is not already loaded
-autoload -U compinit && compinit
-
-# Additional autocompletion
-command -v kubectl 1>/dev/null && source <(kubectl completion zsh)
-#command -v gcloud 1>/dev/null && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-command -v gcloud 1>/dev/null && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-
 # Machine-specific command aliases
 alias rtlsdr_scanner="python -m rtlsdr_scanner"
 alias make="make -j10"
@@ -142,15 +134,6 @@ alias burritotime='say -v "Good News" "burrito time burrito time burrito time bu
 
 alias jupyter-qtconsole='/usr/local/miniconda3/envs/intelpy/bin/jupyter-qtconsole --ConsoleWidget.font_family="Roboto Mono for Powerline" --ConsoleWidget.font_size=11 --style monokai'
 alias spark-submit='/Users/paulreimer/Development/ops/spark/bin/spark-submit --deploy-mode cluster --master k8s://http://127.0.0.1:8001 --kubernetes-namespace spark --conf spark.kubernetes.driver.docker.image=gcr.io/p-rimes-net/spark-driver-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.executor.docker.image=gcr.io/p-rimes-net/spark-executor-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.initcontainer.docker.image=gcr.io/p-rimes-net/spark-init:v2.2.0-kubernetes-0.5.0'
-
-# Direnv
-_direnv_hook() {
-  eval "$("/usr/local/bin/direnv" export zsh)";
-}
-typeset -ag precmd_functions;
-if [[ -z ${precmd_functions[(r)_direnv_hook]} ]]; then
-  precmd_functions+=_direnv_hook;
-fi
 
 # Functions
 openocd() {

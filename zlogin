@@ -9,9 +9,6 @@ export SYSTEMD_EDITOR=`command -v nvim`
 export SVN_EDITOR=`command -v nvim`
 set -o vi
 
-# Additional autocompletion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Command aliases
 #alias vi="nvim"
 #alias vim="nvim"
