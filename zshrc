@@ -71,4 +71,4 @@ zstyle ':completion:*' hosts $_myhosts
 
 # Add command line highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
