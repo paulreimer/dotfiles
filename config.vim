@@ -316,7 +316,7 @@ noremap <leader>l <C-\><C-n> :tabnext <CR>
 " yank selection into system clipboard
 xnoremap <C-a>\ "+y
 
-" Send Ctrl-A to nested screen/tmux
+" send Ctrl-A to nested screen/tmux
 noremap <C-a>a <C-a>
 
 " use Ctrl-A Ctrl-A to go to last-active tab
@@ -327,6 +327,8 @@ tnoremap <C-a><C-a> <C-\><C-n> :exe "tabn ".g:lasttab<CR>
 " use Ctrl-A Shift-A to rename current tab
 noremap <C-a>A :keepalt file<space>
 
+" use F18 to trigger outermost vim escape
+" (note: CapsLock should be bound to F18)
 inoremap <F18> <C-\><C-n>
 tnoremap <F18> <C-\><C-n>
 
