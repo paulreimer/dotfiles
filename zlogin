@@ -57,7 +57,9 @@ diff() {
 
 # Change nvim directory when cd'ing
 cd() {
-  nvr --remote-send "<C-\><C-n>:lcd ${1:a}<cr>i"
+  if [[ $options[zle] = on ]]; then
+    nvr --remote-send "<C-\><C-n>:lcd ${1:a}<cr>i"
+  fi
   builtin cd "$@"
 }
 
