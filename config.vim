@@ -84,20 +84,17 @@ set hidden
 " zsh
 set shell=$HOME/.nix-profile/bin/zsh\ --login
 
-" change cwd to current buffer file's dir
+" Change working directory to containing directory of edited files
+set autochdir
+
+" Update working directory when switching to a terminal buffer
 function! AutoLcd()
-  " Terminals do not provide a valid/up-to-date path
-  if expand("%:p:h") =~ '^term:'
-    " Extract the CWD for the terminal's PID
-    let l:term_pid = matchstr(expand("%"), 'term://.//\zs[0-9]\+\ze')
-    let l:term_cwd = system("lsof -a -d cwd -c zsh -p " . term_pid . " -Fn | sed -n -e 's/^n\\(.*\\)$/\\1/p'")[:-2]
-    execute "lcd " . l:term_cwd
-  else
-    " Normal buffers have a file path
-    lcd %:p:h
-  endif
+  " Extract the CWD for the terminal's PID
+  let l:term_pid = matchstr(expand("%"), 'term://.//\zs[0-9]\+\ze')
+  let l:term_cwd = system("lsof -a -d cwd -c zsh -p " . term_pid . " -Fn | sed -n -e 's/^n\\(.*\\)$/\\1/p'")[:-2]
+  execute "lcd " . l:term_cwd
 endfunction
-autocmd BufEnter * call AutoLcd()
+autocmd BufEnter term://* call AutoLcd()
 
 " Disable colons in paths when browsing in terminal
 autocmd BufEnter * set isfname-=:
