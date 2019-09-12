@@ -36,11 +36,6 @@ calc()
 {
   noglob echo "$(( $@ ))";
 }
-calc_hex()
-{
-  echo 'printf "%#08x\\n",' "$@" > /tmp/tmp.calc;
-  /usr/bin/gdb -q -n -batch -x /tmp/tmp.calc;
-}
 
 # Add custom diff output
 diff() {
