@@ -1,34 +1,6 @@
-# Directory aliases
-hash -d dev="$HOME/Development"
-hash -d of="$HOME/Development/of/HEAD"
-hash -d apps="$HOME/Development/of/HEAD/apps"
-hash -d addons="$HOME/Development/of/HEAD/addons"
-hash -d my="$HOME/Development/of/HEAD/apps/myApps"
-hash -d cdn="$HOME/Development/webapps/s3/cdn-p-rimes-net"
-hash -d wiced="$HOME/Development/arm/WICED-SDK"
-hash -d vids="/Users/Performance/Users/performance/Movies"
-hash -d esp32="$HOME/Development/esp32"
-hash -d zephyr="$HOME/Development/nrf52/zephyr"
-hash -d esp-idf="$HOME/Development/esp32/esp-idf"
-hash -d wzrd="$HOME/Development/electron/wzrd"
-hash -d rn="$HOME/Development/react-native"
-hash -d k8s="$HOME/Development/k8s"
-hash -d acm="$HOME/Development/projects/makerlabs-acm"
-hash -d parts="$HOME/Development/kicad/parts"
-
 ### Environment variables
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export FZF_DEFAULT_OPTS="--exact"
-
-# Enable color support of ls on macOS
-export CLICOLOR=1
-
-# Use a real tty for GPG pinentry/gpg-agent
-export GPG_TTY=$(tty)
-
-# 3delight
-export DELIGHT=/Applications/3Delight
 
 # esp-idf
 export IDF_PATH="$HOME/Development/esp32/esp-idf"
@@ -63,6 +35,9 @@ export PKG_CONFIG_PATH=\
 export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
 export GNUARMEMB_TOOLCHAIN_PATH="/usr/local"
 export ZEPHYR_BASE="$HOME/Development/nrf52/zephyr"
+
+# 3delight
+export DELIGHT=/Applications/3Delight
 
 # nix
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
@@ -123,54 +98,3 @@ export PATH=\
 :/usr/local/opt/openssl@1.1/bin\
 :$BIN_PATH\
 :$STD_PATH
-
-# Skip all this for non-interactive shells
-[[ -z "$PS1" ]] && return
-
-# Machine-specific command aliases
-alias rtlsdr_scanner="python -m rtlsdr_scanner"
-alias make="make -j10"
-alias burritotime='say -v "Good News" "burrito time burrito time burrito time burrito time burrito time burrito time"'
-
-alias jupyter-qtconsole='/usr/local/miniconda3/envs/intelpy/bin/jupyter-qtconsole --ConsoleWidget.font_family="Roboto Mono for Powerline" --ConsoleWidget.font_size=11 --style monokai'
-alias spark-submit='/Users/paulreimer/Development/ops/spark/bin/spark-submit --deploy-mode cluster --master k8s://http://127.0.0.1:8001 --kubernetes-namespace spark --conf spark.kubernetes.driver.docker.image=gcr.io/p-rimes-net/spark-driver-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.executor.docker.image=gcr.io/p-rimes-net/spark-executor-py:v2.2.0-kubernetes-0.5.0 --conf spark.kubernetes.initcontainer.docker.image=gcr.io/p-rimes-net/spark-init:v2.2.0-kubernetes-0.5.0'
-
-# Functions
-openocd() {
-  OPENOCD_ESP32_PATH="${HOME}/Development/esp32/openocd-esp32"
-  JTAG_CFG_PATH="interface/ftdi/esp32_ft232h.cfg"
-  BOARD_CFG_PATH="board/esp-wroom-32.cfg"
-
-  command "${OPENOCD_ESP32_PATH}/bin/openocd" \
-    -s "${OPENOCD_ESP32_PATH}/share/openocd/scripts" \
-    -f "${JTAG_CFG_PATH}" \
-    -f "${BOARD_CFG_PATH}" \
-    $@
-}
-
-cdnsync()
-{
-  s3cmd sync --acl-public --add-header "Cache-Control: max-age=1209600, must-revalidate" ~cdn/ s3://cdn.p-rimes.net;
-}
-
-## Basic SSH-agent access for screen terminal multiplexer
-SSH_ENV="$HOME/.ssh/environment"
-
-function start_agent {
-  echo "Initialising new SSH agent..."
-  ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-  echo succeeded
-  chmod 600 "${SSH_ENV}"
-  . "${SSH_ENV}" > /dev/null
-  ssh-add -c;
-}
-
-# Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-  . "${SSH_ENV}" > /dev/null
-  ps ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-    start_agent;
-  }
-else
-  start_agent;
-fi
