@@ -1,5 +1,4 @@
 ### Environment variables
-### Environment variables
 export FZF_DEFAULT_OPTS="--exact"
 
 # Enable GCC colors always (including ccache)
