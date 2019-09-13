@@ -106,11 +106,11 @@ alias urlencode='python3 -c "import sys, urllib.parse as up; print(up.quote_plus
 alias urldecode='python3 -c "import sys, urllib.parse as up; print(up.unquote_plus(sys.argv[1]))"'
 alias astyle="astyle --style=allman --indent=spaces=2"
 
+# Machine-specific environment variables
+
 # Machine-specific directory aliases
 
-
 # Machine-specific command aliases
-
 
 ### Functions
 # Helper functions
