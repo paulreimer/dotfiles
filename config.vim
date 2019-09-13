@@ -81,9 +81,6 @@ set shortmess+=c
 " Allow switching buffers without warning about modifications
 set hidden
 
-" zsh
-set shell=$HOME/.nix-profile/bin/zsh\ --login
-
 " Change working directory to containing directory of edited files
 set autochdir
 
