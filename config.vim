@@ -143,6 +143,12 @@ call deoplete#custom#option('max_list', 10)
 " Do not open a popup window (float-preview.nvim uses floating window)
 set completeopt-=preview
 
+" deoplete-jedi
+" Shows docstring in preview window
+let g:deoplete#sources#jedi#show_docstring = 1
+" Disable jedi-vim completion when using deoplete-jedi
+let g:jedi#completions_enabled = 0
+
 " float-preview-nvim
 let g:float_preview#docked = 1
 autocmd InsertLeave * silent! call float_preview#close()!
@@ -358,6 +364,16 @@ xmap ah <Plug>GitGutterTextObjectOuterVisual
 
 " DoxygenToolkit
 nmap <leader>D :Dox<CR>
+
+" vim-jedi
+" Disable all shortcuts
+let g:jedi#goto_command = ""
+let g:jedi#goto_assignments_command = ""
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = ""
+let g:jedi#usages_command = ""
+let g:jedi#completions_command = ""
+let g:jedi#rename_command = ""
 
 " Sourcetrail
 nmap <leader>s :SourcetrailActivateToken<CR>
