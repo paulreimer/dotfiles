@@ -38,6 +38,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'twerth/ir_black'
 Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'vim-scripts/ShowMultiBase'
 Plug 'w0rp/ale'
 
 " Install correct deoplete plugins based on whether we are using vim or neovim

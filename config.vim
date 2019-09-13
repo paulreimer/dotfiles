@@ -238,6 +238,10 @@ let g:cb_disable_default = { "''": 'n' }
 " neomake
 let g:neomake_open_list = 2
 
+" ShowMultiBase
+let g:ShowMultiBase_General_UseDefaultMappings = 0
+let g:ShowMultiBase_Display_Decimal_Show = 1
+
 " key mappings
 let mapleader = ","
 
@@ -360,6 +364,9 @@ nmap <leader>s :SourcetrailActivateToken<CR>
 
 " neomake
 nmap <leader>m :Neomake!<CR>
+
+" ShowMultiBase
+noremap <silent> <leader>x :ShowMultiBase<CR>
 
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}

@@ -146,6 +146,7 @@ with builtins;
         neomake
         neosnippet
         neosnippet-snippets
+        ShowMultiBase
         sky-color-clock-vim
         tabular
         tcomment_vim
