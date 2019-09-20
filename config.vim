@@ -247,6 +247,8 @@ let g:neomake_open_list = 2
 " ShowMultiBase
 let g:ShowMultiBase_General_UseDefaultMappings = 0
 let g:ShowMultiBase_Display_Decimal_Show = 1
+let g:ShowMultiBase_Display_Octal_Show = 0
+let g:ShowMultiBase_Display_Hexadecimal_SegmentSize = 8
 
 " key mappings
 let mapleader = ","
