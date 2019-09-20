@@ -271,8 +271,7 @@ smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " deoplete actions on close popup
-inoremap <expr><CR>
- \ pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+inoremap <expr><CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
 
 " nvr
 " delete buffer instead of quit
