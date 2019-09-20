@@ -134,12 +134,12 @@ diff() {
 }
 
 # Change nvim directory when cd'ing
+if [[ $options[zle] = on && ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
 cd() {
-  if [[ $options[zle] = on ]]; then
     nvr --remote-send "<C-\><C-n>:lcd ${1:a}<cr>i"
-  fi
   builtin cd "$@"
 }
+fi
 
 # Execute OAuth request and extract value from response
 oauth() {
