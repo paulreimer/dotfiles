@@ -12,12 +12,14 @@
 
   system.defaults.dock.autohide = true;
   system.defaults.dock.showhidden = true;
+  system.defaults.dock.mru-spaces = false;
 
   system.defaults.finder.AppleShowAllExtensions = true;
   system.defaults.finder.QuitMenuItem = true;
   system.defaults.finder.FXEnableExtensionChangeWarning = false;
 
   system.defaults.trackpad.Clicking = true;
+  system.defaults.trackpad.TrackpadThreeFingerDrag = false;
 
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToControl = true;
