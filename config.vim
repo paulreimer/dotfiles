@@ -135,6 +135,11 @@ let g:BufKillCreateMappings = 0
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_smart_case = 1
+" Set default sources
+call deoplete#custom#option('sources', {
+  \ '_': ['neosnippet', 'include', 'LanguageClient'],
+  \ 'python': ['neosnippet', 'include', 'jedi'],
+  \ })
 " Set the max popup menu width
 call deoplete#custom#source('_', 'max_abbr_width', 180)
 call deoplete#custom#source('_', 'max_menu_width', 180)

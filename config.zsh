@@ -63,14 +63,17 @@ zstyle ':completion:*' hosts $_myhosts
 
 ### Default shell settings
 set -o vi
-#export EDITOR=`command -v nvim`
-export EDITOR=`command -v nvr --remote`
-export GIT_EDITOR=`command -v nvim`
-export KUBE_EDITOR=`command -v nvim`
-export HOMEBREW_EDITOR=`command -v nvim`
-export SUDO_EDITOR=`command -v nvim`
-export SYSTEMD_EDITOR=`command -v nvim`
-export SVN_EDITOR=`command -v nvim`
+
+VI_EDITOR="`command -v nvim`"
+export EDITOR="$APP_EDITOR"
+
+APP_EDITOR="$VI_EDITOR"
+export GIT_EDITOR="$APP_EDITOR"
+export KUBE_EDITOR="$APP_EDITOR"
+export HOMEBREW_EDITOR="$APP_EDITOR"
+export SUDO_EDITOR="$APP_EDITOR"
+export SYSTEMD_EDITOR="$APP_EDITOR"
+export SVN_EDITOR="$APP_EDITOR"
 
 ### Environment variables
 export FZF_DEFAULT_OPTS="--exact"
@@ -134,9 +137,18 @@ diff() {
 # Check if shell has neovim-remote support available
 if [[ $options[zle] = on && ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
   # Use neovim-remote to avoid nested nvim
-  alias vi="nvr --remote"
-  alias vim="nvr --remote"
-  alias xvi="xargs nvr --remote"
+  VI_EDITOR="`command -v nvr`"
+  alias vi="$VI_EDITOR"
+  alias vim="$VI_EDITOR"
+  alias xvi="xargs $VI_EDITOR"
+
+  APP_EDITOR="`command -v nvr` --remote-wait"
+  export GIT_EDITOR="$APP_EDITOR"
+  export KUBE_EDITOR="$APP_EDITOR"
+  export HOMEBREW_EDITOR="$APP_EDITOR"
+  export SUDO_EDITOR="$APP_EDITOR"
+  export SYSTEMD_EDITOR="$APP_EDITOR"
+  export SVN_EDITOR="$APP_EDITOR"
 
   # Change nvim directory when cd'ing
   cd() {
