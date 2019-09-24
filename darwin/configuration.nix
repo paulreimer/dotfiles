@@ -9,6 +9,8 @@
   system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
   system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
   system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
+  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
 
   system.defaults.dock.autohide = true;
   system.defaults.dock.showhidden = true;
