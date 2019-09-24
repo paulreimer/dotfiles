@@ -46,6 +46,13 @@
 
   environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
 
+  # Use local nixpkgs checkout instead of channels.
+  nix.nixPath = [
+    "darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix"
+    "darwin=$HOME/.nix-defexpr/channels/darwin"
+    "nixpkgs=$HOME/Development/nixos/nixpkgs"
+  ];
+
   nixpkgs.overlays = [
     (self: super: {
       darwin-zsh-completions = super.runCommandNoCC "darwin-zsh-completions-0.0.0"
