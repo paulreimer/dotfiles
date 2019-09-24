@@ -26,6 +26,7 @@
 
   environment.systemPackages = [
     pkgs.darwin-zsh-completions
+    pkgs.skhd
   ];
 
   services.skhd.enable = true;
