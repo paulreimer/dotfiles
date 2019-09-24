@@ -85,12 +85,10 @@ export GPG_TTY=$(tty)
 hash -d dev="$HOME/Development"
 
 # Command aliases
-#alias vi="nvim"
-#alias vim="nvim"
 alias ag="ag --no-heading"
-alias vi="nvr --remote"
-alias vim="nvr --remote"
-alias xvi="xargs nvr --remote"
+alias vi="nvim"
+alias vim="nvim"
+alias xvi="xargs nvim"
 alias h="history 0 | ag"
 alias ls="ls -Ghp"
 alias p="ps aux | ag"
@@ -133,12 +131,18 @@ diff() {
   fi
 }
 
-# Change nvim directory when cd'ing
+# Check if shell has neovim-remote support available
 if [[ $options[zle] = on && ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
-cd() {
+  # Use neovim-remote to avoid nested nvim
+  alias vi="nvr --remote"
+  alias vim="nvr --remote"
+  alias xvi="xargs nvr --remote"
+
+  # Change nvim directory when cd'ing
+  cd() {
     nvr --remote-send "<C-\><C-n>:lcd ${1:a}<cr>i"
-  builtin cd "$@"
-}
+    builtin cd "$@"
+  }
 fi
 
 # Execute OAuth request and extract value from response
