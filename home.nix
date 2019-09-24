@@ -150,12 +150,15 @@ with builtins;
         sky-color-clock-vim
         tabular
         tcomment_vim
+        tlib_vim
+        vim-addon-mw-utils
         vim-bufferline
         vim-bufkill
         vim-css-color
         vim-fugitive
         vim-gitgutter
         vim-nix
+        vim-snipmate
         vim-sourcetrail
         vim-textobj-comment
         vim-textobj-function

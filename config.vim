@@ -168,6 +168,10 @@ if has('conceal')
   autocmd FileType json setlocal conceallevel=0
 endif
 
+" snipMate
+let g:snipMate = {'snippet_version': 1}
+let g:snipMate['snippet_dirs'] = ['~/Development']
+
 " ale
 let g:ale_javascript_prettier_use_global = 1
 let g:ale_javascript_xo_use_global = 1
@@ -257,13 +261,17 @@ let mapleader = ","
 " neosnippet supertab
 imap <expr><TAB>
  \ pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+ \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+ \ exists('b:snip_state') ? "\<Plug>snipMateNextOrTrigger" :
+ \ "\<TAB>"
 smap <expr><TAB>
- \ neosnippet#expandable_or_jumpable() ?
- \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+ \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+ \ exists('b:snip_state') ? "\<Plug>snipMateNextOrTrigger" :
+ \ "\<TAB>"
 imap <expr><S-TAB>
- \ pumvisible() ? "\<C-p>" : "\<S-TAB>"
+ \ pumvisible() ? "\<C-p>" :
+ \ exists('b:snip_state') ? "\<Plug>snipMateBack" :
+ \ "\<S-TAB>"
 
 " neosnippet expansion, placeholder cycling
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
