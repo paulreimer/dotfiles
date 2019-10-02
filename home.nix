@@ -127,6 +127,7 @@ with builtins;
       customRC = builtins.readFile ./config.vim;
       plug.plugins = with pkgs.vimPlugins; [
         ale
+        csv
         dart-vim-plugin
         deoplete-jedi
         deoplete-lsp

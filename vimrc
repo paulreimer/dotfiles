@@ -21,6 +21,7 @@ Plug 'ap/vim-css-color'
 Plug 'autozimu/LanguageClient-neovim', {'branch':'next', 'do':'bash install.sh'}
 Plug 'bling/vim-bufferline'
 Plug 'bogado/file-line'
+Plug 'chrisbra/csv.vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'editorconfig/editorconfig-vim'
