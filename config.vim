@@ -93,9 +93,6 @@ function! TermAutoLcd()
 endfunction
 autocmd BufEnter term://* call TermAutoLcd()
 
-" Disable colons in paths when browsing in terminal
-autocmd BufEnter * set isfname-=:
-
 " netrw
 " disable netrw for directory listings
 let loaded_netrwPlugin = 1
