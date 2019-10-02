@@ -1,2 +1,1 @@
-let g:ale_fixers = {}
-let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
+let b:ale_fix_on_save = 0
