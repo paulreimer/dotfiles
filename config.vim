@@ -156,6 +156,7 @@ let g:float_preview#docked = 1
 autocmd InsertLeave * silent! call float_preview#close()!
 
 " neosnippet
+let g:neosnippet#snippets_directory = '$HOME/Development/snippets'
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Trigger expansion of snippet immediately after completion popup is done
