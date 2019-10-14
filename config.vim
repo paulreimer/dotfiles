@@ -252,6 +252,9 @@ let g:cb_disable_default = { "''": 'n' }
 " neomake
 let g:neomake_open_list = 2
 
+" EditorConfig-vim
+let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
+
 " ShowMultiBase
 let g:ShowMultiBase_General_UseDefaultMappings = 0
 let g:ShowMultiBase_Display_Decimal_Show = 1
