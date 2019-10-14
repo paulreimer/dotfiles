@@ -352,6 +352,9 @@ noremap <C-a>A :keepalt file<space>
 " (note: CapsLock should be bound to F18)
 inoremap <F18> <C-\><C-n>
 tnoremap <F18> <C-\><C-n>
+" some keyboard mappings refer to F18 as Shift-F6
+inoremap <S-F6> <C-\><C-n>
+tnoremap <S-F6> <C-\><C-n>
 
 " ALE
 nmap <C-]> :ALEGoToDefinition<CR>
