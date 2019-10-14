@@ -42,6 +42,7 @@ with builtins;
     pkgs.pstree
     pkgs.pv
     pkgs.rpl
+    pkgs.rustup
     pkgs.screen
     pkgs.shellcheck
     pkgs.shfmt
