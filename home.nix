@@ -32,6 +32,7 @@ with builtins;
     pkgs.mercurial
     pkgs.meson
     pkgs.ncurses
+    pkgs.neovim-remote
     pkgs.neovim-unwrapped
     pkgs.ninja
     pkgs.nodejs
