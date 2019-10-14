@@ -31,6 +31,7 @@ with builtins;
     pkgs.libftdi1
     pkgs.mercurial
     pkgs.meson
+    pkgs.ncurses
     pkgs.neovim-unwrapped
     pkgs.ninja
     pkgs.nodejs
