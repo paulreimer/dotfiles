@@ -23,6 +23,7 @@ with builtins;
     pkgs.influxdb
     pkgs.kitty
     pkgs.libftdi1
+    pkgs.neovim-unwrapped
     pkgs.ninja
     pkgs.nodejs
     pkgs.openssh
@@ -44,8 +45,6 @@ with builtins;
     pkgs.wdiff
     pkgs.yarn
     pkgs.zsh
-    # Packages with overrides in config.nix:
-    pkgs.neovim-unwrapped
 
     # Custom packages (from let .. in) here:
   ];
