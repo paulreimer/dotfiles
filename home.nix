@@ -123,49 +123,47 @@ with builtins;
     enable = true;
     viAlias = true;
     vimAlias = true;
-    configure = {
-      customRC = builtins.readFile ./config.vim;
-      plug.plugins = with pkgs.vimPlugins; [
-        ale
-        csv
-        dart-vim-plugin
-        deoplete-jedi
-        deoplete-lsp
-        deoplete-nvim
-        DoxygenToolkit-vim
-        editorconfig-vim
-        file-line
-        float-preview-nvim
-        fzf-vim
-        ir_black
-        LanguageClient-neovim
-        lh-brackets
-        lh-vim-lib
-        lightline-ale
-        lightline-vim
-        neoinclude
-        neomake
-        neosnippet
-        neosnippet-snippets
-        ShowMultiBase
-        sky-color-clock-vim
-        tabular
-        tcomment_vim
-        tlib_vim
-        vim-addon-mw-utils
-        vim-bufferline
-        vim-bufkill
-        vim-css-color
-        vim-fugitive
-        vim-gitgutter
-        vim-nix
-        vim-snipmate
-        vim-sourcetrail
-        vim-textobj-comment
-        vim-textobj-function
-        vim-textobj-user
-      ];
-    };
+    extraConfig = builtins.readFile ./config.vim;
+    plugins = with pkgs.vimPlugins; [
+      ale
+      csv
+      dart-vim-plugin
+      deoplete-jedi
+      deoplete-lsp
+      deoplete-nvim
+      DoxygenToolkit-vim
+      editorconfig-vim
+      file-line
+      float-preview-nvim
+      fzf-vim
+      ir_black
+      LanguageClient-neovim
+      lh-brackets
+      lh-vim-lib
+      lightline-ale
+      lightline-vim
+      neoinclude
+      neomake
+      neosnippet
+      neosnippet-snippets
+      ShowMultiBase
+      sky-color-clock-vim
+      tabular
+      tcomment_vim
+      tlib_vim
+      vim-addon-mw-utils
+      vim-bufferline
+      vim-bufkill
+      vim-css-color
+      vim-fugitive
+      vim-gitgutter
+      vim-nix
+      vim-snipmate
+      vim-sourcetrail
+      vim-textobj-comment
+      vim-textobj-function
+      vim-textobj-user
+    ];
   };
 
   programs.zsh = {
