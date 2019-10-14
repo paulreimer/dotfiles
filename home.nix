@@ -30,6 +30,7 @@ with builtins;
     pkgs.kitty
     pkgs.libftdi1
     pkgs.mercurial
+    pkgs.meson
     pkgs.neovim-unwrapped
     pkgs.ninja
     pkgs.nodejs
