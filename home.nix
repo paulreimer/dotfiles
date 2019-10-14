@@ -179,6 +179,8 @@ with builtins;
     };
     initExtra = builtins.readFile ./config.zsh;
     loginExtra = builtins.readFile ./zlogin;
+    envExtra = builtins.readFile ./zshenv;
+    #envExtra = builtins.readFile ./zshenv_macos;
 
     plugins = [
       {
@@ -202,10 +204,6 @@ with builtins;
 
     # fzf-based launcher
     "bin/launcher".source = ./launcher;
-
-    # zsh
-    #".zshenv".source = ./zshenv;
-    ".zshenv".source = ./zshenv_macos;
 
     # vim / neovim
     ".config/nvim/init.vim".source = ./init.vim;
