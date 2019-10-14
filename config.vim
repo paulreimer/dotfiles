@@ -134,8 +134,8 @@ let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_smart_case = 1
 " Set default sources
 call deoplete#custom#option('sources', {
-  \ '_': ['neosnippet', 'file/include', 'LanguageClient'],
-  \ 'python': ['neosnippet', 'file/include', 'jedi'],
+  \ '_': ['neosnippet', 'file/include', 'LanguageClient', 'member', 'buffer'],
+  \ 'python': ['neosnippet', 'file/include', 'jedi', 'member', 'buffer'],
   \ })
 
 " Set the max popup menu width
