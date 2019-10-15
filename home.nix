@@ -50,6 +50,7 @@ with builtins;
     pkgs.sl
     pkgs.socat
     pkgs.sqlite
+    pkgs.sslscan
     pkgs.tree
     pkgs.unbound
     pkgs.watch
