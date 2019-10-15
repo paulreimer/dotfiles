@@ -73,6 +73,7 @@ with builtins;
       pkgs.sway
       pkgs.swayidle
       pkgs.swaylock
+      pkgs.wl-clipboard
     ]
     else []
   );
