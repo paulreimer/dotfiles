@@ -58,6 +58,7 @@ with builtins;
     pkgs.wdiff
     pkgs.wrk
     pkgs.yarn
+    pkgs.youtube-dl
     pkgs.zsh
 
     # Custom packages (from let .. in) here:
