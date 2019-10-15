@@ -244,5 +244,10 @@ with builtins;
     # other dotfiles:
     ".colordiffrc".source = ./colordiffrc;
     ".screenrc".source = ./screenrc;
-  };
+  } // (if stdenv.isDarwin then {
+    # yabai+skhd tiling window manager
+    ".skhdrc".source = ./skhdrc;
+    ".yabairc".source = ./yabairc;
+  }
+  else {});
 }
