@@ -14,6 +14,7 @@ with builtins;
     pkgs.colordiff
     pkgs.cppcheck
     pkgs.curl
+    pkgs.dos2unix
     pkgs.doxygen
     pkgs.exiftool
     pkgs.gdb
