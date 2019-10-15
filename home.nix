@@ -9,6 +9,7 @@ with builtins;
     pkgs.bear
     pkgs.ccache
     pkgs.ccat
+    pkgs.clang-tools
     pkgs.cmake
     pkgs.colordiff
     pkgs.cppcheck
