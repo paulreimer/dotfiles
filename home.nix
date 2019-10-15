@@ -56,6 +56,7 @@ with builtins;
     pkgs.vimpager
     pkgs.watch
     pkgs.wdiff
+    pkgs.wrk
     pkgs.yarn
     pkgs.zsh
 
