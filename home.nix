@@ -29,6 +29,7 @@ with builtins;
     pkgs.influxdb
     pkgs.kitty
     pkgs.libftdi1
+    pkgs.mercurial
     pkgs.neovim-unwrapped
     pkgs.ninja
     pkgs.nodejs
