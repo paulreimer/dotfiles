@@ -53,6 +53,7 @@ with builtins;
     pkgs.sslscan
     pkgs.tree
     pkgs.unbound
+    pkgs.vimpager
     pkgs.watch
     pkgs.wdiff
     pkgs.yarn
