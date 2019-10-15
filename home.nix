@@ -202,8 +202,6 @@ with builtins;
     };
     initExtra = builtins.readFile ./config.zsh;
     loginExtra = builtins.readFile ./zlogin;
-    envExtra = builtins.readFile ./zshenv;
-    #envExtra = builtins.readFile ./zshenv_macos;
 
     plugins = [
       {
@@ -217,7 +215,13 @@ with builtins;
         };
       }
     ];
-  };
+  } // (if stdenv.isDarwin then {
+    envExtra = builtins.readFile ./zshenv_macos;
+  }
+  else if stdenv.isLinux then {
+    envExtra = builtins.readFile ./zshenv;
+  }
+  else {});
 
   qt.enable = true;
 
