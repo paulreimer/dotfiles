@@ -71,6 +71,7 @@ with builtins;
     ]
     else if stdenv.isLinux then [
       pkgs.sway
+      pkgs.swayidle
     ]
     else []
   );
