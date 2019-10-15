@@ -40,6 +40,7 @@ with builtins;
     pkgs.parallel
     pkgs.pinentry
     pkgs.pstree
+    pkgs.pv
     pkgs.rpl
     pkgs.screen
     pkgs.shellcheck
