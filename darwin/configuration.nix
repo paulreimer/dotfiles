@@ -26,10 +26,6 @@
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToControl = true;
 
-  environment.systemPackages = [
-    pkgs.skhd
-  ];
-
   services.skhd.enable = true;
 
   services.nix-daemon.enable = true;
