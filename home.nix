@@ -48,6 +48,7 @@ with builtins;
     # Custom packages (from let .. in) here:
   ] ++ (
     if stdenv.isDarwin then [
+      darwin.iproute2mac
       pkgs.darwin-zsh-completions
     ]
     else []
