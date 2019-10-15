@@ -74,6 +74,7 @@ with builtins;
       pkgs.swayidle
       pkgs.swaylock
       pkgs.wl-clipboard
+      pkgs.xwayland
     ]
     else []
   );
