@@ -1,6 +1,6 @@
 self: super: {
-  ccat = super.buildGoModule rec {
-    name = "ccat";
+  ccat = super.buildGoPackage rec {
+    pname = "ccat";
     version = "1.1.0";
 
     src = super.fetchFromGitHub {
@@ -12,6 +12,8 @@ self: super: {
 
     modSha256 = "09i0mdlfd58nypga71554cmclngjsc0k7axayjp4k3mh7c0ybbv1";
 
+    goPackagePath = "github.com/jingweno/ccat";
+
     subPackages = [ "." ];
 
     meta = with super.lib; {
@@ -19,7 +21,7 @@ self: super: {
       homepage = https://github.com/jingweno/ccat;
       license = licenses.mit;
       maintainers = with maintainers; [ jingweno ];
-      platforms = platforms.linux ++ platforms.darwin;
+      platforms = platforms.unix;
     };
   };
 }
