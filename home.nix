@@ -256,5 +256,9 @@ with builtins;
     ".skhdrc".source = ./skhdrc;
     ".yabairc".source = ./yabairc;
   }
+  else if stdenv.isLinux then {
+    # sway tiling window manager
+    ".config/sway/config".source = ./swayconfig;
+  }
   else {});
 }
