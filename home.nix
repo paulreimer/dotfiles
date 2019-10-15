@@ -46,7 +46,13 @@ with builtins;
     pkgs.zsh
 
     # Custom packages (from let .. in) here:
-  ];
+  ] ++ (
+    if stdenv.isDarwin then [
+      pkgs.darwin-zsh-completions
+    ]
+    else []
+  );
+
 
   programs.home-manager.enable = true;
 
