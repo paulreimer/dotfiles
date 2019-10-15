@@ -30,7 +30,6 @@ with builtins;
     pkgs.parallel
     pkgs.pinentry
     pkgs.pstree
-    pkgs.python
     pkgs.rpl
     pkgs.screen
     pkgs.shellcheck
