@@ -51,6 +51,7 @@ with builtins;
       darwin.iproute2mac
       pkgs.darwin-zsh-completions
       pkgs.osxfuse
+      pkgs.skhd
     ]
     else []
   );
