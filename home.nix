@@ -69,6 +69,9 @@ with builtins;
       pkgs.osxfuse
       pkgs.skhd
     ]
+    else if stdenv.isLinux then [
+      pkgs.sway
+    ]
     else []
   );
 
