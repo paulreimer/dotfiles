@@ -25,6 +25,7 @@ with builtins;
     pkgs.gnupg
     pkgs.graphviz
     pkgs.hexedit
+    pkgs.imagemagick
     pkgs.influxdb
     pkgs.kitty
     pkgs.libftdi1
