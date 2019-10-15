@@ -81,7 +81,6 @@ export PATH=\
 :$HOME/.local/bin/luna-studio\
 :$HOME/.local/bin\
 :$HOME/.pub-cache/global_packages/angular_cli/bin\
-:$HOME/.linkerd2/bin\
 :$HOME/.poetry/bin\
 :$HOME/.nix-profile/bin\
 :$ANDROID_HOME/emulator\
@@ -91,10 +90,5 @@ export PATH=\
 :/run/current-system/sw/bin\
 :/Applications/microchip/xc32/v2.10/bin\
 :/usr/local/miniconda3/envs/intelpy/bin\
-:/usr/local/opt/curl/bin\
-:/usr/local/opt/llvm/bin\
-:/usr/local/opt/go/libexec/bin\
-:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin\
-:/usr/local/opt/openssl@1.1/bin\
 :$BIN_PATH\
 :$STD_PATH
