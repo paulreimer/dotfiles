@@ -22,6 +22,7 @@ with builtins;
     pkgs.git-crypt
     pkgs.gnumake
     pkgs.gn
+    pkgs.gnupg
     pkgs.graphviz
     pkgs.hexedit
     pkgs.influxdb
