@@ -17,6 +17,7 @@ with builtins;
     pkgs.dos2unix
     pkgs.doxygen
     pkgs.exiftool
+    pkgs.entr
     pkgs.gdb
     pkgs.git-crypt
     pkgs.gnumake
