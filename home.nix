@@ -50,6 +50,7 @@ with builtins;
     if stdenv.isDarwin then [
       darwin.iproute2mac
       pkgs.darwin-zsh-completions
+      pkgs.osxfuse
     ]
     else []
   );
