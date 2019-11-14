@@ -42,6 +42,16 @@ fun! EnableLineNumbers()
 endfun
 autocmd BufRead * call EnableLineNumbers()
 
+" Disable searches in terminal windows from wrapping around
+fun! EnableWrapScan()
+  if &buftype != 'terminal'
+    set wrapscan
+  else
+    set nowrapscan
+  endif
+endfun
+autocmd BufEnter * call EnableWrapScan()
+
 " Highlight tabs + trailing whitespace
 set listchars=tab:→\ ,nbsp:␣,trail:·
 set list
