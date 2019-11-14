@@ -115,6 +115,7 @@ with builtins;
       dl = "\"!git ll -1\"";
       dlc = "diff --cached HEAD^";
       logtree = "log --graph --oneline --decorate --all --color";
+      filt = "name-rev --refs=refs/heads/* --stdin";
     };
     extraConfig = {
       color = {
