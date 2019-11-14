@@ -9,7 +9,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   OPENER="-r swaymsg -t command exec gtk-launch"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS
-  DIRS="/Applications/ $HOME/Applications/"
+  DIRS="/Applications/ $HOME/Applications/ $HOME/.nix-profile/Applications/"
   APP_EXT=".app"
   OPENER="open -a"
 else
