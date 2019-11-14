@@ -180,6 +180,7 @@ with builtins;
       neomake
       neosnippet
       neosnippet-snippets
+      nim-vim
       ShowMultiBase
       sky-color-clock-vim
       tabular
