@@ -4,7 +4,7 @@ set -eu
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Linux
-  DIRS="/usr/share/applications/ $HOME/.local/share/applications/"
+  DIRS="/usr/share/applications/ $HOME/.local/share/applications/ $HOME/.nix-profile/share/applications/"
   APP_EXT=".desktop"
   OPENER="-r swaymsg -t command exec gtk-launch"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
