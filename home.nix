@@ -124,6 +124,9 @@ with builtins;
       difftool = {
         prompt = false;
       };
+      rerere = {
+        enabled = true;
+      };
       submodule = {
         recurse = true;
       };
