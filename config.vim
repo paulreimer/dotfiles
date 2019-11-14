@@ -30,6 +30,9 @@ set mouse=n
 " Do not consider a ':' to be present in paths, use it to mean file:line
 set isfname-=:
 
+" Show N lines before search match
+set scrolloff=5
+
 " Only show line numbers on non-terminal windows
 " (Must be done this way, since disabling them later incorrectly sets columns)
 fun! EnableLineNumbers()
