@@ -107,6 +107,7 @@ alias ccmake="ccmake -G Ninja"
 alias urlencode='python3 -c "import sys, urllib.parse as up; print(up.quote_plus(sys.argv[1]))"'
 alias urldecode='python3 -c "import sys, urllib.parse as up; print(up.unquote_plus(sys.argv[1]))"'
 alias astyle="astyle --style=allman --indent=spaces=2"
+alias gitfilt="git filt"
 
 # Machine-specific environment variables
 
