@@ -204,6 +204,7 @@ let g:ale_linters = {
   \ 'cpp': ['clangcheck', 'clangd', 'clangtidy', 'clazy', 'cpplint', 'flawfinder'],
   \ 'dart': ['language_server'],
   \ 'python': ['flake8', 'pylama', 'pylint', 'mypy'],
+  \ 'rust': ['rustc'],
   \ }
 
 let g:ale_fixers = {
