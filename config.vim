@@ -245,6 +245,7 @@ let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd'],
   \ 'dart': ['dart_language_server'],
   \ 'reason': ['ocaml-language-server', '--stdio'],
+  \ 'rust': ['rls'],
   \ 'ocaml': ['ocaml-language-server', '--stdio'],
   \ }
 let g:LanguageClient_loadSettings = 1
