@@ -214,6 +214,7 @@ let g:ale_fixers = {
   \ 'python': ['autopep8', 'isort', 'yapf'],
   \ 'javascript': ['prettier'],
   \ 'html': ['prettier'],
+  \ 'rust': ['rustfmt'],
   \ 'sh': ['shfmt'],
   \ 'yaml': ['prettier'],
   \ }
