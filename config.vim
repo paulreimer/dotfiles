@@ -352,6 +352,9 @@ nmap <leader>gD :ALEGoToTypeDefinition<CR>
 nmap <leader>gr :ALEFindReferences<CR>
 nmap <leader>gs :ALEGoToDefinitionInSplit<CR>
 
+" Override ALE binding
+autocmd FileType python nmap <leader>d :jedi#show_documentation()<CR>
+
 " fzf
 nmap <leader>f :Ag<space>
 nmap <leader>F :Files<CR>
