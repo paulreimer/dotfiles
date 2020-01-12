@@ -70,6 +70,7 @@ with builtins;
       pkgs.skhd
     ]
     else if stdenv.isLinux then [
+      pkgs.grim
       pkgs.sway
       pkgs.swayidle
       pkgs.swaylock
