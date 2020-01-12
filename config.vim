@@ -38,6 +38,8 @@ set scrolloff=5
 fun! EnableLineNumbers()
   if &buftype != 'terminal'
     setl number
+  else
+    setl nonumber
   endif
 endfun
 autocmd BufRead * call EnableLineNumbers()
