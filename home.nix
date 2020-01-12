@@ -171,7 +171,6 @@ with builtins;
       float-preview-nvim
       fzf-vim
       ir_black
-      LanguageClient-neovim
       lh-brackets
       lh-vim-lib
       lightline-ale

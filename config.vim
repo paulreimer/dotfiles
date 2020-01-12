@@ -225,24 +225,6 @@ let g:lightline#ale#indicator_warnings = ""
 let g:lightline#ale#indicator_errors = ""
 let g:lightline#ale#indicator_ok = ""
 
-" LanguageClient-neovim
-if has('nvim')
-
-let g:LanguageClient_serverCommands = {
-  \ 'cpp': ['clangd'],
-  \ 'dart': ['dart_language_server'],
-  \ 'reason': ['ocaml-language-server', '--stdio'],
-  \ 'rust': ['rls'],
-  \ 'ocaml': ['ocaml-language-server', '--stdio'],
-  \ }
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_settingsPath = '/Users/paulreimer/.config/nvim/settings.json'
-
-let g:LanguageClient_hasSnippetSupport = 1
-let g:LanguageClient_diagnosticsEnable = 0
-
-endif
-
 " DoxygenToolkit
 " Use /// comments instead of /** */
 let g:DoxygenToolkit_commentType = "C++"
@@ -409,9 +391,6 @@ noremap <silent> <leader>x :ShowMultiBase<CR>
 
 " yank current /path/to/file:line into unnamed register
 nmap <silent> <leader>y :let @" = join([expand('%:p'),  line(".")], ':')<CR>
-
-" LanguageClient-neovim
-nnoremap <silent> <leader>r :call LanguageClient#textDocument_rename()<CR>
 
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
