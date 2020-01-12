@@ -144,6 +144,8 @@ let g:BufKillCreateMappings = 0
 " deoplete
 " configuration is in ~/.config/nvim/after/plugin/config/deoplete.vim
 
+" float-preview.nvim
+" Do not open a popup window
 set completeopt-=preview
 
 " deoplete-jedi
