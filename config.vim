@@ -399,6 +399,9 @@ noremap <silent> <leader>x :ShowMultiBase<CR>
 " yank current /path/to/file:line into unnamed register
 nmap <silent> <leader>y :let @" = join([expand('%:p'),  line(".")], ':')<CR>
 
+" run c++filt on symbol under cursor
+nnoremap <silent> <leader>c :echo system('c++filt', expand("<cword>"))<CR>
+
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
 let g:sky_color_clock#datetime_format = '%a %d %l:%M%p'
