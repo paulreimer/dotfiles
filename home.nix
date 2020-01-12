@@ -186,6 +186,7 @@ with builtins;
       neomake
       neosnippet
       neosnippet-snippets
+      nvim-gdb
       nim-vim
       ShowMultiBase
       sky-color-clock-vim
