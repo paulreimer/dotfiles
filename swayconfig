@@ -28,6 +28,10 @@ exec swayidle -w \
  resume 'swaymsg "output * dpms on"' \
  before-sleep 'swaylock -f -c 000000'
 
+### Notifications configuration
+# Default timeout: 10s
+exec mako --default-timeout 10000
+
 ### Input configuration
 input * {
   repeat_delay 125
