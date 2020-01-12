@@ -119,6 +119,7 @@ with builtins;
       dlc = "diff --cached HEAD^";
       logtree = "log --graph --oneline --decorate --all --color";
       filt = "name-rev --refs=refs/heads/* --stdin";
+      whodunnit = "blame";
     };
     extraConfig = {
       color = {
