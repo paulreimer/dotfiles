@@ -7,7 +7,7 @@ let g:deoplete#enable_smart_case = 1
 
 " Set default sources
 call deoplete#custom#option('sources', {
-  \ '_': ['file/include', 'neosnippet', 'LanguageClient', 'member', 'buffer', 'zsh', 'emoji'],
+  \ '_': ['file/include', 'neosnippet', 'ale', 'member', 'buffer', 'zsh', 'emoji'],
   \ 'python': ['file/include', 'neosnippet', 'jedi', 'member', 'buffer'],
   \ })
 
