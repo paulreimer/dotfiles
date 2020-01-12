@@ -142,21 +142,8 @@ let g:tcomment_textobject_inlinecomment = ''
 let g:BufKillCreateMappings = 0
 
 " deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#enable_smart_case = 1
-" Set default sources
-call deoplete#custom#option('sources', {
-  \ '_': ['neosnippet', 'file/include', 'LanguageClient', 'member', 'buffer'],
-  \ 'python': ['neosnippet', 'file/include', 'jedi', 'member', 'buffer'],
-  \ })
+" configuration is in ~/.config/nvim/after/plugin/config/deoplete.vim
 
-" Set the max popup menu width
-call deoplete#custom#source('_', 'max_abbr_width', 180)
-call deoplete#custom#source('_', 'max_menu_width', 180)
-" Set the max popup menu height
-call deoplete#custom#option('max_list', 10)
-" Do not open a popup window (float-preview.nvim uses floating window)
 set completeopt-=preview
 
 " deoplete-jedi
