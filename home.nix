@@ -71,6 +71,7 @@ with builtins;
     ]
     else if stdenv.isLinux then [
       pkgs.grim
+      pkgs.mako
       pkgs.sway
       pkgs.swayidle
       pkgs.swaylock
