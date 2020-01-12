@@ -125,6 +125,9 @@ with builtins;
       color = {
         ui = true;
       };
+      core = {
+        excludesfile = "~/.config/git/gitignore";
+      };
       difftool = {
         prompt = false;
       };
