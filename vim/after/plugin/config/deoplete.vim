@@ -17,4 +17,9 @@ call deoplete#custom#source('_', 'max_menu_width', 180)
 " Set the max popup menu height
 call deoplete#custom#option('max_list', 10)
 
+" Insert unicode emoji characters
+call deoplete#custom#source('emoji', 'converters', ['converter_emoji'])
+" Filetypes which should get emoji completion
+call deoplete#custom#source('emoji', 'filetypes', [])
+
 call deoplete#enable()
