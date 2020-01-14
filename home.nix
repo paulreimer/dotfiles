@@ -169,6 +169,7 @@ with builtins;
       ale
       csv
       dart-vim-plugin
+      deoplete-emoji
       deoplete-jedi
       deoplete-lsp
       deoplete-nvim
