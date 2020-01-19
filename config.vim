@@ -314,10 +314,14 @@ tnoremap <C-a>8 <C-\><C-n> 8gt
 tnoremap <C-a>9 <C-\><C-n> 9gt
 
 " use ,{hjkl} to navigate terminal windows
-noremap <leader>h <C-\><C-n> :tabprev <CR>
-noremap <leader>j <C-\><C-n> :bprev <CR>
-noremap <leader>k <C-\><C-n> :bnext <CR>
-noremap <leader>l <C-\><C-n> :tabnext <CR>
+noremap <C-h> :tabprev <CR>
+noremap <C-j> :wincmd w <CR>
+noremap <C-k> :wincmd W <CR>
+noremap <C-l> :tabnext <CR>
+tnoremap <C-h> <C-\><C-n> :tabprev <CR>
+tnoremap <C-j> <C-\><C-n> :wincmd w <CR>
+tnoremap <C-k> <C-\><C-n> :wincmd W <CR>
+tnoremap <C-l> <C-\><C-n> :tabnext <CR>
 
 " yank selection into system clipboard
 xnoremap <C-a>\ "+y
