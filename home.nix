@@ -6,6 +6,7 @@ with builtins;
 {
   home.packages = [
     pkgs.abduco
+    pkgs.ansible
     pkgs.bear
     pkgs.ccache
     pkgs.ccat
