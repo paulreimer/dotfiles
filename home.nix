@@ -28,6 +28,7 @@ with builtins;
     pkgs.hexedit
     pkgs.imagemagick
     pkgs.influxdb
+    pkgs.just
     pkgs.kitty
     pkgs.libftdi1
     pkgs.mercurial
