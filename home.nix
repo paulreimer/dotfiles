@@ -20,6 +20,7 @@ with builtins;
     pkgs.doxygen
     pkgs.exiftool
     pkgs.entr
+    pkgs.ffmpeg
     pkgs.gdb
     pkgs.git-crypt
     pkgs.gnumake
