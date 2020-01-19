@@ -23,6 +23,7 @@ with builtins;
     pkgs.gnumake
     pkgs.gn
     pkgs.gnupg
+    pkgs.go
     pkgs.graphviz
     pkgs.hexedit
     pkgs.imagemagick
