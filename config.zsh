@@ -76,7 +76,7 @@ export SYSTEMD_EDITOR="$APP_EDITOR"
 export SVN_EDITOR="$APP_EDITOR"
 
 ### Environment variables
-export FZF_DEFAULT_OPTS="--exact"
+export FZF_DEFAULT_OPTS="--exact --bind tab:down --cycle"
 
 # Enable color support of ls on macOS
 export CLICOLOR=1
