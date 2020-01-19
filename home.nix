@@ -59,6 +59,7 @@ with builtins;
     pkgs.watch
     pkgs.wdiff
     pkgs.wrk
+    pkgs.xz
     pkgs.yarn
     pkgs.youtube-dl
     pkgs.zsh
