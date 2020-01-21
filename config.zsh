@@ -154,6 +154,7 @@ if [[ $options[zle] = on && ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
   }
 fi
 
+# Functions
 # Execute OAuth request and extract value from response
 oauth() {
   OAUTH_TOKEN_ENDPOINT="$1"
