@@ -111,12 +111,6 @@ alias astyle="astyle --style=allman --indent=spaces=2"
 alias gitfilt="git filt"
 alias sizeof="stat --printf='%s\n'"
 
-# Machine-specific environment variables
-
-# Machine-specific directory aliases
-
-# Machine-specific command aliases
-
 ### Functions
 # Helper functions
 calc()
@@ -195,4 +189,3 @@ gauth() {
   oauth "https://www.googleapis.com/oauth2/v4/token" "$1" "$2" "refresh_token" "$3"
 }
 
-# Machine-specific functions

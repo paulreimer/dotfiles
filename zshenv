@@ -1,4 +1,4 @@
-### Environment variables
+# Machine-specific environment variables
 export FZF_DEFAULT_OPTS="--exact"
 
 # Enable GCC colors always (including ccache)
@@ -6,6 +6,12 @@ export GCC_COLORS=1
 
 # nixpkgs
 export NIX_PATH=$HOME/.nix-defexpr/channels:nixpkgs=$HOME/Development/nixos/nixpkgs
+
+# Machine-specific directory aliases
+
+# Machine-specific command aliases
+
+# Machine-specific functions
 
 # nix
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then

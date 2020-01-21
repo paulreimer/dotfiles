@@ -1,4 +1,4 @@
-### Environment variables
+# Machine-specific environment variables
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -38,6 +38,12 @@ export ZEPHYR_BASE="$HOME/Development/nrf52/zephyr"
 
 # 3delight
 export DELIGHT=/Applications/3Delight
+
+# Machine-specific directory aliases
+
+# Machine-specific command aliases
+
+# Machine-specific functions
 
 # nix
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
