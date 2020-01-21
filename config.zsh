@@ -190,3 +190,6 @@ gauth() {
   oauth "https://www.googleapis.com/oauth2/v4/token" "$1" "$2" "refresh_token" "$3"
 }
 
+f() {
+  awk "{ print \$$1 }"
+}
