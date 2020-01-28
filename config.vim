@@ -139,6 +139,7 @@ autocmd BufRead,BufNewFile *.es7 set filetype=javascript
 
 " tcomment
 let g:tcomment_textobject_inlinecomment = ''
+let g:tcomment_maps = 0
 
 " vim-bufkill
 let g:BufKillCreateMappings = 0
@@ -407,6 +408,13 @@ nnoremap <leader>= :echo<space>
 
 " ALE
 nnoremap <silent> <leader>r :ALERename<CR>
+
+" tcomment
+nmap gcc <Plug>TComment_gcc
+nmap gc <Plug>TComment_gc
+smap gc <Plug>TComment_gc
+vmap gc <Plug>TComment_gc
+xmap gc <Plug>TComment_gc
 
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
