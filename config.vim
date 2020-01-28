@@ -251,6 +251,9 @@ let g:ShowMultiBase_Display_Decimal_Show = 1
 let g:ShowMultiBase_Display_Octal_Show = 0
 let g:ShowMultiBase_Display_Hexadecimal_SegmentSize = 8
 
+" vim-fugitive
+let g:fugitive_no_maps = 1
+
 " key mappings
 let mapleader = ","
 
