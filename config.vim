@@ -235,7 +235,7 @@ let g:lightline#ale#indicator_ok = ""
 let g:DoxygenToolkit_commentType = "C++"
 
 " lh-brackets
-let b:usemarks=0
+let g:usemarks = 0
 " Disable '' quote wrapping
 let g:cb_disable_default = { "''": 'n' }
 
