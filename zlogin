@@ -1,21 +1,21 @@
-## Basic SSH-agent access for screen terminal multiplexer
+# Basic SSH-agent access for screen terminal multiplexer
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
   echo "Initialising new SSH agent..."
-  ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-  echo succeeded
-  chmod 600 "${SSH_ENV}"
-  . "${SSH_ENV}" > /dev/null
-  ssh-add -c;
+  (umask 066; ssh-agent > "${SSH_ENV}")
+  eval "$(<${SSH_ENV})" >/dev/null
+  ssh-add -t 10h;
 }
 
 # Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-  . "${SSH_ENV}" > /dev/null
-  ps ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+ssh-add -l &>/dev/null
+if [ "$?" = 2 ]; then
+  test -r "${SSH_ENV}" && \
+    eval "$(<${SSH_ENV})" >/dev/null
+
+  ssh-add -l &>/dev/null
+  if [ "$?" = 2 ]; then
     start_agent;
-  }
-else
-  start_agent;
+  fi
 fi
