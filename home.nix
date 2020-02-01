@@ -241,6 +241,16 @@ with builtins;
           sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
         };
       }
+      {
+        name = "fzf-tab";
+        file = "fzf-tab.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "Aloxaf";
+          repo = "fzf-tab";
+          rev = "a9fb33a";
+          sha256 = "128y6fiprkwi18cf24xm1jhnxf9nsviky71kdllr8mb4jhqxxgkn";
+        };
+      }
     ];
   } // (if stdenv.isDarwin then {
     envExtra = builtins.readFile ./zshenv_macos;
