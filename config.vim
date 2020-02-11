@@ -236,6 +236,8 @@ let g:DoxygenToolkit_commentType = "C++"
 
 " lh-brackets
 let g:usemarks = 0
+" Disable default jump mappings
+let g:marker_define_jump_mappings = 0
 " Enable lh-brackets where no conflict with default vim modes
 let g:cb_enable_default = {
   \ '(': 'ivn',
