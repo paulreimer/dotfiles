@@ -149,7 +149,12 @@ if [[ $options[zle] = on && ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
 
   # Change nvim directory when cd'ing
   cd() {
-    nvr --remote-send "<C-\><C-n>:lcd ${1:a}<cr>i"
+    if [ "${1}" = "-" ]; then
+      NEWPWD="${OLDPWD}"
+    else
+      NEWPWD="${1:a}"
+    fi
+    nvr --remote-send "<C-\><C-n>:lcd ${NEWPWD}<cr>i"
     builtin cd "$@"
   }
 fi
