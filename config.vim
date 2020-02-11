@@ -236,8 +236,17 @@ let g:DoxygenToolkit_commentType = "C++"
 
 " lh-brackets
 let g:usemarks = 0
-" Disable '' quote wrapping
-let g:cb_disable_default = { "''": 'n' }
+" Enable lh-brackets where no conflict with default vim modes
+let g:cb_enable_default = {
+  \ '(': 'ivn',
+  \ '[': 'i',
+  \ '{': 'ivn',
+  \ '<': 'ivn',
+  \ '"': 'in',
+  \ '""': 'vn',
+  \ "'": 'i',
+  \ "''": 'iv',
+  \ }
 
 " neomake
 let g:neomake_open_list = 2
