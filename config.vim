@@ -430,6 +430,9 @@ smap gc <Plug>TComment_gc
 vmap gc <Plug>TComment_gc
 xmap gc <Plug>TComment_gc
 
+" lh-brackets
+imap <C-l> <Plug>MarkersCloseAllAndJumpToLast
+
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
 let g:sky_color_clock#datetime_format = '%a %d %l:%M%p'
