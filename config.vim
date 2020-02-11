@@ -268,7 +268,6 @@ let g:fugitive_no_maps = 1
 " key mappings
 let mapleader = ","
 
-
 " neosnippet supertab
 imap <expr><TAB>
  \ pumvisible() ? "\<C-n>" :
@@ -283,7 +282,6 @@ imap <expr><S-TAB>
  \ pumvisible() ? "\<C-p>" :
  \ exists('b:snip_state') ? "\<Plug>snipMateBack" :
  \ "\<S-TAB>"
-
 
 " deoplete actions on close popup
 inoremap <expr><CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
