@@ -11,10 +11,6 @@ export ANDROID_NDK_HOME="/usr/local/Caskroom/android-ndk/18/android-ndk-r18"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
 
-# conda
-export CONDA_DEFAULT_ENV=intelpy
-export CONDA_PREFIX=/usr/local/miniconda3/envs/intelpy
-
 # IncludeOS
 #export INCLUDEOS_PREFIX=$HOME/Development/includeos/current
 
@@ -95,6 +91,5 @@ export PATH=\
 :/nix/var/nix/profiles/default/bin\
 :/run/current-system/sw/bin\
 :/Applications/microchip/xc32/v2.10/bin\
-:/usr/local/miniconda3/envs/intelpy/bin\
 :$BIN_PATH\
 :$STD_PATH
