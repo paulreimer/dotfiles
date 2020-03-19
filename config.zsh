@@ -62,8 +62,6 @@ _myhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
 zstyle ':completion:*' hosts $_myhosts
 
 ### Default shell settings
-set -o vi
-
 VI_EDITOR="`command -v nvim`"
 export EDITOR="$APP_EDITOR"
 
