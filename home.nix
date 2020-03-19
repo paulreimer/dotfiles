@@ -82,6 +82,7 @@ with builtins;
       pkgs.sway
       pkgs.swayidle
       pkgs.swaylock
+      pkgs.wev
       pkgs.wl-clipboard
       pkgs.xwayland
     ]
