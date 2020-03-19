@@ -93,7 +93,6 @@ alias xvi="xargs nvim"
 alias h="history 0 | ag"
 alias ls="ls -Ghp"
 alias p="ps aux | ag"
-alias g="git clone --recursive"
 alias c="noglob curl -LO"
 alias k="kubectl get nodes && kubectl get pods --all-namespaces"
 alias gmoji="gitmoji -c"
@@ -107,6 +106,14 @@ alias urldecode='python3 -c "import sys, urllib.parse as up; print(up.unquote_pl
 alias astyle="astyle --style=allman --indent=spaces=2"
 alias gitfilt="git filt"
 alias sizeof="stat --printf='%s\n'"
+alias g="git clone --recursive"
+alias gr="cd \"\$(git rev-parse --show-toplevel)\""
+alias gf="git fetch"
+alias gp="git pull --rebase --autostash"
+alias gP="git push"
+alias gPf="git push --force-with-lease"
+alias grc="git rebase --continue"
+alias make="make -C \"\$(git rev-parse --show-toplevel)\" -j$(nproc)"
 
 ### Functions
 # Helper functions
