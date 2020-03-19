@@ -137,6 +137,9 @@ with builtins;
       difftool = {
         prompt = false;
       };
+      push = {
+        default = "current";
+      };
       rerere = {
         enabled = true;
       };
