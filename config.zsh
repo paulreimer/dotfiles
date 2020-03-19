@@ -63,9 +63,8 @@ zstyle ':completion:*' hosts $_myhosts
 
 ### Default shell settings
 VI_EDITOR="`command -v nvim`"
-export EDITOR="$APP_EDITOR"
-
 APP_EDITOR="$VI_EDITOR"
+export EDITOR="$APP_EDITOR"
 export GIT_EDITOR="$APP_EDITOR"
 export KUBE_EDITOR="$APP_EDITOR"
 export HOMEBREW_EDITOR="$APP_EDITOR"
@@ -138,6 +137,7 @@ if [[ $options[zle] = on && ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
   alias xvi="xargs $VI_EDITOR"
 
   APP_EDITOR="`command -v nvr` --remote-wait"
+  export EDITOR="$APP_EDITOR"
   export GIT_EDITOR="$APP_EDITOR"
   export KUBE_EDITOR="$APP_EDITOR"
   export HOMEBREW_EDITOR="$APP_EDITOR"
