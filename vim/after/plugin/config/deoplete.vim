@@ -14,8 +14,6 @@ call deoplete#custom#option('sources', {
 " Set the max popup menu width
 call deoplete#custom#source('_', 'max_abbr_width', 180)
 call deoplete#custom#source('_', 'max_menu_width', 180)
-" Set the max popup menu height
-call deoplete#custom#option('max_list', 10)
 
 " Insert unicode emoji characters
 call deoplete#custom#source('emoji', 'converters', ['converter_emoji'])
