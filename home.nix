@@ -227,7 +227,6 @@ with builtins;
     enable = true;
     enableCompletion = true;
     history = {
-      #autocd = true;
       extended = true;
       ignoreDups = true;
       share = true;
