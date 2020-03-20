@@ -286,6 +286,7 @@ with builtins;
 
     # other dotfiles:
     ".colordiffrc".source = ./colordiffrc;
+    ".htoprc".source = ./htoprc;
   } // (if stdenv.isDarwin then {
     # yabai+skhd tiling window manager
     ".skhdrc".source = ./skhdrc;
