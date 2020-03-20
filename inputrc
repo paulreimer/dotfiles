@@ -1,0 +1,5 @@
+$include function rl_custom_complete ~/Development/rust/fzf-tab-completion/readline/target/release/librl_custom_complete.dylib
+"\t": rl_custom_complete
+
+$include function rl_custom_isearch ~/Development/rust/rl_custom_isearch/target/release/librl_custom_isearch.dylib
+"\C-r": rl_custom_isearch
