@@ -127,6 +127,7 @@ with builtins;
       logtree = "log --graph --oneline --decorate --all --color";
       filt = "name-rev --refs=refs/heads/* --stdin";
       whodunnit = "blame";
+      lol = "log --graph --decorate --pretty=oneline --abbrev-commit";
     };
     extraConfig = {
       color = {
