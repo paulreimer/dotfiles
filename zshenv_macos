@@ -39,6 +39,11 @@ export DELIGHT=/Applications/3Delight
 
 # Machine-specific command aliases
 
+# Helper functions
+nproc() {
+  sysctl -n hw.logicalcpu
+}
+
 # Machine-specific functions
 
 # nix
