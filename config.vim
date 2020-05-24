@@ -296,6 +296,7 @@ cabbrev q! <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'BD!' : 'q!')<CR>
 cabbrev q1 <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'BD!' : 'q!')<CR>
 cabbrev wq <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'update <BAR> BD' : 'wq')<CR>
 nnoremap ZZ :update <BAR> BD <CR>
+nnoremap ZQ :BD! <CR>
 
 " screen-like key bindings
 noremap <C-a>c :tabnew <BAR> te <CR> i
