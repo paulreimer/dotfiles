@@ -10,6 +10,9 @@ test -f ".htoprc" || curl --silent -L "https://dotfiles.p-rimes.net/htoprc" -o "
 #test -f ".screenrc" || curl --silent -L "https://dotfiles.p-rimes.net/screenrc" -o ".screenrc"
 #test -f ".tmux.conf" || curl --silent -L "https://dotfiles.p-rimes.net/tmux.conf" -o ".tmux.conf"
 
+# gpg
+test -f ".gnupg/gpg-agent.conf" || curl --silent -L "https://dotfiles.p-rimes.net/gpg-agent.conf" -o ".gnupg/gpg-agent.conf"
+
 # zsh
 test -f ".zshrc" || curl --silent -L "https://dotfiles.p-rimes.net/zshrc" -o ".zshrc"
 test -f ".config.zsh" || curl --silent -L "https://dotfiles.p-rimes.net/config.zsh" -o ".config.zsh"

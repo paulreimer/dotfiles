@@ -287,6 +287,9 @@ with builtins;
     ".colordiffrc".source = ./colordiffrc;
     ".htoprc".source = ./htoprc;
     ".inputrc".source = ./inputrc;
+
+    # gpg
+    ".gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
   } // (if stdenv.isDarwin then {
     # yabai+skhd tiling window manager
     ".skhdrc".source = ./skhdrc;

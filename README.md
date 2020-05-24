@@ -38,6 +38,9 @@ git clone http://github.com/paulreimer/dotfiles
 test -f ".gitconfig" || curl --silent -L "https://dotfiles.p-rimes.net/gitconfig" -o ".gitconfig"
 test -f ".htoprc" || curl --silent -L "https://dotfiles.p-rimes.net/htoprc" -o ".htoprc"
 
+# gpg
+test -f ".gnupg/gpg-agent.conf" || curl --silent -L "https://dotfiles.p-rimes.net/gpg-agent.conf" -o ".gnupg/gpg-agent.conf"
+
 ## zsh
 test -f ".zshrc" || curl --silent -L "https://dotfiles.p-rimes.net/zshrc" -o ".zshrc"
 test -d ".zsh/plugins/zsh-syntax-highlighting" || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ".zsh/plugins/zsh-syntax-highlighting"
