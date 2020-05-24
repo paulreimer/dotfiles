@@ -198,6 +198,7 @@ let g:ale_linters = {
   \ 'erlang': ['dialyzer', 'erl', 'syntaxerl'],
   \ 'python': ['flake8', 'pylama', 'pylint', 'mypy'],
   \ 'rust': ['rls'],
+  \ 'swift': ['sourcekitlsp'],
   \ }
 
 let g:ale_fixers = {
