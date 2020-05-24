@@ -210,6 +210,7 @@ let g:ale_fixers = {
   \ 'html': ['prettier'],
   \ 'rust': ['rustfmt'],
   \ 'sh': ['shfmt'],
+  \ 'swift': ['swiftformat'],
   \ 'yaml': ['prettier'],
   \ }
 let g:ale_fix_on_save = 1
