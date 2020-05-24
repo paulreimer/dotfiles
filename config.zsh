@@ -119,6 +119,10 @@ alias gp="git pull --rebase --autostash"
 alias gP="git push"
 alias gPf="git push --force-with-lease"
 alias grc="git rebase --continue"
+alias gcp="git cherry-pick"
+alias gcpc="git cherry-pick --continue"
+alias gst="git status"
+alias gsw="git checkout"
 alias make="make -C \"\$(git rev-parse --show-toplevel)\" -j$(nproc)"
 
 ### Functions
