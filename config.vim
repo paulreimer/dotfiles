@@ -189,13 +189,14 @@ let g:ale_cpp_cpplint_options = '--filter=-whitespace/braces,-whitespace/parens,
 let g:ale_c_clangformat_options = '-style=file'
 let g:ale_html_tidy_options = '--custom-tags yes --wrap 80 --indent yes --indent-attributes yes --indent-spaces 2'
 let g:ale_python_mypy_options = '--disallow-untyped-defs --disallow-incomplete-defs --check-untyped-defs --disallow-untyped-decorators'
+let g:ale_rust_rls_executable = 'rust-analyzer'
 let g:ale_sh_shfmt_options = '-i 2'
 
 let g:ale_linters = {
   \ 'cpp': ['clangcheck', 'clangd', 'clangtidy', 'clazy', 'cpplint', 'flawfinder'],
   \ 'dart': ['language_server'],
   \ 'python': ['flake8', 'pylama', 'pylint', 'mypy'],
-  \ 'rust': ['rustc'],
+  \ 'rust': ['rls'],
   \ }
 
 let g:ale_fixers = {
