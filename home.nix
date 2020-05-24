@@ -208,6 +208,7 @@ with builtins;
       nim-vim
       ShowMultiBase
       sky-color-clock-vim
+      swift-vim
       tabular
       tcomment_vim
       tlib_vim
