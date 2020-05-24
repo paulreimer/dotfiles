@@ -234,7 +234,6 @@ with builtins;
       size = 10000;
     };
     initExtra = builtins.readFile ./config.zsh;
-    loginExtra = builtins.readFile ./zlogin;
 
     plugins = [
       {

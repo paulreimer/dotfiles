@@ -11,7 +11,6 @@ test -f ".htoprc" || curl --silent -L "https://dotfiles.p-rimes.net/htoprc" -o "
 #test -f ".tmux.conf" || curl --silent -L "https://dotfiles.p-rimes.net/tmux.conf" -o ".tmux.conf"
 
 # zsh
-test -f ".zlogin" || curl --silent -L "https://dotfiles.p-rimes.net/zlogin" -o ".zlogin"
 test -f ".zshrc" || curl --silent -L "https://dotfiles.p-rimes.net/zshrc" -o ".zshrc"
 test -f ".config.zsh" || curl --silent -L "https://dotfiles.p-rimes.net/config.zsh" -o ".config.zsh"
 test -d ".zsh/plugins/zsh-syntax-highlighting" || git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git ".zsh/plugins/zsh-syntax-highlighting"
