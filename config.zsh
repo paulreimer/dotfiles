@@ -61,6 +61,12 @@ local _myhosts
 _myhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
 zstyle ':completion:*' hosts $_myhosts
 
+# Reset prompt every minute (reprints/updates timestamp)
+TMOUT=60
+TRAPALRM() {
+  zle reset-prompt
+}
+
 ### Default shell settings
 VI_EDITOR="`command -v nvim`"
 APP_EDITOR="$VI_EDITOR"
