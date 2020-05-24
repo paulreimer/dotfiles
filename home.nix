@@ -194,6 +194,7 @@ with builtins;
       file-line
       float-preview-nvim
       fzf-vim
+      gleam-vim
       ir_black
       lh-brackets
       lh-vim-lib
