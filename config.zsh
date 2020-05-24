@@ -113,7 +113,6 @@ alias urldecode='python3 -c "import sys, urllib.parse as up; print(up.unquote_pl
 alias astyle="astyle --style=allman --indent=spaces=2"
 alias gitfilt="git filt"
 alias sizeof="stat --printf='%s\n'"
-alias g="git clone --recursive"
 alias gr="cd \"\$(git rev-parse --show-toplevel)\""
 alias gf="git fetch"
 alias gp="git pull --rebase --autostash"
@@ -124,6 +123,10 @@ alias make="make -C \"\$(git rev-parse --show-toplevel)\" -j$(nproc)"
 
 ### Functions
 # Helper functions
+g() {
+  /usr/bin/git clone --recursive "$1" && cd "$(basename "$1" .git)"
+}
+
 calc()
 {
   noglob echo "$(( $@ ))";
