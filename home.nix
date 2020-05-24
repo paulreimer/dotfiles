@@ -164,6 +164,10 @@ with builtins;
     };
   };
 
+  programs.gpg = {
+    enable = true;
+  };
+
   programs.htop = {
     enable = true;
     treeView = true;

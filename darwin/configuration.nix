@@ -35,9 +35,6 @@
 
   programs.nix-index.enable = true;
 
-  programs.gnupg.agent.enable = true;
-  programs.gnupg.agent.enableSSHSupport = true;
-
   environment.variables.LANG = "en_CA.UTF-8";
 
   environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
