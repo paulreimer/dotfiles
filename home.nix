@@ -223,6 +223,7 @@ with builtins;
       vim-sneak
       vim-snipmate
       vim-sourcetrail
+      vim-terraform
       vim-textobj-comment
       vim-textobj-function
       vim-textobj-user
