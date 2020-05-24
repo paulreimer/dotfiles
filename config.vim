@@ -365,6 +365,7 @@ tnoremap <S-F6> <C-\><C-n>
 nmap <C-]> :ALEGoToDefinition<CR>
 nmap <leader>gd :ALEGoToDefinition<CR>
 nmap <leader>gD :ALEGoToDeclaration<CR>
+nmap <leader>gt :ALEGoToTypeDefinition<CR>
 nmap <leader>gr :ALEFindReferences<CR>
 nmap <leader>gs :ALEGoToDefinitionInSplit<CR>
 
