@@ -214,6 +214,7 @@ with builtins;
       vim-bufferline
       vim-bufkill
       vim-css-color
+      vim-cue
       vim-fugitive
       vim-gitgutter
       vim-nix
