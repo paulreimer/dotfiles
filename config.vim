@@ -137,6 +137,9 @@ let dart_style_guide = 2
 " es7
 autocmd BufRead,BufNewFile *.es7 set filetype=javascript
 
+" dita
+autocmd BufRead,BufNewFile *.dita set filetype=xml
+
 " tcomment
 let g:tcomment_textobject_inlinecomment = ''
 let g:tcomment_maps = 0
