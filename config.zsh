@@ -87,6 +87,9 @@ export CLICOLOR=1
 # Use a real tty for GPG pinentry/gpg-agent
 export GPG_TTY=$(tty)
 
+# zsh-auto-notify plugin long command threshold (in seconds)
+export AUTO_NOTIFY_THRESHOLD=120
+
 # Directory aliases
 hash -d dev="$HOME/Development"
 
