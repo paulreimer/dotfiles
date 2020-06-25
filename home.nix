@@ -294,6 +294,16 @@ with builtins;
           sha256 = "1x8rvvqwb738zj9c66mqcgxr71j9ag5604bppx373ki9p8qjsr78";
         };
       }
+      {
+        name = "zsh-histdb";
+        file = "sqlite-history.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "larkery";
+          repo = "zsh-histdb";
+          rev = "7c34b55";
+          sha256 = "04i8gsixjkqqq0nxmd45wp6irbfp9hy71qqxkq7f6b78aaknljwf";
+        };
+      }
     ];
   } // (if stdenv.isDarwin then {
     envExtra = builtins.readFile ./zshenv_macos;
