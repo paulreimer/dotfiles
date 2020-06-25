@@ -6,6 +6,10 @@ prompt bart purple blue green cyan
 # Renaming with globbing
 autoload zmv
 
+# Ensure correct timing information in histdb plugin
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd histdb-update-outcome
+
 # Ignore common commands with common arguments
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
 
