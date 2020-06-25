@@ -274,6 +274,16 @@ with builtins;
           sha256 = "128y6fiprkwi18cf24xm1jhnxf9nsviky71kdllr8mb4jhqxxgkn";
         };
       }
+      {
+        name = "zsh-auto-notify";
+        file = "auto-notify.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "MichaelAquilina";
+          repo = "zsh-auto-notify";
+          rev = "0.8.0";
+          sha256 = "02x7q0ncbj1bn031ha7k3n2q2vrbv1wbvpx9w2qxv9jagqnjm3bd";
+        };
+      }
     ];
   } // (if stdenv.isDarwin then {
     envExtra = builtins.readFile ./zshenv_macos;
