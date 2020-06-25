@@ -10,6 +10,9 @@ autoload zmv
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd histdb-update-outcome
 
+# Use histdb-fzf-widget with Ctrl-R
+bindkey '^R' histdb-fzf-widget
+
 # Ignore common commands with common arguments
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
 
