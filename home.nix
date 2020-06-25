@@ -245,6 +245,16 @@ with builtins;
 
     plugins = [
       {
+        name = "zsh-autopair";
+        file = "autopair.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "hlissner";
+          repo = "zsh-autopair";
+          rev = "34a8bca";
+          sha256 = "1h0vm2dgrmb8i2pvsgis3lshc5b0ad846836m62y8h3rdb3zmpy1";
+        };
+      }
+      {
         name = "zsh-syntax-highlighting";
         file = "zsh-syntax-highlighting.zsh";
         src = pkgs.fetchFromGitHub {
