@@ -102,9 +102,13 @@ set autochdir
 " Update working directory when switching to a terminal buffer
 function! TermAutoLcd()
   " Extract the CWD for the terminal's PID
-  let l:term_pid = matchstr(expand("%"), 'term://.//\zs[0-9]\+\ze')
-  let l:term_cwd = system("lsof -a -d cwd -c zsh -p " . term_pid . " -Fn | sed -n -e 's/^n\\(.*\\)$/\\1/p'")[:-2]
-  execute "lcd " . l:term_cwd
+  let l:term_pid = matchstr(expand("%"), 'term://.*//\zs[0-9]\+\ze')
+  if !empty(term_pid)
+    let l:term_cwd = system("lsof -a -d cwd -c zsh -p " . term_pid . " -Fn | sed -n -e 's/^n\\(.*\\)$/\\1/p'")[:-2]
+    if !empty(term_cwd)
+      execute "lcd " . l:term_cwd
+    endif
+  endif
 endfunction
 autocmd BufEnter term://* call TermAutoLcd()
 
