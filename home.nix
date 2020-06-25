@@ -284,6 +284,16 @@ with builtins;
           sha256 = "02x7q0ncbj1bn031ha7k3n2q2vrbv1wbvpx9w2qxv9jagqnjm3bd";
         };
       }
+      {
+        name = "gpg-agent-zsh";
+        file = "gpg-agent.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "axtl";
+          repo = "gpg-agent.zsh";
+          rev = "894b908";
+          sha256 = "1x8rvvqwb738zj9c66mqcgxr71j9ag5604bppx373ki9p8qjsr78";
+        };
+      }
     ];
   } // (if stdenv.isDarwin then {
     envExtra = builtins.readFile ./zshenv_macos;

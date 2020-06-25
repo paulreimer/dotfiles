@@ -84,9 +84,6 @@ export FZF_DEFAULT_OPTS="--exact --bind tab:down --cycle"
 # Enable color support of ls on macOS
 export CLICOLOR=1
 
-# Use a real tty for GPG pinentry/gpg-agent
-export GPG_TTY=$(tty)
-
 # zsh-auto-notify plugin long command threshold (in seconds)
 export AUTO_NOTIFY_THRESHOLD=120
 
