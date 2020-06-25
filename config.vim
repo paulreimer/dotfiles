@@ -302,104 +302,104 @@ cabbrev qa <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'BD' : 'qa')<CR>
 cabbrev q! <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'BD!' : 'q!')<CR>
 cabbrev q1 <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'BD!' : 'q!')<CR>
 cabbrev wq <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'update <BAR> BD' : 'wq')<CR>
-nnoremap ZZ :update <BAR> BD <CR>
-nnoremap ZQ :BD! <CR>
+nnoremap <silent> ZZ :update <BAR> BD <CR>
+nnoremap <silent> ZQ :BD! <CR>
 
 " screen-like key bindings
-noremap <C-a>c :tabnew <BAR> te <CR> i
-inoremap <C-a>c <ESC>:tabnew <BAR> te <CR> i
-noremap <C-a>k :BD! <CR>
-noremap <C-a><Space> :tabnext <CR>
-noremap <C-a>0 0gt
-noremap <C-a>1 1gt
-noremap <C-a>2 2gt
-noremap <C-a>3 3gt
-noremap <C-a>4 4gt
-noremap <C-a>5 5gt
-noremap <C-a>6 6gt
-noremap <C-a>7 7gt
-noremap <C-a>8 8gt
-noremap <C-a>9 9gt
+noremap <silent> <C-a>c :tabnew <BAR> te <CR> i
+inoremap <silent> <C-a>c <ESC>:tabnew <BAR> te <CR> i
+noremap <silent> <C-a>k :BD! <CR>
+noremap <silent> <C-a><Space> :tabnext <CR>
+noremap <silent> <C-a>0 0gt
+noremap <silent> <C-a>1 1gt
+noremap <silent> <C-a>2 2gt
+noremap <silent> <C-a>3 3gt
+noremap <silent> <C-a>4 4gt
+noremap <silent> <C-a>5 5gt
+noremap <silent> <C-a>6 6gt
+noremap <silent> <C-a>7 7gt
+noremap <silent> <C-a>8 8gt
+noremap <silent> <C-a>9 9gt
 
 " terminal mode screen-like key bindings
-tnoremap <C-a>c <C-\><C-n> :tabnew <BAR> te <CR> i
-tnoremap <C-a>k <C-\><C-n> :BD! <CR>
-tnoremap <C-a><Space> <C-\><C-n> :tabnext <CR>
-tnoremap <C-a>0 <C-\><C-n> 0gt
-tnoremap <C-a>1 <C-\><C-n> 1gt
-tnoremap <C-a>2 <C-\><C-n> 2gt
-tnoremap <C-a>3 <C-\><C-n> 3gt
-tnoremap <C-a>4 <C-\><C-n> 4gt
-tnoremap <C-a>5 <C-\><C-n> 5gt
-tnoremap <C-a>6 <C-\><C-n> 6gt
-tnoremap <C-a>7 <C-\><C-n> 7gt
-tnoremap <C-a>8 <C-\><C-n> 8gt
-tnoremap <C-a>9 <C-\><C-n> 9gt
+tnoremap <silent> <C-a>c <C-\><C-n> :tabnew <BAR> te <CR> i
+tnoremap <silent> <C-a>k <C-\><C-n> :BD! <CR>
+tnoremap <silent> <C-a><Space> <C-\><C-n> :tabnext <CR>
+tnoremap <silent> <C-a>0 <C-\><C-n> 0gt
+tnoremap <silent> <C-a>1 <C-\><C-n> 1gt
+tnoremap <silent> <C-a>2 <C-\><C-n> 2gt
+tnoremap <silent> <C-a>3 <C-\><C-n> 3gt
+tnoremap <silent> <C-a>4 <C-\><C-n> 4gt
+tnoremap <silent> <C-a>5 <C-\><C-n> 5gt
+tnoremap <silent> <C-a>6 <C-\><C-n> 6gt
+tnoremap <silent> <C-a>7 <C-\><C-n> 7gt
+tnoremap <silent> <C-a>8 <C-\><C-n> 8gt
+tnoremap <silent> <C-a>9 <C-\><C-n> 9gt
 
 " use ,{hjkl} to navigate terminal windows
-noremap <C-h> :tabprev <CR>
-noremap <C-j> :wincmd w <CR>
-noremap <C-k> :wincmd W <CR>
-noremap <C-l> :tabnext <CR>
-tnoremap <C-h> <C-\><C-n> :tabprev <CR>
-tnoremap <C-j> <C-\><C-n> :wincmd w <CR>
-tnoremap <C-k> <C-\><C-n> :wincmd W <CR>
-tnoremap <C-l> <C-\><C-n> :tabnext <CR>
+noremap <silent> <C-h> :tabprev <CR>
+noremap <silent> <C-j> :wincmd w <CR>
+noremap <silent> <C-k> :wincmd W <CR>
+noremap <silent> <C-l> :tabnext <CR>
+tnoremap <silent> <C-h> <C-\><C-n> :tabprev <CR>
+tnoremap <silent> <C-j> <C-\><C-n> :wincmd w <CR>
+tnoremap <silent> <C-k> <C-\><C-n> :wincmd W <CR>
+tnoremap <silent> <C-l> <C-\><C-n> :tabnext <CR>
 
 " yank selection into system clipboard
-xnoremap <C-a>\ "+y
+xnoremap <silent> <C-a>\ "+y
 
 " send Ctrl-A to nested screen/tmux
-noremap <C-a>a <C-a>
+noremap <silent> <C-a>a <C-a>
 
 " use Ctrl-A Ctrl-A to go to last-active tab
 au TabLeave * let g:lasttab = tabpagenr()
-noremap <C-a><C-a> :exe "tabn ".g:lasttab<CR>
-tnoremap <C-a><C-a> <C-\><C-n> :exe "tabn ".g:lasttab<CR>
+noremap <silent> <C-a><C-a> :exe "tabn ".g:lasttab<CR>
+tnoremap <silent> <C-a><C-a> <C-\><C-n> :exe "tabn ".g:lasttab<CR>
 
 " use Ctrl-A Shift-A to rename current tab
-noremap <C-a>A :keepalt file<space>
+noremap <silent> <C-a>A :keepalt file<space>
 
 " use F18 to trigger outermost vim escape
 " (note: CapsLock should be bound to F18)
-inoremap <F18> <C-\><C-n>
-tnoremap <F18> <C-\><C-n>
+inoremap <silent> <F18> <C-\><C-n>
+tnoremap <silent> <F18> <C-\><C-n>
 " some keyboard mappings refer to F18 as Shift-F6
-inoremap <S-F6> <C-\><C-n>
-tnoremap <S-F6> <C-\><C-n>
+inoremap <silent> <S-F6> <C-\><C-n>
+tnoremap <silent> <S-F6> <C-\><C-n>
 
 " ALE
-nmap <C-]> :ALEGoToDefinition<CR>
-nmap <leader>gd :ALEGoToDefinition<CR>
-nmap <leader>gD :ALEGoToDeclaration<CR>
-nmap <leader>gt :ALEGoToTypeDefinition<CR>
-nmap <leader>gr :ALEFindReferences<CR>
-nmap <leader>gs :ALEGoToDefinitionInSplit<CR>
+nmap <silent> <C-]> :ALEGoToDefinition<CR>
+nmap <silent> <leader>gd :ALEGoToDefinition<CR>
+nmap <silent> <leader>gD :ALEGoToDeclaration<CR>
+nmap <silent> <leader>gt :ALEGoToTypeDefinition<CR>
+nmap <silent> <leader>gr :ALEFindReferences<CR>
+nmap <silent> <leader>gs :ALEGoToDefinitionInSplit<CR>
 
 " Override ALE binding
-autocmd FileType python nmap <leader>d :jedi#show_documentation()<CR>
+autocmd FileType python nmap <silent> <leader>d :jedi#show_documentation()<CR>
 
 " fzf
-nmap <leader>f :Ag<space>
-nmap <leader>F :Files<CR>
-nmap <leader>b :Buffers<CR>
-nmap <leader>h :History:<CR>
-nmap <leader>/ :Lines<CR>
-nmap <leader>gf :Ag<space>
+nmap <silent> <leader>f :Ag<space>
+nmap <silent> <leader>F :Files<CR>
+nmap <silent> <leader>b :Buffers<CR>
+nmap <silent> <leader>h :History:<CR>
+nmap <silent> <leader>/ :Lines<CR>
+nmap <silent> <leader>gf :Ag<space>
 
 " Tabularize
-nmap <leader>t :TabFirst
-nmap <leader>T :Tabularize /
+nmap <silent> <leader>t :TabFirst
+nmap <silent> <leader>T :Tabularize /
 
 " gitgutter
 let g:gitgutter_map_keys = 0
-omap ih <Plug>GitGutterTextObjectInnerPending
-omap ah <Plug>GitGutterTextObjectOuterPending
-xmap ih <Plug>GitGutterTextObjectInnerVisual
-xmap ah <Plug>GitGutterTextObjectOuterVisual
+omap <silent> ih <Plug>GitGutterTextObjectInnerPending
+omap <silent> ah <Plug>GitGutterTextObjectOuterPending
+xmap <silent> ih <Plug>GitGutterTextObjectInnerVisual
+xmap <silent> ah <Plug>GitGutterTextObjectOuterVisual
 
 " DoxygenToolkit
-nmap <leader>D :Dox<CR>
+nmap <silent> <leader>D :Dox<CR>
 
 " vim-jedi
 " Disable all shortcuts
@@ -412,10 +412,10 @@ let g:jedi#completions_command = ""
 let g:jedi#rename_command = ""
 
 " Sourcetrail
-nmap <leader>s :SourcetrailActivateToken<CR>
+nmap <silent> <leader>s :SourcetrailActivateToken<CR>
 
 " neomake
-nmap <leader>m :Neomake!<CR>
+nmap <silent> <leader>m :Neomake!<CR>
 
 " ShowMultiBase
 noremap <silent> <leader>x :ShowMultiBase<CR>
@@ -427,24 +427,24 @@ nmap <silent> <leader>y :let @" = join([expand('%:p'),  line(".")], ':')<CR>
 nnoremap <silent> <leader>c :echo system('c++filt', expand("<cword>"))<CR>
 
 " calculator
-nnoremap <leader>= :echo<space>
+nnoremap <silent> <leader>= :echo<space>
 
 " ALE
 nnoremap <silent> <leader>r :ALERename<CR>
 
 " tcomment
-nmap gcc <Plug>TComment_gcc
-nmap gc <Plug>TComment_gc
-smap gc <Plug>TComment_gc
-vmap gc <Plug>TComment_gc
-xmap gc <Plug>TComment_gc
+nmap <silent> gcc <Plug>TComment_gcc
+nmap <silent> gc <Plug>TComment_gc
+smap <silent> gc <Plug>TComment_gc
+vmap <silent> gc <Plug>TComment_gc
+xmap <silent> gc <Plug>TComment_gc
 
 " lh-brackets
-imap <C-l> <Plug>MarkersCloseAllAndJumpToLast
+imap <silent> <C-l> <Plug>MarkersCloseAllAndJumpToLast
 
 " vim-sneak
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+map <silent> f <Plug>Sneak_s
+map <silent> F <Plug>Sneak_S
 
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
