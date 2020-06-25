@@ -304,6 +304,16 @@ with builtins;
           sha256 = "04i8gsixjkqqq0nxmd45wp6irbfp9hy71qqxkq7f6b78aaknljwf";
         };
       }
+      {
+        name = "zsh-histdb-fzf";
+        file = "fzf-histdb.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "paulreimer";
+          repo = "zsh-histdb-fzf";
+          rev = "2dca5b1";
+          sha256 = "11a6fvlwydszhykx0jvpivqllvpz72wimrx8mpdfkp9caswhnw4p";
+        };
+      }
     ];
   } // (if stdenv.isDarwin then {
     envExtra = builtins.readFile ./zshenv_macos;
