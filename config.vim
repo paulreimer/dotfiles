@@ -281,6 +281,10 @@ let g:fugitive_no_maps = 1
 " vim-sourcetrail
 let g:sourcetrail_to_vim_port = 6668
 
+" zig-vim
+" Disable automatic code formatting on save
+let g:zig_fmt_autosave = 0
+
 " key mappings
 let mapleader = ","
 
