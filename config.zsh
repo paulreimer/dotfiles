@@ -185,7 +185,7 @@ if [[ $options[zle] = on && ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
     else
       NEWPWD="${1:a}"
     fi
-    nvr --remote-send "<C-\><C-n>:lcd ${NEWPWD}<cr>i"
+    nvr --remote-send "<C-\><C-n>:silent lcd ${NEWPWD}<cr>:echo ''<cr>i"
     builtin cd "$@"
   }
 fi
