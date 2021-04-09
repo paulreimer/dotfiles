@@ -17,8 +17,12 @@ set hlsearch
 " Disable visual and audible bells
 set noerrorbells visualbell t_vb=
 
-" Support 256-colors
-set t_Co=256
+" Support truecolor / 256-color
+if exists('+termguicolors')
+  set termguicolors
+else
+  set t_Co=256
+endif
 
 " Color scheme
 set background=dark
