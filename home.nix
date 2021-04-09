@@ -348,6 +348,8 @@ with builtins;
     # gpg
     ".gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
   } // (if stdenv.isDarwin then {
+    # macOS built-in key remapping (CapsLock -> F18)
+    "Library/LaunchAgents/net.p-rimes.capslock_as_f18.plist".source = ./net.p-rimes.capslock_as_f18.plist;
   }
   else if stdenv.isLinux then {
     # sway tiling window manager
