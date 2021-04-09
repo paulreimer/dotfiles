@@ -208,6 +208,7 @@ let g:ale_linters = {
   \ 'python': ['flake8', 'pylama', 'pylint', 'mypy'],
   \ 'rust': ['rls'],
   \ 'swift': ['sourcekitlsp'],
+  \ 'zig': ['zls'],
   \ }
 
 let g:ale_fixers = {
