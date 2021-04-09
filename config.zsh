@@ -94,6 +94,9 @@ export CLICOLOR=1
 # zsh-auto-notify plugin long command threshold (in seconds)
 export AUTO_NOTIFY_THRESHOLD=120
 
+# Reduce direnv verbosity
+export DIRENV_LOG_FORMAT=""
+
 # Directory aliases
 hash -d dev="$HOME/Development"
 
