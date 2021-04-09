@@ -140,7 +140,7 @@ alias quit="exit"
 ### Functions
 # Helper functions
 g() {
-  /usr/bin/git clone --recursive "$1" && cd "$(basename "$1" .git)"
+  git clone --recursive "$1" && cd "$(basename "$1" .git)"
 }
 
 calc()
