@@ -6,76 +6,138 @@ with import <nixpkgs> {};
   imports = [ ./common.nix ];
 
   home.packages = [
-    pkgs.abduco
+    # Machine-specific packages:
     pkgs.ansible
+    pkgs.arping
     pkgs.asciinema
-    pkgs.bear
-    pkgs.ccache
-    pkgs.ccat
-    pkgs.clang-tools
-    pkgs.cmake
-    pkgs.colordiff
+    pkgs.astyle
+    pkgs.audiofile
+    pkgs.autoconf
+    pkgs.automake
+    pkgs.avahi
+    pkgs.awscli
+    pkgs.bash
+    pkgs.cfssl
+    pkgs.cocoapods
     pkgs.cppcheck
-    pkgs.curl
-    pkgs.dos2unix
+    pkgs.cpplint
+    pkgs.cue
+    pkgs.cunit
+    pkgs.darwin.lsusb
+    pkgs.dfu-util
+    pkgs.dmd
+    pkgs.dnscrypt-proxy2
+    pkgs.docker-compose
+    pkgs.docker-credential-gcr
+    pkgs.docker-machine
+    pkgs.docker-sync
+    pkgs.dotnet-sdk
     pkgs.doxygen
-    pkgs.exiftool
-    pkgs.entr
-    pkgs.ffmpeg
-    pkgs.gdb
+    pkgs.drone-cli
+    pkgs.eigen
+    pkgs.erlangR23
+    pkgs.ffmpeg-full
+    pkgs.fftw
+    pkgs.fftw.dev
+    pkgs.flatbuffers
+    pkgs.flatcc
+    pkgs.fontforge
+    pkgs.freenect
+    pkgs.fswatch
+    pkgs.gawk
+    pkgs.gcsfuse
+    pkgs.gdb-shared
+    pkgs.gdrive
     pkgs.git-crypt
-    pkgs.gnumake
+    pkgs.gleam
+    pkgs.glfw
     pkgs.gn
     pkgs.gnupg
+    pkgs.gnused
     pkgs.go
+    pkgs.google-clasp
+    pkgs.google-cloud-sdk
+    pkgs.gperf
+    pkgs.gradle
     pkgs.graphviz
-    pkgs.hexedit
-    pkgs.imagemagick
+    pkgs.grpc
+    pkgs.help2man
+    pkgs.html-tidy
+    pkgs.icestorm
     pkgs.influxdb
+    pkgs.irssi
+    pkgs.jemalloc
     pkgs.just
     pkgs.kitty
+    pkgs.kubectl
+    pkgs.kubernetes-helm
+    pkgs.leveldb
     pkgs.libftdi1
+    pkgs.libmicrohttpd
+    pkgs.libsamplerate
+    pkgs.libtool
+    pkgs.libvirt
+    pkgs.libxml2
+    pkgs.libxslt
+    pkgs.linkerd
+    pkgs.magic-wormhole
     pkgs.mercurial
     pkgs.meson
+    pkgs.mosh
+    pkgs.mynewt-newt
     pkgs.ncurses
     pkgs.neovim-remote
-    pkgs.neovim-unwrapped
-    pkgs.ninja
-    pkgs.nodejs
-    pkgs.openssh
-    pkgs.parallel
+    pkgs.nextpnr
+    pkgs.nim
+    pkgs.niv
+    pkgs.nodejs-12_x
+    pkgs.ola
+    pkgs.packer
     pkgs.pinentry
-    pkgs.pstree
-    pkgs.pv
-    pkgs.rpl
+    pkgs.pinentry-curses
+    pkgs.pinentry_mac
+    pkgs.protobuf
+    pkgs.pulumi-bin
+    pkgs.qrencode
+    pkgs.readline
+    pkgs.recode
     pkgs.rustup
-    pkgs.screen
-    pkgs.shellcheck
-    pkgs.shfmt
-    pkgs.silver-searcher
-    pkgs.sl
-    pkgs.socat
-    pkgs.sqlite
-    pkgs.sslscan
-    pkgs.tree
+    pkgs.s3cmd
+    pkgs.sdcc
+    pkgs.sigrok-cli
+    pkgs.skaffold
+    pkgs.sox
+    pkgs.stlink
+    pkgs.taglib
+    pkgs.telnet
+    pkgs.terraform
+    pkgs.tryton
+    pkgs.trytond
     pkgs.unbound
-    pkgs.vimpager
-    pkgs.watch
-    pkgs.wdiff
+    pkgs.verilator
+    pkgs.wget
+    pkgs.wireguard-go
+    pkgs.wireguard-tools
     pkgs.wrk
-    pkgs.xz
+    pkgs.wxmac
+    pkgs.xmlstarlet
+    pkgs.xsv
     pkgs.yarn
     pkgs.youtube-dl
-    pkgs.zsh
 
     # Custom packages (from let .. in) here:
   ] ++ (
     if stdenv.isDarwin then [
-      darwin.iproute2mac
       pkgs.darwin-zsh-completions
       pkgs.osxfuse
     ]
     else if stdenv.isLinux then [
+      pkgs.lshw
+      pkgs.pixiecore
+      pkgs.strace
+      pkgs.usbutils
+
+      # sway desktop environment
       pkgs.grim
       pkgs.mako
       pkgs.slurp
