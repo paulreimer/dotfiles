@@ -462,6 +462,12 @@ let g:sky_color_clock#openweathermap_city_id = '6173331'
 set laststatus=2
 set noshowmode
 
+" Update status bar every minute
+func UpdateStatusBarTime(timer)
+  call lightline#update()
+endfunc
+au VimEnter * call timer_start(1000 * 60, 'UpdateStatusBarTime', {'repeat': -1})
+
 let g:lightline = {
   \  'colorscheme': 'landscape',
   \  'active': {
