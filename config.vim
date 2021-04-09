@@ -167,6 +167,7 @@ let g:jedi#completions_enabled = 0
 
 " float-preview-nvim
 let g:float_preview#docked = 1
+autocmd CompleteDone * silent! call float_preview#close()!
 autocmd InsertLeave * silent! call float_preview#close()!
 
 " neosnippet
