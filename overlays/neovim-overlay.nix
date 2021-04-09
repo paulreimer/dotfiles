@@ -1,13 +1,15 @@
 self: super: {
   neovim-unwrapped = super.neovim-unwrapped.overrideAttrs (oldAttrs: rec {
-    version = "0.4.0-dev";
+    version = "0.5.0-dev";
     name = "neovim-unwrapped-${version}";
+
+    buildInputs = oldAttrs.buildInputs ++ [ super.utf8proc super.tree-sitter ];
 
     src = super.pkgs.fetchFromGitHub {
       owner = "neovim";
       repo = "neovim";
-      rev = "3e58e60"; # 2019-06-10, last commit before libluv added
-      sha256 = "0gbdj3ziaxmwsivp6g6kkjbfq9r207l64pdmv6clrc6cc8d21sr7";
+      rev = "1caf58578c6e4b30c18fa56804dd905b5472b460"; # 2021-02-20
+      sha256 = "1ji77myn7h8l725d7vgrp71kswvy8k6iy45a6rab7dmxh8jpqk1j";
     };
   });
 }
