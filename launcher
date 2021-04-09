@@ -5,19 +5,19 @@ set -eu
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Linux
   DIRS="/usr/share/applications/ $HOME/.local/share/applications/ $HOME/.nix-profile/share/applications/"
-  APP_EXT=".desktop"
+  MATCH="-maxdepth 2 -name *.desktop"
   OPENER="-r swaymsg -t command exec gtk-launch"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS
-  DIRS="/Applications/ $HOME/Applications/ $HOME/.nix-profile/Applications/"
-  APP_EXT=".app"
+  DIRS="/Applications $HOME/Applications $HOME/.nix-profile/Applications /System/Applications /System/Library/PreferencePanes /Library/PreferencePanes $HOME/Library/PreferencePanes"
+  MATCH="-maxdepth 2 -name *.app -o -name *.prefPane"
   OPENER="open -a"
 else
   echo "Unknown OSTYPE: ${OSTYPE}"
   exit 1
 fi
 
-find ${DIRS} -maxdepth 2 -name "*${APP_EXT}" -print0 |
-  xargs -0 basename -s "${APP_EXT}" -a |
+find ${DIRS} \( ${MATCH} \) -print0 |
+  xargs -0 basename -a |
   fzf --print0 |
   xargs -0 ${OPENER}
