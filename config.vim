@@ -28,9 +28,6 @@ endif
 set background=dark
 colors ir_black
 
-" Enable mouse support in normal mode
-set mouse=n
-
 " Do not consider a ':' to be present in paths, use it to mean file:line
 set isfname-=:
 
