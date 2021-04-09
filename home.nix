@@ -220,7 +220,6 @@ with builtins;
       vim-fugitive
       vim-gitgutter
       vim-nix
-      vim-sneak
       vim-snipmate
       vim-sourcetrail
       vim-terraform

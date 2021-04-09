@@ -278,8 +278,6 @@ let g:ShowMultiBase_Display_Hexadecimal_SegmentSize = 8
 " vim-fugitive
 let g:fugitive_no_maps = 1
 
-" vim-sneak
-let g:sneak#label = 1
 
 " key mappings
 let mapleader = ","
@@ -448,10 +446,6 @@ xmap <silent> gc <Plug>TComment_gc
 
 " lh-brackets
 imap <silent> <C-l> <Plug>MarkersCloseAllAndJumpToLast
-
-" vim-sneak
-map <silent> f <Plug>Sneak_s
-map <silent> F <Plug>Sneak_S
 
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
