@@ -52,6 +52,7 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'vim-scripts/ShowMultiBase'
 Plug 'w0rp/ale'
 Plug 'zah/nim.vim'
+Plug 'ziglang/zig.vim'
 
 " Install correct deoplete plugins based on whether we are using vim or neovim
 if has('nvim')

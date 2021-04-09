@@ -226,6 +226,7 @@ with builtins;
       vim-textobj-comment
       vim-textobj-function
       vim-textobj-user
+      zig-vim
     ];
   };
 
