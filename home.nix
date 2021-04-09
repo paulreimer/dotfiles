@@ -73,7 +73,6 @@ with builtins;
       darwin.iproute2mac
       pkgs.darwin-zsh-completions
       pkgs.osxfuse
-      pkgs.skhd
     ]
     else if stdenv.isLinux then [
       pkgs.grim
@@ -349,8 +348,7 @@ with builtins;
     # gpg
     ".gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
   } // (if stdenv.isDarwin then {
-    # yabai+skhd tiling window manager
-    ".skhdrc".source = ./skhdrc;
+    # yabai tiling window manager
     ".yabairc".source = ./yabairc;
   }
   else if stdenv.isLinux then {
