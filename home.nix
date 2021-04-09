@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 with import <nixpkgs> {};
-with builtins;
 
 {
   imports = [ ./common.nix ];
