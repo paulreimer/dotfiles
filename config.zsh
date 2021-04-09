@@ -135,6 +135,7 @@ alias gcpc="git cherry-pick --continue"
 alias gst="git status"
 alias gsw="git checkout"
 alias make="make -C \"\$(git rev-parse --show-toplevel)\" -j$(nproc)"
+alias quit="exit"
 
 ### Functions
 # Helper functions
