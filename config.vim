@@ -278,6 +278,8 @@ let g:ShowMultiBase_Display_Hexadecimal_SegmentSize = 8
 " vim-fugitive
 let g:fugitive_no_maps = 1
 
+" vim-sourcetrail
+let g:sourcetrail_to_vim_port = 6668
 
 " key mappings
 let mapleader = ","
@@ -416,7 +418,7 @@ let g:jedi#usages_command = ""
 let g:jedi#completions_command = ""
 let g:jedi#rename_command = ""
 
-" Sourcetrail
+" vim-sourcetrail
 nmap <silent> <leader>s :SourcetrailActivateToken<CR>
 
 " neomake
