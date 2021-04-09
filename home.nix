@@ -348,8 +348,6 @@ with builtins;
     # gpg
     ".gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
   } // (if stdenv.isDarwin then {
-    # yabai tiling window manager
-    ".yabairc".source = ./yabairc;
   }
   else if stdenv.isLinux then {
     # sway tiling window manager

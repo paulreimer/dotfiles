@@ -71,6 +71,25 @@
   services.nix-daemon.enable = true;
   services.nix-daemon.enableSocketListener = true;
 
+  services.yabai.enable = true;
+  services.yabai.package = pkgs.yabai;
+  services.yabai.config = {
+    mouse_follows_focus = "on";
+    focus_follows_mouse = "autofocus";
+    window_placement = "second_child";
+    window_topmost = "off";
+    window_opacity = "off";
+    window_shadow = "off";
+    window_border = "off";
+    split_ratio = 0.50;
+    auto_balance = "off";
+    layout = "bsp";
+  };
+  services.yabai.extraConfig = ''
+    # disable tiling on workspace 1
+    yabai -m config --space 1 layout float
+  '';
+
   nix.useSandbox = true;
   nix.sandboxPaths = [ "/System/Library/Frameworks" "/System/Library/PrivateFrameworks" "/usr/lib" "/private/tmp" "/private/var/tmp" "/usr/bin/env" ];
 
