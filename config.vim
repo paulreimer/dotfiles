@@ -430,8 +430,8 @@ nmap <silent> <leader>gs :ALEGoToDefinitionInSplit<CR>
 autocmd FileType python nmap <silent> <leader>d :jedi#show_documentation()<CR>
 
 " fzf
-nmap <silent> <leader>f :Ag<space>
-nmap <silent> <leader>F :Files<CR>
+nmap <silent> <leader>f :Files<CR>
+nmap <leader>F :Ag<space>
 nmap <silent> <leader>b :Buffers<CR>
 nmap <silent> <leader>h :History:<CR>
 nmap <silent> <leader>/ :Lines<CR>
