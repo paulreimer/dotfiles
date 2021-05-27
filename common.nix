@@ -173,6 +173,7 @@ with import <nixpkgs> {};
       neosnippet
       neosnippet-snippets
       nim-vim
+      nvim-treesitter
       ShowMultiBase
       sky-color-clock-vim
       swift-vim
