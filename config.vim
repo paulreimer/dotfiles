@@ -227,6 +227,42 @@ let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
 let g:ale_virtualtext_cursor = 1
 
+" nvim-treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- ensure_installed = "maintained",
+  ensure_installed = {
+    "c",
+    "cpp",
+    "css",
+    "dart",
+    "dockerfile",
+    "erlang",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "nix",
+    "python",
+    "rust",
+    "yaml",
+    "zig"
+  },
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+    disable = { "cpp" },
+  }
+}
+EOF
+
+" use tree-sitter for folding
+set foldlevelstart=99
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
 " highlighting
 highlight ALEError gui=undercurl term=undercurl cterm=undercurl guisp=deeppink
 highlight ALEWarning gui=undercurl term=undercurl cterm=undercurl guisp=goldenrod1
