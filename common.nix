@@ -162,6 +162,7 @@ with import <nixpkgs> {};
       file-line
       float-preview-nvim
       fzf-vim
+      increment-activator
       ir_black
       lh-brackets
       lh-vim-lib
