@@ -196,6 +196,9 @@ with import <nixpkgs> {};
       vim-textobj-user
       zig-vim
     ];
+    extraPython3Packages = (ps: with ps; [
+      jedi
+    ]);
   };
 
   programs.zsh = {
