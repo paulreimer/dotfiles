@@ -285,6 +285,9 @@ let g:sourcetrail_to_vim_port = 6668
 " Disable automatic code formatting on save
 let g:zig_fmt_autosave = 0
 
+" increment-activator
+let g:increment_activator_no_default_key_mappings = 1
+
 " key mappings
 let mapleader = ","
 
@@ -452,6 +455,10 @@ xmap <silent> gc <Plug>TComment_gc
 
 " lh-brackets
 imap <silent> <C-l> <Plug>MarkersCloseAllAndJumpToLast
+
+" increment-activator
+nmap <silent> <leader>a <Plug>(increment-activator-increment)
+nmap <silent> <leader>z <Plug>(increment-activator-decrement)
 
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
