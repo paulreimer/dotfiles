@@ -181,6 +181,7 @@ with import <nixpkgs> {};
       nim-vim
       nvim-lspconfig
       nvim-treesitter
+      nvim-treesitter-context
       ShowMultiBase
       sky-color-clock-vim
       swift-vim
