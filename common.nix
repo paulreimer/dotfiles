@@ -39,6 +39,7 @@ with import <nixpkgs> {};
     pkgs.pstree
     pkgs.pv
     pkgs.pwgen
+    pkgs.ripgrep
     pkgs.rpl
     pkgs.safe-rm
     pkgs.screen
