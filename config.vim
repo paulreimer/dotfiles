@@ -277,6 +277,11 @@ require'lspconfig'.jedi_language_server.setup{
 }
 EOF
 
+" nvim-lspkind
+lua <<EOF
+require('lspkind').init()
+EOF
+
 " nvim-treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
