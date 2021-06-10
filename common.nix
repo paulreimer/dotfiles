@@ -6,6 +6,7 @@ with import <nixpkgs> {};
   home.packages = [
     # default packages
     pkgs.abduco
+    pkgs.arp-scan
     pkgs.axel
     pkgs.bear
     pkgs.caddy
