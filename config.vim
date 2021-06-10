@@ -379,6 +379,17 @@ let g:zig_fmt_autosave = 0
 " increment-activator
 let g:increment_activator_no_default_key_mappings = 1
 
+" nvim-ts-rainbow
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = 1000,
+  }
+}
+EOF
+
 " key mappings
 let mapleader = ","
 
