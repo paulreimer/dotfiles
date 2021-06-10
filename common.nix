@@ -24,6 +24,7 @@ with import <nixpkgs> {};
     pkgs.entr
     pkgs.file
     pkgs.findutils
+    pkgs.fping
     pkgs.git
     pkgs.gnugrep
     pkgs.gnumake
