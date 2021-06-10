@@ -200,6 +200,8 @@ with import <nixpkgs> {};
       vim-textobj-comment
       vim-textobj-function
       vim-textobj-user
+      vim-vsnip
+      vim-vsnip-integ
       zig-vim
     ];
     extraPython3Packages = (ps: with ps; [
