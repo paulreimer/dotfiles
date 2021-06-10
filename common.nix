@@ -196,6 +196,7 @@ with import <nixpkgs> {};
       vim-cue
       vim-fugitive
       vim-gitgutter
+      vim-matchup
       vim-nix
       vim-snipmate
       vim-sourcetrail
