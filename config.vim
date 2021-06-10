@@ -390,6 +390,15 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+" vim-matchup
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  matchup = {
+    enable = true,
+  },
+}
+EOF
+
 " key mappings
 let mapleader = ","
 
