@@ -34,6 +34,9 @@ set isfname-=:
 " Show N lines before search match
 set scrolloff=5
 
+" Use mouse in Normal + Terminal modes
+set mouse=n
+
 " Only show line numbers on non-terminal windows
 " (Must be done this way, since disabling them later incorrectly sets columns)
 fun! EnableLineNumbers()
