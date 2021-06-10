@@ -58,6 +58,12 @@ fun! EnableWrapScan()
 endfun
 autocmd BufEnter * call EnableWrapScan()
 
+" Find git root directory, use it for fzf files search
+fun! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfun
+command! ProjectFiles execute 'Files' s:find_git_root()
+
 " Highlight tabs + trailing whitespace
 set listchars=tab:→\ ,nbsp:␣,trail:·
 set list
@@ -433,7 +439,7 @@ nmap <silent> <leader>gs :ALEGoToDefinitionInSplit<CR>
 autocmd FileType python nmap <silent> <leader>d :jedi#show_documentation()<CR>
 
 " fzf
-nmap <silent> <leader>f :Files<CR>
+nmap <silent> <leader>f :ProjectFiles<CR>
 nmap <leader>F :Ag<space>
 nmap <silent> <leader>b :Buffers<CR>
 nmap <silent> <leader>h :History:<CR>
