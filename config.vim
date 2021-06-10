@@ -236,6 +236,47 @@ let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
 let g:ale_virtualtext_cursor = 1
 
+" nvim-lspconfig
+lua <<EOF
+-- vim.lsp.set_log_level("debug")
+
+-- Enable LSP snippet support
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
+require'lspconfig'.clangd.setup{
+  capabilities = capabilities,
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--pch-storage=memory",
+    "--suggest-missing-includes",
+    "--cross-file-rename",
+    "--all-scopes-completion",
+    "--completion-style=detailed"
+  },
+  filetypes = {"c", "cpp", "objc", "objcpp"},
+  init_options = {
+    clangdFileStatus = true,
+    usePlaceholders = true,
+    completeUnimported = true,
+    semanticHighlighting = true
+  },
+}
+require'lspconfig'.jedi_language_server.setup{
+  capabilities = capabilities,
+  -- cmd = {"/nix/store/845rimzb6jrqmbzj9xmrgl7sz890wdd0-python3-3.8.9-env/bin/python3.8", "/Users/paulreimer/.local/bin/jedi-language-server"}
+  cmd = {"python3", "/Users/paulreimer/.local/bin/jedi-language-server"}
+}
+EOF
+
 " nvim-treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
