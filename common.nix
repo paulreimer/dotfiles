@@ -171,8 +171,6 @@ with import <nixpkgs> {};
       lspkind-nvim
       neoinclude
       neomake
-      neosnippet
-      neosnippet-snippets
       nim-vim
       nvim-compe
       nvim-lspconfig
