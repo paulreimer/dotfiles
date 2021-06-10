@@ -179,6 +179,7 @@ with import <nixpkgs> {};
       neosnippet
       neosnippet-snippets
       nim-vim
+      nvim-compe
       nvim-lspconfig
       nvim-treesitter
       nvim-treesitter-context
