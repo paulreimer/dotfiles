@@ -38,6 +38,7 @@ with import <nixpkgs> {};
     pkgs.picocom
     pkgs.pstree
     pkgs.pv
+    pkgs.pwgen
     pkgs.rpl
     pkgs.safe-rm
     pkgs.screen
