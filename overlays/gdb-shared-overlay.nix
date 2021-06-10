@@ -1,6 +1,6 @@
 self: super: {
   gdb-shared = super.gdb.overrideAttrs (oldAttrs: rec {
-    configureFlags = with self.stdenv.lib; [
+    configureFlags = with self.lib; [
       "--enable-targets=all" "--enable-64-bit-bfd"
       "--enable-shared"
       "--with-system-zlib"
