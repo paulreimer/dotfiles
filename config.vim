@@ -171,22 +171,6 @@ let g:float_preview#docked = 1
 autocmd CompleteDone * silent! call float_preview#close()!
 autocmd InsertLeave * silent! call float_preview#close()!
 
-" neosnippet
-let g:neosnippet#snippets_directory = '$HOME/Development/snippets'
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-" Trigger expansion of snippet immediately after completion popup is done
-let g:neosnippet#enable_complete_done = 1
-" If completion selects a function prototype, expand it and cycle placeholders
-let g:neosnippet#enable_completed_snippet = 1
-" Hide marker characters in expanded snippets
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-
-  " Do not hide marker characters for JSON quotes
-  autocmd FileType json setlocal conceallevel=0
-endif
-
 " snipMate
 let g:snipMate = {'snippet_version': 1}
 let g:snipMate['snippet_dirs'] = ['~/Development']
@@ -238,9 +222,13 @@ require'compe'.setup {
     buffer = true;
     nvim_lsp = true;
     nvim_lua = true;
+    vsnip = true;
   };
 }
 EOF
+
+" vsnip
+let g:vsnip_extra_mapping = v:false
 
 " nvim-lspconfig
 lua <<EOF
@@ -424,8 +412,12 @@ local check_back_space = function()
 end
 
 _G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
+  if vim.fn.call("vsnip#jumpable", {1}) == 1 then
+    return t "<Plug>(vsnip-jump-next)"
+  elseif vim.fn.pumvisible() == 1 then
     return t "<C-n>"
+  elseif vim.fn.call("vsnip#available", {1}) == 1 then
+    return t "<Plug>(vsnip-expand-or-jump)"
   elseif check_back_space() then
     return t "<Tab>"
   else
@@ -435,6 +427,8 @@ end
 _G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-p>"
+  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+    return t "<Plug>(vsnip-jump-prev)"
   else
     return t "<S-Tab>"
   end
