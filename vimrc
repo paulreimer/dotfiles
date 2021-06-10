@@ -42,6 +42,7 @@ Plug 'mopp/sky-color-clock.vim'
 Plug 'ncm2/float-preview.nvim'
 Plug 'nishigori/increment-activator'
 Plug 'neomake/neomake'
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'qpkorr/vim-bufkill'
 Plug 'sakhnik/nvim-gdb'
