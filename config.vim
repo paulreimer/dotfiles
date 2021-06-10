@@ -161,20 +161,12 @@ let g:tcomment_maps = 0
 " vim-bufkill
 let g:BufKillCreateMappings = 0
 
-" deoplete
-" configuration is in ~/.config/nvim/after/plugin/config/deoplete.vim
+" jedi
+let g:jedi#completions_enabled = 0
 
 " float-preview.nvim
 " Do not open a popup window
 set completeopt-=preview
-
-" deoplete-jedi
-" Shows docstring in preview window
-let g:deoplete#sources#jedi#show_docstring = 1
-" Disable jedi-vim completion when using deoplete-jedi
-let g:jedi#completions_enabled = 0
-
-" float-preview-nvim
 let g:float_preview#docked = 1
 autocmd CompleteDone * silent! call float_preview#close()!
 autocmd InsertLeave * silent! call float_preview#close()!
@@ -235,6 +227,20 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
 let g:ale_virtualtext_cursor = 1
+
+" nvim-compe
+lua <<EOF
+vim.o.completeopt = "menuone,noselect"
+require'compe'.setup {
+  source = {
+    omni = false;
+    path = true;
+    buffer = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+  };
+}
+EOF
 
 " nvim-lspconfig
 lua <<EOF
@@ -402,23 +408,43 @@ EOF
 " key mappings
 let mapleader = ","
 
-" neosnippet supertab
-imap <expr><TAB>
- \ pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
- \ exists('b:snip_state') ? "\<Plug>snipMateNextOrTrigger" :
- \ "\<TAB>"
-smap <expr><TAB>
- \ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
- \ exists('b:snip_state') ? "\<Plug>snipMateNextOrTrigger" :
- \ "\<TAB>"
-imap <expr><S-TAB>
- \ pumvisible() ? "\<C-p>" :
- \ exists('b:snip_state') ? "\<Plug>snipMateBack" :
- \ "\<S-TAB>"
+" nvim-compe supertab
+lua <<EOF
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
 
-" deoplete actions on close popup
-inoremap <expr><CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+  else
+    return t "<S-Tab>"
+  end
+end
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+EOF
 
 " nvr
 " delete buffer instead of quit
@@ -570,6 +596,11 @@ imap <silent> <C-l> <Plug>MarkersCloseAllAndJumpToLast
 " increment-activator
 nmap <silent> <leader>a <Plug>(increment-activator-increment)
 nmap <silent> <leader>z <Plug>(increment-activator-decrement)
+
+" nvim-compe
+inoremap <silent><expr> <C-n> compe#complete()
+inoremap <silent><expr> <CR> compe#confirm('<CR>')
+inoremap <silent><expr> <C-e> compe#close('<C-e>')
 
 " sky-color-clock.vim
 set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
