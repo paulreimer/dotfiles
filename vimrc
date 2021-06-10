@@ -44,6 +44,7 @@ Plug 'nishigori/increment-activator'
 Plug 'neomake/neomake'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'onsails/lspkind-nvim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'sakhnik/nvim-gdb'
 Plug 'thosakwe/vim-flutter'

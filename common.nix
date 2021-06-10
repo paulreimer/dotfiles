@@ -173,6 +173,7 @@ with import <nixpkgs> {};
       lh-vim-lib
       lightline-ale
       lightline-vim
+      lspkind-nvim
       neoinclude
       neomake
       neosnippet
