@@ -45,6 +45,7 @@ Plug 'neomake/neomake'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'onsails/lspkind-nvim'
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'qpkorr/vim-bufkill'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'sakhnik/nvim-gdb'

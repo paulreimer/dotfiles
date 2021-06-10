@@ -182,6 +182,7 @@ with import <nixpkgs> {};
       nvim-lspconfig
       nvim-treesitter
       nvim-treesitter-context
+      nvim-ts-rainbow
       ShowMultiBase
       sky-color-clock-vim
       swift-vim
