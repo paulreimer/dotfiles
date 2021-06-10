@@ -106,6 +106,7 @@ with import <nixpkgs> {};
       };
       core = {
         excludesfile = "~/.config/git/gitignore";
+        pager = "delta --theme=IR_Black --hunk-style=plain --highlight-removed --minus-color=\"#3f091d\" --plus-color=\"#263809\"";
       };
       difftool = {
         prompt = false;
