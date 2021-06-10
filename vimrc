@@ -11,8 +11,6 @@ Plug 'LnL7/vim-nix'
 Plug 'LucHermitte/lh-brackets'
 Plug 'LucHermitte/lh-vim-lib'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'Shougo/deoplete-lsp'
-Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
@@ -23,10 +21,7 @@ Plug 'bling/vim-bufferline'
 Plug 'bogado/file-line'
 Plug 'chrisbra/csv.vim'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'deoplete-plugins/deoplete-zsh'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fszymanski/deoplete-emoji'
 Plug 'garbas/vim-snipmate'
 Plug 'gleam-lang/gleam.vim'
 Plug 'glts/vim-textobj-comment'
@@ -61,16 +56,6 @@ Plug 'vim-scripts/ShowMultiBase'
 Plug 'w0rp/ale'
 Plug 'zah/nim.vim'
 Plug 'ziglang/zig.vim'
-
-" Install correct deoplete plugins based on whether we are using vim or neovim
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', {'do':':UpdateRemotePlugins'}
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 call plug#end()
 
 " Load configuration / settings

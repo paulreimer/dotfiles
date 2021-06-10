@@ -157,11 +157,6 @@ with import <nixpkgs> {};
       ale
       csv
       dart-vim-plugin
-      deoplete-emoji
-      deoplete-jedi
-      deoplete-lsp
-      deoplete-nvim
-      deoplete-zsh
       DoxygenToolkit-vim
       editorconfig-vim
       file-line
