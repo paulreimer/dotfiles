@@ -191,7 +191,6 @@ with import <nixpkgs> {};
       vim-gitgutter
       vim-matchup
       vim-nix
-      vim-snipmate
       vim-sourcetrail
       vim-terraform
       vim-textobj-comment
