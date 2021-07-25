@@ -8,7 +8,6 @@ with import <nixpkgs> {};
     pkgs.abduco
     pkgs.arp-scan
     pkgs.axel
-    pkgs.bear
     pkgs.borgbackup
     pkgs.caddy
     pkgs.ccache
