@@ -9,6 +9,7 @@ with import <nixpkgs> {};
     pkgs.arp-scan
     pkgs.axel
     pkgs.bear
+    pkgs.borgbackup
     pkgs.caddy
     pkgs.ccache
     pkgs.ccat
