@@ -161,6 +161,7 @@ with import <nixpkgs> {};
       float-preview-nvim
       fzf-vim
       increment-activator
+      indent-blankline-nvim-lua
       ir_black
       lh-brackets
       lh-vim-lib
