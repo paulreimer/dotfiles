@@ -30,7 +30,6 @@ with import <nixpkgs> {};
     pkgs.hexedit
     pkgs.inetutils
     pkgs.ninja
-    pkgs.openssh
     pkgs.parallel
     pkgs.patchelf
     pkgs.picocom
