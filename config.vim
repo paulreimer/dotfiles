@@ -393,6 +393,13 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+" sky-color-clock.vim
+set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
+let g:sky_color_clock#datetime_format = '%a %d %l:%M%p'
+let g:sky_color_clock#enable_emoji_icon = 0
+let g:sky_color_clock#openweathermap_api_key = '4532f4c71abfc2f9969fd33e026db7b5'
+let g:sky_color_clock#openweathermap_city_id = '6173331'
+
 " key mappings
 let mapleader = ","
 
@@ -595,10 +602,3 @@ nmap <silent> <leader>z <Plug>(increment-activator-decrement)
 inoremap <silent><expr> <C-n> compe#complete()
 inoremap <silent><expr> <CR> compe#confirm('<CR>')
 inoremap <silent><expr> <C-e> compe#close('<C-e>')
-
-" sky-color-clock.vim
-set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
-let g:sky_color_clock#datetime_format = '%a %d %l:%M%p'
-let g:sky_color_clock#enable_emoji_icon = 0
-let g:sky_color_clock#openweathermap_api_key = '4532f4c71abfc2f9969fd33e026db7b5'
-let g:sky_color_clock#openweathermap_city_id = '6173331'
