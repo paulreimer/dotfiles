@@ -10,7 +10,6 @@ with import <nixpkgs> {};
     pkgs.axel
     pkgs.borgbackup
     pkgs.caddy
-    pkgs.ccache
     pkgs.ccat
     pkgs.clang-tools
     pkgs.cmakeCurses
