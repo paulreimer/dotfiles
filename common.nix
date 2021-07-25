@@ -28,7 +28,6 @@ with import <nixpkgs> {};
     pkgs.gnugrep
     pkgs.gnumake
     pkgs.hexedit
-    pkgs.imagemagick
     pkgs.inetutils
     pkgs.ninja
     pkgs.openssh
