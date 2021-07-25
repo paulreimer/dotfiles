@@ -37,7 +37,6 @@ input * {
   repeat_delay 125
   repeat_rate 200
   natural_scroll enabled
-  xkb_options custom:capslock_as_f18
 }
 
 ### Key bindings
