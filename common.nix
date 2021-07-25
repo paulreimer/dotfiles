@@ -42,6 +42,7 @@ with import <nixpkgs> {};
     pkgs.pwgen
     pkgs.ripgrep
     pkgs.rpl
+    pkgs.rsync
     pkgs.safe-rm
     pkgs.screen
     pkgs.shellcheck
