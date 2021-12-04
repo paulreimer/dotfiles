@@ -89,7 +89,7 @@
   services.yabai.enable = true;
   services.yabai.package = pkgs.yabai;
   services.yabai.config = {
-    mouse_follows_focus = "on";
+    mouse_follows_focus = "off";
     focus_follows_mouse = "autofocus";
     window_placement = "second_child";
     window_topmost = "off";
