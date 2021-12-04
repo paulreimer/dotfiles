@@ -205,8 +205,8 @@
   };
 
   programs.zsh = {
-    defaultKeymap = "viins";
     enable = true;
+    defaultKeymap = "viins";
     enableCompletion = true;
     history = {
       extended = true;
