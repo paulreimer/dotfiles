@@ -187,5 +187,12 @@
   }
   else {});
 
-  programs.zsh.envExtra = builtins.readFile ./zshenv;
+  programs.zsh = {
+  } // (if pkgs.stdenv.isDarwin then {
+    envExtra = builtins.readFile ./zshenv_macos;
+  }
+  else if pkgs.stdenv.isLinux then {
+    envExtra = builtins.readFile ./zshenv;
+  }
+  else {});
 }
