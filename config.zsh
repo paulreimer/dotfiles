@@ -6,6 +6,10 @@ prompt bart purple blue green cyan
 # Renaming with globbing
 autoload zmv
 
+# Enable support for bash completion
+autoload bashcompinit
+bashcompinit
+
 # Ensure correct timing information in histdb plugin
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd histdb-update-outcome
