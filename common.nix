@@ -6,7 +6,6 @@
     abduco
     arp-scan
     axel
-    borgbackup
     caddy
     ccat
     clang-tools
@@ -32,15 +31,12 @@
     patchelf
     picocom
     pstree
-    pv
     pwgen
     ripgrep
     rpl
     rsync
     safe-rm
     screen
-    shellcheck
-    shfmt
     silver-searcher
     sl
     socat

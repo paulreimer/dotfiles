@@ -15,6 +15,7 @@
     avahi
     awscli
     bash
+    borgbackup
     cfssl
     cocoapods
     cppcheck
@@ -96,12 +97,15 @@
     pinentry_mac
     protobuf
     pulumi-bin
+    pv
     qrencode
     readline
     recode
     rustup
     s3cmd
     sdcc
+    shellcheck
+    shfmt
     sigrok-cli
     skaffold
     sox
