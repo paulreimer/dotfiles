@@ -1,7 +1,5 @@
 { pkgs, ... }:
 
-with import <nixpkgs> {};
-
 {
   imports = [ ./common.nix ];
 
@@ -127,11 +125,11 @@ with import <nixpkgs> {};
 
     # Custom packages (from let .. in) here:
   ] ++ (
-    if stdenv.isDarwin then [
+    if pkgs.stdenv.isDarwin then [
       pkgs.darwin-zsh-completions
       pkgs.osxfuse
     ]
-    else if stdenv.isLinux then [
+    else if pkgs.stdenv.isLinux then [
       pkgs.lshw
       pkgs.pixiecore
       pkgs.strace
@@ -183,8 +181,8 @@ with import <nixpkgs> {};
     # macOS built-in key remapping (CapsLock -> F18)
     "Library/LaunchAgents/net.p-rimes.capslock_as_f18.plist".source = ./net.p-rimes.capslock_as_f18.plist;
   }
-  else if stdenv.isLinux then {
-    # sway tiling window manager
+  else if pkgs.stdenv.isLinux then {
+    # Linux-specific files
     ".config/sway/config".source = ./swayconfig;
   }
   else {});

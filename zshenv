@@ -4,9 +4,6 @@ export FZF_DEFAULT_OPTS="--exact"
 # Enable GCC colors always (including ccache)
 export GCC_COLORS=1
 
-# nixpkgs
-export NIX_PATH=$HOME/.nix-defexpr/channels:nixpkgs=$HOME/Development/nixos/nixpkgs
-
 # Machine-specific directory aliases
 
 # Machine-specific command aliases

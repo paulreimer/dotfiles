@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-with import <nixpkgs> {};
+{ pkgs, lib, ... }:
 
 {
   home.packages = with pkgs; [
@@ -64,7 +62,8 @@ with import <nixpkgs> {};
   programs.direnv = {
     enable = true;
     # Requires 'keep-outputs = true' in /etc/nix/nix.conf
-    enableNixDirenvIntegration = true;
+    nix-direnv.enable = true;
+    nix-direnv.enableFlakes = true;
     enableZshIntegration = true;
   };
 

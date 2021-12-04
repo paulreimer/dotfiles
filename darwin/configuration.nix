@@ -1,6 +1,12 @@
 { config, lib, pkgs, ... }:
 
 {
+  nix.package = pkgs.nixUnstable;
+
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes ca-references
+  '';
+
   system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
   system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
   system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
