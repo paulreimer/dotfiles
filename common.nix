@@ -48,7 +48,15 @@
     wdiff
     wireshark-cli
     xz
-  ];
+  ] ++ (
+    if pkgs.stdenv.isDarwin then [
+      pstree
+    ]
+    else if pkgs.stdenv.isLinux then [
+      psmisc
+    ]
+    else []
+  );
 
   programs.home-manager.enable = true;
 
