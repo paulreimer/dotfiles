@@ -177,9 +177,8 @@
 
     # gpg
     ".gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
-  } // (if stdenv.isDarwin then {
-    # macOS built-in key remapping (CapsLock -> F18)
-    "Library/LaunchAgents/net.p-rimes.capslock_as_f18.plist".source = ./net.p-rimes.capslock_as_f18.plist;
+  } // (if pkgs.stdenv.isDarwin then {
+    # macOS-specific files
   }
   else if pkgs.stdenv.isLinux then {
     # Linux-specific files

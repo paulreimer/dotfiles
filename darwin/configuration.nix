@@ -30,6 +30,15 @@
   system.defaults.trackpad.Clicking = true;
   system.defaults.trackpad.TrackpadThreeFingerDrag = false;
 
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.userKeyMapping = [
+    {
+      # From: CapsLock (0x700000039)
+      HIDKeyboardModifierMappingSrc = 30064771129;
+      # To: F18 (0x70000006D)
+      HIDKeyboardModifierMappingDst = 30064771181;
+    }
+  ];
 
   services.skhd.enable = true;
   services.skhd.skhdConfig = ''
