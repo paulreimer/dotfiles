@@ -48,7 +48,6 @@
     wdiff
     wireshark-cli
     xz
-    zsh
   ];
 
   programs.home-manager.enable = true;
